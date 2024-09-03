@@ -1,0 +1,289 @@
+---
+title: "Respiratory support table ETL QC report"
+format: html
+editor: visual
+---
+
+# Introduction
+
+Running this notebook on your RCLIF database performs a series of QC checks that (eventually) focus on the internal consistency of the respiratory support table. It is designed to help you quality check a fully set up `clif_respiratory_support` table.
+
+## Required Libraries
+
+Note: check that `here()` successfully identifies your CLIF folder
+
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+## Load in RCLIF tables
+
+Add your CLIF tables to the `rclif` subfolder.
+
+To do:
+
+-   render the report as \`respiratory_qc\_\<site\>.html\`
+
+```{r}
+tables_location <- 'rclif'
+site <-'UCMC'
+table_path <- here(tables_location)
+file_type <- "parquet"
+```
+
+```{r}
+# List all CLIF files
+clif_table_filenames <- list.files(path = table_path, 
+                                   pattern = paste0("^clif_.*\\.",file_type, "$"), full.names = TRUE)
+
+# Read all CLIF files into a list of data frames and then extract
+if (file_type == "parquet") {
+  data_list <- lapply(clif_table_filenames, read_parquet)
+} else if (file_type == "csv"){
+  data_list <- lapply(clif_table_filenames, read_csv)
+} else if (file_type == "fst"){
+  data_list <- lapply(clif_table_filenames, read.fst)
+} else {
+  stop("Unsupported file format")
+}
+
+for (i in seq_along(clif_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(clif_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+}
+```
+
+# Sort each table by encounter and time
+
+```{r}
+clif_respiratory_support <- clif_respiratory_support %>% 
+  arrange(encounter_id, recorded_dttm)
+
+# clif_vitals <- clif_vitals %>% arrange(encounter_id, recorded_dttm)
+# 
+# clif_scores <- clif_scores %>%
+#   arrange(encounter_id, score_time)
+# 
+# clif_medication_admin_continuous <- clif_medication_admin_continuous %>%
+#   arrange(encounter_id, admin_dttm)
+# 
+# clif_labs <- clif_labs %>%
+#   arrange(encounter_id, lab_collect_dttm)
+# 
+# clif_adt <- clif_adt %>% arrange(encounter_id, in_dttm)
+# 
+# clif_dialysis <- clif_dialysis %>% arrange(encounter_id, start_dttm)
+```
+
+# Exploratory analyses of ventilator data
+
+## initial mode choice for mechanical ventilation
+
+```{r}
+vent_resp_tables %>%
+  group_by(encounter_id) %>%
+  filter(is.na(mode_category) == FALSE) %>%
+  filter(row_number() ==1) %>%
+  ungroup() %>%
+  count(mode_category) %>%
+  arrange(-n)  %>%
+  kable()
+```
+
+## LTTV hours
+
+Ideal body weight (IBW) (men) = 50 kg + 2.3 kg x (height, in - 60) Ideal body weight (IBW) (women) = 45.5 kg + 2.3 kg x (height, in - 60)
+
+Pai MP, Paloucek FP. The origin of the "ideal" body weight equations. Ann Pharmacother. 2000 Sep;34(9):1066-9. doi: 10.1345/aph.19381. PMID: 10981254.
+
+Authors Note: need to QC the IBW calculator! Seems super out of date...need to advance the field here, what a joke. This is exactly why we need CLIF.
+
+```{r}
+first_height <- clif_vitals %>%
+  filter(encounter_id %in% encounters_w_vent) %>%
+  filter(vital_name == "HEIGHT") %>%
+  arrange(encounter_id, recorded_dttm) %>%
+  group_by(encounter_id) %>%
+  filter(row_number() ==1)
+
+first_height <- first_height %>%
+  select(encounter_id, vital_name, vital_value) %>%
+  pivot_wider(names_from = "vital_name", values_from = "vital_value")
+```
+
+### Overall cc/(kg IBW) distribution for VC
+
+```{r}
+## note this works if height is in INCHES
+IBW <- function(height, sex) {
+  case_when(
+    sex == "Male" ~ 50 + 2.3 * (height - 60),
+    sex == "Female" ~ 45.5 + 2.3 *(height - 60),
+  )
+}
+
+
+vent_resp_tables %>%
+  filter(mode_category == "Assist Control-Volume Control")%>%
+  left_join(first_height) %>%
+  left_join(clif_patient_demographics %>% select(encounter_id, sex)) %>%
+  mutate(ideal_wt_kg = IBW(HEIGHT, sex),
+         tv_per_kg_ibw = tidal_volume_set/ideal_wt_kg,
+         vt_bin = cut(tv_per_kg_ibw, breaks = c(0, 4, 6, 7, 8, 9, 10, 15))) %>%
+  filter(tidal_volume_set > 0 & ideal_wt_kg > 0 & tv_per_kg_ibw < 15) %>%
+  ggplot(aes(x= tv_per_kg_ibw, fill = vt_bin)) +
+  geom_histogram(aes(y = (..count..) / sum(..count..) * 100),binwidth = 1, boundary = 0) + 
+  scale_fill_brewer(palette = "RdBu", direction = -1) +
+  ggthemes::theme_gdocs() +
+  labs(x= "TV cc/kg IBW", y = "Patient hours")
+```
+
+### cc/(kg IBW) distribution by sex
+
+```{r}
+vent_resp_tables %>%
+  filter(mode_category == "Assist Control-Volume Control")%>%
+  left_join(first_height) %>%
+  left_join(clif_patient_demographics %>% select(encounter_id, sex)) %>%
+  mutate(ideal_wt_kg = IBW(HEIGHT, sex),
+         tv_per_kg_ibw = tidal_volume_set/ideal_wt_kg,
+         vt_bin = cut(tv_per_kg_ibw, breaks = c(0, 4, 6, 7, 8, 9, 10, 15))) %>%
+  filter(tidal_volume_set > 0 & ideal_wt_kg > 0 & tv_per_kg_ibw < 15) %>%
+  ggplot(aes(x= tv_per_kg_ibw, fill = vt_bin)) +
+  geom_histogram(binwidth = 1, boundary = 0) + 
+  scale_fill_brewer(palette = "RdBu", direction = -1) +
+  ggthemes::theme_gdocs() +
+  labs(x= "TV cc/kg IBW", y = "Patient hours") +
+  facet_wrap(~ sex)
+```
+
+### Percentage of patient hours for `sex == Male`
+
+```{r}
+vent_resp_tables %>%
+  filter(mode_category == "Assist Control-Volume Control")%>%
+  left_join(first_height) %>%
+  left_join(clif_patient_demographics %>% select(encounter_id, sex)) %>%
+  filter(sex == "Male") %>%
+  mutate(ideal_wt_kg = IBW(HEIGHT, sex),
+         tv_per_kg_ibw = tidal_volume_set/ideal_wt_kg,
+         vt_bin = cut(tv_per_kg_ibw, breaks = c(0, 4, 6, 7, 8, 9, 10, 15))) %>%
+  filter(tidal_volume_set > 0 & ideal_wt_kg > 0 & tv_per_kg_ibw < 15) %>%
+  ggplot(aes(x= tv_per_kg_ibw, fill = vt_bin)) +
+  geom_histogram(aes(y = (..count..) / sum(..count..) * 100),
+                 binwidth = 1, boundary = 0) + 
+  scale_fill_brewer(palette = "RdBu", direction = -1) +
+  ggthemes::theme_gdocs() +
+  labs(x= "TV cc/kg IBW", y = "% patient hours")
+```
+
+### Percentage of patient hours for `sex == Female`
+
+```{r}
+vent_resp_tables %>%
+  filter(mode_category == "Assist Control-Volume Control")%>%
+  left_join(first_height) %>%
+  left_join(clif_patient_demographics %>% select(encounter_id, sex)) %>%
+  filter(sex == "Female") %>%
+  mutate(ideal_wt_kg = IBW(HEIGHT, sex),
+         tv_per_kg_ibw = tidal_volume_set/ideal_wt_kg,
+         vt_bin = cut(tv_per_kg_ibw, 
+                      breaks = c(0, 4, 6, 7, 8, 9, 10, 15))) %>%
+  filter(tidal_volume_set > 0 & ideal_wt_kg > 0 & tv_per_kg_ibw < 15) %>%
+  ggplot(aes(x= tv_per_kg_ibw, fill = vt_bin)) +
+  geom_histogram(aes(y = (..count..) / sum(..count..) * 100),
+                 binwidth = 1, boundary = 0) + 
+  scale_fill_brewer(palette = "RdBu", direction = -1) +
+  ggthemes::theme_gdocs() +
+  labs(x= "TV cc/kg IBW", y = "% patient hours")
+```
+
+Sex disparity in TV apparent!
+
+# IMV session identifier
+
+This function identifies the time of intubation and extubation for IMV session using the `device_category` columns
+
+```{r}
+intubation_extubation_times <- vent_resp_tables %>%
+  filter(is.na(device_category) == FALSE) %>%
+  group_by(encounter_id) %>%
+  mutate(intubation_time = case_when(
+    lag(device_category) != "Vent" & device_category == "Vent" ~ time,
+    device_category == "Vent" &row_number() == 1 ~ time),
+    device_prior_intubation = case_when(
+      lag(device_category) != "Vent" & device_category == "Vent" ~ lag(device_category)
+    ),
+         extubation_time = case_when(
+           lag(device_category) == "Vent" &
+                                    device_category != "Vent" ~ time),
+    extubation_device = case_when(
+      lag(device_category) == "Vent" &
+        device_category != "Vent" ~ device_category)) %>%
+  ungroup() %>%
+  filter(intubation_time > 0 | extubation_time > 0) 
+```
+
+```{r}
+imv_sessions <- intubation_extubation_times %>%
+  select(encounter_id, intubation_time, extubation_time,
+         device_prior_intubation, extubation_device) %>%
+  filter(!is.na(intubation_time) | !is.na(extubation_time)) %>%
+  group_by(encounter_id) %>%
+  fill(intubation_time, .direction = "down") %>%
+  fill(device_prior_intubation, .direction = "down") %>%
+  fill(extubation_time, .direction = "up") %>%
+  fill(extubation_device, .direction = "up") %>%
+  mutate(
+         imv_duration = extubation_time - intubation_time) %>%
+  distinct() %>%
+  mutate(intubation_session = row_number())
+```
+
+```{r}
+imv_sessions <- imv_sessions %>%
+  left_join(clif_encounter_demographics_dispo %>% 
+              select(encounter_id, disposition_category))
+```
+
+
+
+```{r}
+imv_sessions %>%
+  ggplot(aes(x = imv_duration, 
+             fill = factor(disposition_category))) +
+  geom_histogram() + lims(x = c(0, 24*30))
+```
+
+```{r}
+vent_resp_tables %>%
+  filter(encounter_id == 6984)
+```
+
+# Spontaneous breathing trial identifier
+
+## SBT start time
+This code chunk will flag when the patient was switched from a controlled mode of ventilation, e.g. assist control, to a spontaneous mode of ventilation, specifically switched from "Assist Control-Volume Control" to "Pressure Support/CPAP"
+
+```{r}
+sbt_start_obs <- vent_resp_tables %>%
+  filter(is.na(mode_category) == FALSE & device_category == "Vent") %>%
+  group_by(encounter_id) %>%
+  mutate(prev_mode = lag(mode_category),
+         sbt_start = ifelse(prev_mode == "Assist Control-Volume Control" & mode_category == "Pressure Support/CPAP", 1, 0)) %>%
+  filter(sbt_start == 1)
+
+sbt_start_obs
+```
+
+
+# TO DO
+
+## SBT pass-fail function

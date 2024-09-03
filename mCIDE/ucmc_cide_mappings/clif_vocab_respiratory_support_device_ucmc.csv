@@ -1,0 +1,660 @@
+device_category,device_name,n,site
+CPAP,CPAP,44281,ucmc
+CPAP,CPAP;RAM Cannula,1984,ucmc
+CPAP,RAM Cannula;CPAP,1216,ucmc
+CPAP,Room Air;CPAP,160,ucmc
+CPAP,RAM Cannula;CPAP;Humidified;Warmed,38,ucmc
+CPAP,Nasal Cannula;CPAP,36,ucmc
+CPAP,CPAP;Room Air,18,ucmc
+CPAP,CPAP;Nasal Cannula,14,ucmc
+CPAP,CPAP;Humidified;Warmed,8,ucmc
+CPAP,CPAP;O2 Hood,8,ucmc
+CPAP,CPAP;Humidified,4,ucmc
+CPAP,High Flow NC;CPAP,3,ucmc
+CPAP,CPAP;Warmed,2,ucmc
+CPAP,Humidified;Warmed;CPAP;RAM Cannula,2,ucmc
+CPAP,Aerosol Mask;CPAP,1,ucmc
+CPAP,Humidified;CPAP,1,ucmc
+CPAP,Nasal Cannula;Room Air;CPAP,1,ucmc
+CPAP,Room Air;CPAP;Nasal Cannula,1,ucmc
+CPAP,T-Piece;CPAP,1,ucmc
+CPAP,Trach Collar;CPAP,1,ucmc
+CPAP,Trach Collar;Humidified;CPAP,1,ucmc
+CPAP,Venturi Mask;CPAP,1,ucmc
+Face Mask,Room Air;Face Mask,15586,ucmc
+Face Mask,Aerosol Mask,8509,ucmc
+Face Mask,NRB Mask,6482,ucmc
+Face Mask,Face Mask,3732,ucmc
+Face Mask,Venturi Mask,1500,ucmc
+Face Mask,Non-Rebreather,718,ucmc
+Face Mask,Face Mask;Room Air,422,ucmc
+Face Mask,Aerosol Mask;Humidified,326,ucmc
+Face Mask,OxyMask,321,ucmc
+Face Mask,Humidified;Aerosol Mask,75,ucmc
+Face Mask,Room Air;Aerosol Mask,68,ucmc
+Face Mask,Face Mask;Humidified,32,ucmc
+Face Mask,Humidified;Face Mask,28,ucmc
+Face Mask,Room Air;NRB Mask,24,ucmc
+Face Mask,Vent;Venturi Mask;Humidified,18,ucmc
+Face Mask,OxyMask;OxyTrach,17,ucmc
+Face Mask,Vent;Venturi Mask,15,ucmc
+Face Mask,Humidified;Venturi Mask,14,ucmc
+Face Mask,NRB Mask;Room Air,14,ucmc
+Face Mask,Face Mask;Aerosol Mask,13,ucmc
+Face Mask,Venturi Mask;Humidified,12,ucmc
+Face Mask,Aerosol Mask;Face Mask,11,ucmc
+Face Mask,Aerosol Mask;Room Air,10,ucmc
+Face Mask,NRB Mask;Humidified,6,ucmc
+Face Mask,OxyMask;Humidified,6,ucmc
+Face Mask,Room Air;Venturi Mask,5,ucmc
+Face Mask,Face Tent;Aerosol Mask,4,ucmc
+Face Mask,OxyMask;Room Air,4,ucmc
+Face Mask,Room Air;Face Mask;OxyMask,4,ucmc
+Face Mask,Venturi Mask;Vent,4,ucmc
+Face Mask,Aerosol Mask;Face Tent,3,ucmc
+Face Mask,Face Tent;Venturi Mask,3,ucmc
+Face Mask,Room Air;OxyMask,3,ucmc
+Face Mask,Vent ;Venturi Mask,3,ucmc
+Face Mask,Vent;Humidified;Venturi Mask,3,ucmc
+Face Mask,Venturi Mask;Room Air,3,ucmc
+Face Mask,Venturi Mask;Warmed,3,ucmc
+Face Mask,Aerosol Mask;Humidified;Warmed,2,ucmc
+Face Mask,Aerosol Mask;Venturi Mask,2,ucmc
+Face Mask,Aerosol Mask;Warmed,2,ucmc
+Face Mask,Face Mask;Face Tent,2,ucmc
+Face Mask,Humidified;NRB Mask,2,ucmc
+Face Mask,Humidified;OxyMask,2,ucmc
+Face Mask,NRB Mask;Face Mask,2,ucmc
+Face Mask,OxyTrach;OxyMask,2,ucmc
+Face Mask,Room Air;Aerosol Mask;Humidified,2,ucmc
+Face Mask,Room Air;Humidified;OxyMask,2,ucmc
+Face Mask,Venturi Mask;Face Tent,2,ucmc
+Face Mask,Venturi Mask;Vent;Warmed;Humidified,2,ucmc
+Face Mask,Venturi Mask;Warmed;Humidified,2,ucmc
+Face Mask,Warmed;NRB Mask,2,ucmc
+Face Mask,Warmed;Venturi Mask,2,ucmc
+Face Mask,Aerosol Mask;Warmed;Humidified,1,ucmc
+Face Mask,Face Mask;Aerosol Mask;Humidified,1,ucmc
+Face Mask,Face Mask;Blow-By,1,ucmc
+Face Mask,Face Mask;Humidified;Warmed,1,ucmc
+Face Mask,Face Mask;NRB Mask,1,ucmc
+Face Mask,Face Mask;OxyMask,1,ucmc
+Face Mask,Face Tent;Aerosol Mask;Humidified,1,ucmc
+Face Mask,Face Tent;NRB Mask,1,ucmc
+Face Mask,Humidified;Room Air;OxyMask,1,ucmc
+Face Mask,NRB Mask;Aerosol Mask,1,ucmc
+Face Mask,Room Air;Face Mask;Venturi Mask,1,ucmc
+Face Mask,Vent ;Venturi Mask;Warmed,1,ucmc
+Face Mask,Vent;Venturi Mask;Warmed,1,ucmc
+Face Mask,Vent;Warmed;Venturi Mask,1,ucmc
+Face Mask,Venturi Mask;NRB Mask,1,ucmc
+Face Mask,Venturi Mask;OxyTrach,1,ucmc
+Face Mask,Venturi Mask;Vent;Humidified,1,ucmc
+High Flow NC,High Flow NC,84537,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed,7007,ucmc
+High Flow NC,High Flow NC;Humidified,2746,ucmc
+High Flow NC,High Flow NC;Warmed;Humidified,1637,ucmc
+High Flow NC,High Flow NC;Warmed,1373,ucmc
+High Flow NC,Warmed;Humidified;High Flow NC,770,ucmc
+High Flow NC,Humidified;High Flow NC,757,ucmc
+High Flow NC,Humidified;Warmed;High Flow NC,564,ucmc
+High Flow NC,High Flow NC;NRB Mask,475,ucmc
+High Flow NC,Warmed;High Flow NC;Humidified,403,ucmc
+High Flow NC,Humidified;High Flow NC;Warmed,386,ucmc
+High Flow NC,Warmed;High Flow NC,267,ucmc
+High Flow NC,Nasal Cannula;High Flow NC,254,ucmc
+High Flow NC,NRB Mask;High Flow NC,134,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed;NRB Mask,128,ucmc
+High Flow NC,High Flow NC;Nasal Cannula,91,ucmc
+High Flow NC,NRB Mask;High Flow NC;Humidified;Warmed,72,ucmc
+High Flow NC,High Flow NC;Humidified;NRB Mask,39,ucmc
+High Flow NC,High Flow NC;Warmed;Humidified;NRB Mask,36,ucmc
+High Flow NC,High Flow NC;Trach Collar,32,ucmc
+High Flow NC,Trach Collar;High Flow NC,30,ucmc
+High Flow NC,NRB Mask;High Flow NC;Humidified,27,ucmc
+High Flow NC,High Flow NC;NRB Mask;Humidified;Warmed,24,ucmc
+High Flow NC,Nasal Cannula;High Flow NC;Humidified,21,ucmc
+High Flow NC,High Flow NC;NRB Mask;Humidified,16,ucmc
+High Flow NC,High Flow NC;Warmed;NRB Mask,16,ucmc
+High Flow NC,Nasal Cannula;Humidified;High Flow NC,16,ucmc
+High Flow NC,NRB Mask;Humidified;Warmed;High Flow NC,11,ucmc
+High Flow NC,RAM Cannula;High Flow NC,11,ucmc
+High Flow NC,Trach Collar;High Flow NC;Humidified;Warmed,10,ucmc
+High Flow NC,Humidified;High Flow NC;NRB Mask,9,ucmc
+High Flow NC,NRB Mask;High Flow NC;Warmed,9,ucmc
+High Flow NC,NRB Mask;High Flow NC;Warmed;Humidified,9,ucmc
+High Flow NC,Trach Collar;High Flow NC;Humidified,9,ucmc
+High Flow NC,Warmed;High Flow NC;Humidified;NRB Mask,9,ucmc
+High Flow NC,High Flow NC;Nasal Cannula;Humidified,8,ucmc
+High Flow NC,Humidified;Warmed;High Flow NC;NRB Mask,8,ucmc
+High Flow NC,Room Air;Face Mask;High Flow NC,8,ucmc
+High Flow NC,Room Air;High Flow NC,8,ucmc
+High Flow NC,Warmed;Humidified;High Flow NC;NRB Mask,8,ucmc
+High Flow NC,High Flow NC;Humidified;NRB Mask;Warmed,7,ucmc
+High Flow NC,High Flow NC;Humidified;Trach Collar,7,ucmc
+High Flow NC,High Flow NC;NRB Mask;Warmed;Humidified,7,ucmc
+High Flow NC,High Flow NC;Trach Collar;Humidified,7,ucmc
+High Flow NC,Humidified;High Flow NC;Trach Collar,7,ucmc
+High Flow NC,Aerosol Mask;High Flow NC,6,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed;Aerosol Mask,6,ucmc
+High Flow NC,High Flow NC;Trach Collar;Humidified;Warmed,6,ucmc
+High Flow NC,High Flow NC;Aerosol Mask,5,ucmc
+High Flow NC,High Flow NC;Humidified;Venturi Mask,5,ucmc
+High Flow NC,High Flow NC;NRB Mask;Warmed,5,ucmc
+High Flow NC,High Flow NC;RAM Cannula,5,ucmc
+High Flow NC,High Flow NC;Trach Collar;Warmed,5,ucmc
+High Flow NC,Humidified;High Flow NC;Nasal Cannula,5,ucmc
+High Flow NC,Room Air;High Flow NC;Face Mask,5,ucmc
+High Flow NC,High Flow NC;Face Tent,4,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed;Trach Collar,4,ucmc
+High Flow NC,High Flow NC;O2 Hood,4,ucmc
+High Flow NC,High Flow NC;Warmed;Trach Collar,4,ucmc
+High Flow NC,Humidified;High Flow NC;Warmed;NRB Mask,4,ucmc
+High Flow NC,Room Air;Face Mask;High Flow NC;Nasal Cannula,4,ucmc
+High Flow NC,Warmed;Humidified;High Flow NC;Trach Collar,4,ucmc
+High Flow NC,Face Tent;High Flow NC,3,ucmc
+High Flow NC,High Flow NC;Humidified;Nasal Cannula,3,ucmc
+High Flow NC,High Flow NC;Humidified;Trach Collar;Warmed,3,ucmc
+High Flow NC,High Flow NC;Room Air,3,ucmc
+High Flow NC,Humidified;Nasal Cannula;High Flow NC,3,ucmc
+High Flow NC,Humidified;Trach Collar;High Flow NC,3,ucmc
+High Flow NC,NRB Mask;Humidified;High Flow NC,3,ucmc
+High Flow NC,Nasal Cannula;NRB Mask;High Flow NC,3,ucmc
+High Flow NC,O2 Hood;High Flow NC,3,ucmc
+High Flow NC,Trach Collar;High Flow NC;Warmed,3,ucmc
+High Flow NC,Trach Collar;High Flow NC;Warmed;Humidified,3,ucmc
+High Flow NC,Warmed;High Flow NC;Trach Collar,3,ucmc
+High Flow NC,Aerosol Mask;High Flow NC;Humidified;Warmed,2,ucmc
+High Flow NC,Face Mask;High Flow NC,2,ucmc
+High Flow NC,Face Mask;Humidified;Warmed;High Flow NC,2,ucmc
+High Flow NC,High Flow NC;Humidified;Aerosol Mask,2,ucmc
+High Flow NC,High Flow NC;Humidified;RAM Cannula,2,ucmc
+High Flow NC,High Flow NC;Venturi Mask,2,ucmc
+High Flow NC,High Flow NC;Warmed;Humidified;Trach Collar,2,ucmc
+High Flow NC,Humidified;High Flow NC;NRB Mask;Warmed,2,ucmc
+High Flow NC,Humidified;Warmed;NRB Mask;High Flow NC,2,ucmc
+High Flow NC,Trach Collar;Aerosol Mask;High Flow NC;Humidified;Warmed,2,ucmc
+High Flow NC,Trach Collar;Humidified;High Flow NC,2,ucmc
+High Flow NC,Trach Collar;Humidified;Warmed;High Flow NC,2,ucmc
+High Flow NC,Warmed;High Flow NC;NRB Mask,2,ucmc
+High Flow NC,Warmed;Humidified;High Flow NC;Face Mask,2,ucmc
+High Flow NC,Aerosol Mask;Face Tent;High Flow NC,1,ucmc
+High Flow NC,Face Mask;High Flow NC;Humidified,1,ucmc
+High Flow NC,High Flow NC;Aerosol Mask;Humidified;Warmed,1,ucmc
+High Flow NC,High Flow NC;Blow-By,1,ucmc
+High Flow NC,High Flow NC;Blow-By;Warmed;Humidified;Aerosol Mask,1,ucmc
+High Flow NC,High Flow NC;Face Mask,1,ucmc
+High Flow NC,High Flow NC;Face Tent;Blow-By,1,ucmc
+High Flow NC,High Flow NC;Face Tent;Humidified,1,ucmc
+High Flow NC,High Flow NC;Humidified;Face Tent,1,ucmc
+High Flow NC,High Flow NC;Humidified;Venturi Mask;Warmed,1,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed;Face Mask,1,ucmc
+High Flow NC,High Flow NC;Humidified;Warmed;Room Air,1,ucmc
+High Flow NC,High Flow NC;NRB Mask;Room Air,1,ucmc
+High Flow NC,High Flow NC;Nasal Cannula;Warmed,1,ucmc
+High Flow NC,High Flow NC;OxyTrach;Humidified,1,ucmc
+High Flow NC,High Flow NC;Trach Collar;Warmed;Humidified,1,ucmc
+High Flow NC,High Flow NC;Warmed;Humidified;Face Mask,1,ucmc
+High Flow NC,High Flow NC;Warmed;Humidified;Venturi Mask,1,ucmc
+High Flow NC,High Flow NC;Warmed;NRB Mask;Humidified,1,ucmc
+High Flow NC,High Flow NC;Warmed;Trach Collar;Humidified,1,ucmc
+High Flow NC,Humidified;Face Tent;High Flow NC,1,ucmc
+High Flow NC,Humidified;High Flow NC;Trach Collar;Warmed,1,ucmc
+High Flow NC,Humidified;High Flow NC;Venturi Mask,1,ucmc
+High Flow NC,Humidified;Nasal Cannula;High Flow NC;Warmed,1,ucmc
+High Flow NC,Humidified;Trach Collar;Warmed;High Flow NC,1,ucmc
+High Flow NC,Humidified;Warmed;Face Mask;High Flow NC,1,ucmc
+High Flow NC,Humidified;Warmed;High Flow NC;Venturi Mask,1,ucmc
+High Flow NC,NRB Mask;Blow-By;High Flow NC,1,ucmc
+High Flow NC,NRB Mask;Humidified;High Flow NC;Warmed,1,ucmc
+High Flow NC,NRB Mask;Warmed;Humidified;High Flow NC,1,ucmc
+High Flow NC,Nasal Cannula;Aerosol Mask;High Flow NC,1,ucmc
+High Flow NC,Nasal Cannula;Aerosol Mask;Humidified;High Flow NC,1,ucmc
+High Flow NC,Nasal Cannula;High Flow NC;Aerosol Mask,1,ucmc
+High Flow NC,Nasal Cannula;High Flow NC;Humidified;Warmed,1,ucmc
+High Flow NC,Nasal Cannula;High Flow NC;NRB Mask,1,ucmc
+High Flow NC,Nasal Cannula;High Flow NC;Warmed;Humidified,1,ucmc
+High Flow NC,Nasal Cannula;Humidified;High Flow NC;Warmed,1,ucmc
+High Flow NC,RAM Cannula;Nasal Cannula;High Flow NC,1,ucmc
+High Flow NC,Room Air;Face Mask;Nasal Cannula;High Flow NC,1,ucmc
+High Flow NC,Room Air;High Flow NC;Humidified;Warmed,1,ucmc
+High Flow NC,Room Air;Trach Collar;High Flow NC;Warmed;Humidified,1,ucmc
+High Flow NC,Room Air;Warmed;High Flow NC;Trach Collar,1,ucmc
+High Flow NC,Trach Collar;High Flow NC;Face Tent,1,ucmc
+High Flow NC,Venturi Mask;High Flow NC,1,ucmc
+High Flow NC,Warmed;Humidified;NRB Mask;High Flow NC,1,ucmc
+High Flow NC,Warmed;NRB Mask;High Flow NC;Humidified,1,ucmc
+High Flow NC,Warmed;O2 Hood;High Flow NC,1,ucmc
+High Flow NC,Warmed;Trach Collar;High Flow NC,1,ucmc
+NIPPV,Bipap,36454,ucmc
+NIPPV,BIPAP,3904,ucmc
+NIPPV,Nasal Cannula;Bipap,26,ucmc
+NIPPV,Bipap;Humidified,25,ucmc
+NIPPV,Room Air;Bipap,18,ucmc
+NIPPV,Bipap;Humidified;Warmed,16,ucmc
+NIPPV,Bipap;Warmed,15,ucmc
+NIPPV,Bipap;CPAP,14,ucmc
+NIPPV,Nasal Cannula;BIPAP,11,ucmc
+NIPPV,Bipap;Nasal Cannula,10,ucmc
+NIPPV,Room Air;BIPAP,9,ucmc
+NIPPV,Bipap;Warmed;Humidified,8,ucmc
+NIPPV,Bipap;O2 Hood,6,ucmc
+NIPPV,Bipap;Room Air,5,ucmc
+NIPPV,Blow-By;Bipap,5,ucmc
+NIPPV,Face Mask;BIPAP,5,ucmc
+NIPPV,NRB Mask;BIPAP,5,ucmc
+NIPPV,Bipap;High Flow NC,4,ucmc
+NIPPV,High Flow NC;Bipap,4,ucmc
+NIPPV,Humidified;Bipap,4,ucmc
+NIPPV,Aerosol Mask;BIPAP,3,ucmc
+NIPPV,BIPAP;NRB Mask,3,ucmc
+NIPPV,BIPAP;Room Air,3,ucmc
+NIPPV,Bipap;Trach Collar,3,ucmc
+NIPPV,Humidified;Warmed;Bipap,3,ucmc
+NIPPV,RAM Cannula;Bipap,3,ucmc
+NIPPV,Trach Collar;Bipap,3,ucmc
+NIPPV,Bipap;Venturi Mask,2,ucmc
+NIPPV,Warmed;Bipap,2,ucmc
+NIPPV,Bipap;Aerosol Mask,1,ucmc
+NIPPV,Bipap;Face Mask,1,ucmc
+NIPPV,Bipap;High Flow NC;Humidified;Warmed,1,ucmc
+NIPPV,Bipap;Nasal Cannula;Humidified,1,ucmc
+NIPPV,Bipap;RAM Cannula,1,ucmc
+NIPPV,Blow-By;BIPAP,1,ucmc
+NIPPV,High Flow NC;Bipap;Warmed,1,ucmc
+NIPPV,High Flow NC;Humidified;Bipap,1,ucmc
+NIPPV,High Flow NC;Humidified;Warmed;Bipap,1,ucmc
+NIPPV,NRB Mask;Nasal Cannula;BIPAP,1,ucmc
+NIPPV,Nasal Cannula;BIPAP;NRB Mask,1,ucmc
+NIPPV,Nasal Cannula;Bipap;Humidified,1,ucmc
+NIPPV,O2 Hood;Bipap,1,ucmc
+NIPPV,OxyTrach;Bipap,1,ucmc
+NIPPV,Trach Collar;BIPAP,1,ucmc
+NIPPV,Warmed;Humidified;Bipap,1,ucmc
+Nasal Cannula,Nasal Cannula,280746,ucmc
+Nasal Cannula,Nasal Cannula;Humidified,11937,ucmc
+Nasal Cannula,RAM Cannula,2479,ucmc
+Nasal Cannula,Humidified;Nasal Cannula,1485,ucmc
+Nasal Cannula,Room Air;Nasal Cannula,461,ucmc
+Nasal Cannula,Nasal Cannula;NRB Mask,272,ucmc
+Nasal Cannula,Nasal Cannula;Room Air,116,ucmc
+Nasal Cannula,NRB Mask;Nasal Cannula,91,ucmc
+Nasal Cannula,Room Air;Face Mask;Nasal Cannula,75,ucmc
+Nasal Cannula,Face Mask;Nasal Cannula,48,ucmc
+Nasal Cannula,Nasal Cannula;Venturi Mask,38,ucmc
+Nasal Cannula,Nasal Cannula;Aerosol Mask,33,ucmc
+Nasal Cannula,Nasal Cannula;Face Mask,33,ucmc
+Nasal Cannula,RAM Cannula;Humidified,26,ucmc
+Nasal Cannula,Room Air;RAM Cannula,17,ucmc
+Nasal Cannula,Nasal Cannula;Warmed,16,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;NRB Mask,14,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Warmed,14,ucmc
+Nasal Cannula,Face Tent;Nasal Cannula,10,ucmc
+Nasal Cannula,RAM Cannula;Humidified;Warmed,9,ucmc
+Nasal Cannula,Nasal Cannula;Trach Collar,8,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Venturi Mask,7,ucmc
+Nasal Cannula,Humidified;RAM Cannula,6,ucmc
+Nasal Cannula,Nasal Cannula;O2 Hood,6,ucmc
+Nasal Cannula,Room Air;Nasal Cannula;Face Mask,6,ucmc
+Nasal Cannula,Aerosol Mask;Nasal Cannula,5,ucmc
+Nasal Cannula,Nasal Cannula;Face Tent,5,ucmc
+Nasal Cannula,Nasal Cannula;RAM Cannula,5,ucmc
+Nasal Cannula,OxyTrach;Nasal Cannula,5,ucmc
+Nasal Cannula,Trach Collar;Nasal Cannula,5,ucmc
+Nasal Cannula,Warmed;Nasal Cannula,5,ucmc
+Nasal Cannula,Nasal Cannula;NRB Mask;Humidified,4,ucmc
+Nasal Cannula,Nasal Cannula;T-Piece,4,ucmc
+Nasal Cannula,OxyMask;Nasal Cannula,4,ucmc
+Nasal Cannula,RAM Cannula;NRB Mask,4,ucmc
+Nasal Cannula,Humidified;Nasal Cannula;NRB Mask,3,ucmc
+Nasal Cannula,Humidified;Warmed;Nasal Cannula,3,ucmc
+Nasal Cannula,NRB Mask;Nasal Cannula;Humidified,3,ucmc
+Nasal Cannula,Nasal Cannula;Warmed;Humidified,3,ucmc
+Nasal Cannula,Room Air;Nasal Cannula;Humidified,3,ucmc
+Nasal Cannula,Blow-By;Nasal Cannula,2,ucmc
+Nasal Cannula,Face Tent;Nasal Cannula;Humidified,2,ucmc
+Nasal Cannula,NRB Mask;Humidified;Nasal Cannula,2,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Room Air,2,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Trach Collar,2,ucmc
+Nasal Cannula,Nasal Cannula;OxyMask,2,ucmc
+Nasal Cannula,RAM Cannula;Blow-By,2,ucmc
+Nasal Cannula,RAM Cannula;Nasal Cannula,2,ucmc
+Nasal Cannula,RAM Cannula;Room Air,2,ucmc
+Nasal Cannula,RAM Cannula;Trach Collar,2,ucmc
+Nasal Cannula,RAM Cannula;Venturi Mask,2,ucmc
+Nasal Cannula,Room Air;Humidified;Nasal Cannula,2,ucmc
+Nasal Cannula,Venturi Mask;Nasal Cannula,2,ucmc
+Nasal Cannula,Warmed;Humidified;Nasal Cannula,2,ucmc
+Nasal Cannula,Aerosol Mask;Nasal Cannula;Warmed,1,ucmc
+Nasal Cannula,Face Mask;Room Air;Nasal Cannula,1,ucmc
+Nasal Cannula,Humidified;Nasal Cannula;Room Air,1,ucmc
+Nasal Cannula,Humidified;Nasal Cannula;Venturi Mask,1,ucmc
+Nasal Cannula,Humidified;Nasal Cannula;Warmed,1,ucmc
+Nasal Cannula,Humidified;Nasal Cannula;Warmed;Venturi Mask,1,ucmc
+Nasal Cannula,Humidified;Trach Collar;Nasal Cannula,1,ucmc
+Nasal Cannula,NRB Mask;RAM Cannula,1,ucmc
+Nasal Cannula,NRB Mask;RAM Cannula;Humidified,1,ucmc
+Nasal Cannula,Nasal Cannula;Blow-By,1,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Aerosol Mask,1,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Face Mask,1,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Face Tent,1,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;O2 Hood,1,ucmc
+Nasal Cannula,Nasal Cannula;Humidified;Warmed;NRB Mask,1,ucmc
+Nasal Cannula,Nasal Cannula;NRB Mask;Venturi Mask,1,ucmc
+Nasal Cannula,Nasal Cannula;OxyTrach,1,ucmc
+Nasal Cannula,Nasal Cannula;RAM Cannula;Humidified,1,ucmc
+Nasal Cannula,Nasal Cannula;Room Air;Aerosol Mask,1,ucmc
+Nasal Cannula,Nasal Cannula;Venturi Mask;Humidified,1,ucmc
+Nasal Cannula,RAM Cannula;Face Mask,1,ucmc
+Nasal Cannula,RAM Cannula;O2 Hood;Venturi Mask;Warmed,1,ucmc
+Nasal Cannula,Room Air;Nasal Cannula;RAM Cannula,1,ucmc
+Nasal Cannula,Room Air;OxyMask;RAM Cannula,1,ucmc
+Other,NIPPV,43322,ucmc
+Other,Face Tent,1089,ucmc
+Other,Humidified,436,ucmc
+Other,Blow-By,372,ucmc
+Other,O2 Hood,342,ucmc
+Other,Face Tent;Humidified,208,ucmc
+Other,T-Piece,168,ucmc
+Other,OxyTrach,95,ucmc
+Other,Humidified;Face Tent,85,ucmc
+Other,Warmed,60,ucmc
+Other,Humidified;Warmed,49,ucmc
+Other,Warmed;Humidified,48,ucmc
+Other,T-Piece;Humidified,33,ucmc
+Other,Humidified;O2 Hood,13,ucmc
+Other,Humidified;T-Piece,12,ucmc
+Other,O2 Hood;Humidified,11,ucmc
+Other,OxyTrach;Humidified,4,ucmc
+Other,Warmed;T-Piece;Humidified,4,ucmc
+Other,Blow-By;Humidified,3,ucmc
+Other,Face Tent;Blow-By,3,ucmc
+Other,Humidified;T-Piece;Warmed,3,ucmc
+Other,Warmed;T-Piece,3,ucmc
+Other,T-Piece;Humidified;Warmed,2,ucmc
+Other,Warmed;O2 Hood,2,ucmc
+Other,Face Tent;Warmed;Humidified,1,ucmc
+Other,Humidified;Face Tent;Warmed,1,ucmc
+Other,Humidified;OxyTrach,1,ucmc
+Room Air,Room Air,981694,ucmc
+Room Air,Room Air;Humidified,63,ucmc
+Room Air,Room Air;Face Tent,14,ucmc
+Room Air,Room Air;Warmed,10,ucmc
+Room Air,Room Air;T-Piece,9,ucmc
+Room Air,Humidified;Room Air,8,ucmc
+Room Air,Room Air;Blow-By,8,ucmc
+Room Air,Room Air;O2 Hood,7,ucmc
+Room Air,Warmed;Room Air,6,ucmc
+Room Air,Room Air;Face Tent;Humidified,5,ucmc
+Room Air,Room Air;Humidified;Warmed,5,ucmc
+Room Air,Room Air;OxyTrach,5,ucmc
+Room Air,Face Tent;Room Air,3,ucmc
+Room Air,O2 Hood;Room Air,3,ucmc
+Room Air,Room Air;Humidified;Face Tent,3,ucmc
+Room Air,T-Piece;Room Air,3,ucmc
+Room Air,Blow-By;Room Air,2,ucmc
+Room Air,OxyTrach;Room Air,1,ucmc
+Trach Collar,Trach Collar,51705,ucmc
+Trach Collar,Trach Collar;Humidified,15332,ucmc
+Trach Collar,Humidified;Trach Collar,5568,ucmc
+Trach Collar,Trach Collar;Humidified;Warmed,1669,ucmc
+Trach Collar,Trach Collar;Warmed,813,ucmc
+Trach Collar,Trach Collar;Warmed;Humidified,322,ucmc
+Trach Collar,Room Air;Trach Collar,295,ucmc
+Trach Collar,Warmed;Humidified;Trach Collar,283,ucmc
+Trach Collar,Humidified;Warmed;Trach Collar,251,ucmc
+Trach Collar,Warmed;Trach Collar,180,ucmc
+Trach Collar,Humidified;Trach Collar;Warmed,141,ucmc
+Trach Collar,Trach Collar;Aerosol Mask;Humidified,139,ucmc
+Trach Collar,Trach Collar;Room Air,106,ucmc
+Trach Collar,Warmed;Trach Collar;Humidified,69,ucmc
+Trach Collar,Trach Collar;Venturi Mask,31,ucmc
+Trach Collar,Trach Collar;Humidified;Aerosol Mask,28,ucmc
+Trach Collar,Trach Collar;Aerosol Mask,26,ucmc
+Trach Collar,Aerosol Mask;Trach Collar;Humidified,17,ucmc
+Trach Collar,Room Air;Trach Collar;Humidified,17,ucmc
+Trach Collar,Aerosol Mask;Trach Collar,16,ucmc
+Trach Collar,Room Air;Trach Collar;Humidified;Warmed,15,ucmc
+Trach Collar,Humidified;Trach Collar;Aerosol Mask,10,ucmc
+Trach Collar,T-Piece;Trach Collar,9,ucmc
+Trach Collar,Room Air;Humidified;Trach Collar,8,ucmc
+Trach Collar,Trach Collar;Face Tent,8,ucmc
+Trach Collar,Trach Collar;NRB Mask,8,ucmc
+Trach Collar,Humidified;Aerosol Mask;Trach Collar,7,ucmc
+Trach Collar,NRB Mask;Trach Collar,7,ucmc
+Trach Collar,Trach Collar;Humidified;Venturi Mask,7,ucmc
+Trach Collar,Blow-By;Trach Collar,6,ucmc
+Trach Collar,Humidified;Trach Collar;Room Air,6,ucmc
+Trach Collar,Trach Collar;Humidified;Room Air,6,ucmc
+Trach Collar,Trach Collar;T-Piece,6,ucmc
+Trach Collar,Aerosol Mask;Humidified;Trach Collar,4,ucmc
+Trach Collar,Trach Collar;Face Mask,4,ucmc
+Trach Collar,Trach Collar;Room Air;Humidified,4,ucmc
+Trach Collar,Face Mask;Trach Collar,3,ucmc
+Trach Collar,Humidified;Trach Collar;Venturi Mask,3,ucmc
+Trach Collar,Room Air;Trach Collar;Warmed,3,ucmc
+Trach Collar,Trach Collar;Aerosol Mask;Humidified;Warmed,3,ucmc
+Trach Collar,Trach Collar;Humidified;NRB Mask,3,ucmc
+Trach Collar,Trach Collar;Humidified;Warmed;Room Air,3,ucmc
+Trach Collar,Trach Collar;O2 Hood,3,ucmc
+Trach Collar,Trach Collar;Venturi Mask;Humidified,3,ucmc
+Trach Collar,Venturi Mask;Trach Collar,3,ucmc
+Trach Collar,Aerosol Mask;Warmed;Humidified;Trach Collar,2,ucmc
+Trach Collar,Humidified;Warmed;Trach Collar;Venturi Mask,2,ucmc
+Trach Collar,Trach Collar;Blow-By,2,ucmc
+Trach Collar,Face Mask;Trach Collar;Humidified,1,ucmc
+Trach Collar,Face Tent;Trach Collar,1,ucmc
+Trach Collar,Humidified;Trach Collar;O2 Hood,1,ucmc
+Trach Collar,Humidified;Venturi Mask;Warmed;Trach Collar,1,ucmc
+Trach Collar,OxyMask;Trach Collar;Humidified,1,ucmc
+Trach Collar,OxyTrach;Trach Collar,1,ucmc
+Trach Collar,Room Air;Face Mask;Trach Collar,1,ucmc
+Trach Collar,Room Air;Humidified;Warmed;Trach Collar,1,ucmc
+Trach Collar,Room Air;T-Piece;Trach Collar,1,ucmc
+Trach Collar,Room Air;Trach Collar;Aerosol Mask,1,ucmc
+Trach Collar,Room Air;Warmed;Humidified;Trach Collar,1,ucmc
+Trach Collar,Room Air;Warmed;Trach Collar,1,ucmc
+Trach Collar,Trach Collar;Humidified;Aerosol Mask;Warmed,1,ucmc
+Trach Collar,Trach Collar;Humidified;Blow-By,1,ucmc
+Trach Collar,Trach Collar;Humidified;T-Piece,1,ucmc
+Trach Collar,Trach Collar;OxyTrach,1,ucmc
+Trach Collar,Trach Collar;Room Air;Humidified;Warmed,1,ucmc
+Trach Collar,Trach Collar;Room Air;Warmed,1,ucmc
+Trach Collar,Trach Collar;Room Air;Warmed;Humidified,1,ucmc
+Trach Collar,Trach Collar;Warmed;Room Air,1,ucmc
+Trach Collar,Venturi Mask;Trach Collar;Humidified,1,ucmc
+Vent,Vent,348204,ucmc
+Vent,HF Vent,4671,ucmc
+Vent,Vent;Warmed;Humidified,3959,ucmc
+Vent,Vent;Humidified;Warmed,3378,ucmc
+Vent,Vent;Warmed,3115,ucmc
+Vent,Warmed;Vent,2966,ucmc
+Vent,Warmed;Vent;Humidified,2858,ucmc
+Vent,Humidified;Vent;Warmed,2186,ucmc
+Vent,Humidified;Vent ;Warmed,1246,ucmc
+Vent,Vent;CPAP,1162,ucmc
+Vent,Vent ;CPAP,766,ucmc
+Vent,Vent ;Humidified;Warmed,763,ucmc
+Vent,CPAP;Vent,701,ucmc
+Vent,Bag/Valve,672,ucmc
+Vent,Vent;Humidified,648,ucmc
+Vent,Vent;RAM Cannula,625,ucmc
+Vent,Vent ;Warmed,588,ucmc
+Vent,Vent ;Warmed;Humidified,568,ucmc
+Vent,Warmed;Humidified;Vent,439,ucmc
+Vent,Transport Ventilator,399,ucmc
+Vent,Bag Valve Mask,288,ucmc
+Vent,Humidified;Vent,260,ucmc
+Vent,RAM Cannula;Vent,260,ucmc
+Vent,Vent ;RAM Cannula,183,ucmc
+Vent,Humidified;Warmed;Vent,178,ucmc
+Vent,Vent ;Humidified,176,ucmc
+Vent,Trach Collar;Vent,127,ucmc
+Vent,RAM Cannula;Humidified;Vent ;Warmed,78,ucmc
+Vent,Vent ;Trach Collar,53,ucmc
+Vent,RAM Cannula;CPAP;Vent,49,ucmc
+Vent,Bipap;Vent,45,ucmc
+Vent,Warmed;Vent ;Humidified,43,ucmc
+Vent,Humidified;HF Vent;Warmed,34,ucmc
+Vent,Vent;Bipap,28,ucmc
+Vent,Room Air;Vent,27,ucmc
+Vent,CPAP;Vent;RAM Cannula,26,ucmc
+Vent,HF Vent;Humidified;Warmed,24,ucmc
+Vent,CPAP;RAM Cannula;Vent,19,ucmc
+Vent,HF Vent;Warmed;Humidified,19,ucmc
+Vent,HF Vent;Warmed,18,ucmc
+Vent,Vent ;Warmed;Humidified;RAM Cannula,17,ucmc
+Vent,RAM Cannula;CPAP;Humidified;Vent ;Warmed,16,ucmc
+Vent,Trach Collar;Vent;Warmed,14,ucmc
+Vent,Vent;RAM Cannula;CPAP,14,ucmc
+Vent,HF Vent;Humidified,13,ucmc
+Vent,Face Mask;Vent,11,ucmc
+Vent,Vent;CPAP;RAM Cannula,11,ucmc
+Vent,High Flow NC;Humidified;Vent,10,ucmc
+Vent,Nasal Cannula;Vent,9,ucmc
+Vent,Warmed;Vent;High Flow NC,9,ucmc
+Vent,Nasal Cannula;HF Vent,8,ucmc
+Vent,HF Vent;Vent,7,ucmc
+Vent,High Flow NC;Vent,7,ucmc
+Vent,Trach Collar;Humidified;Warmed;Vent,7,ucmc
+Vent,Trach Collar;Warmed;Vent,7,ucmc
+Vent,Vent;Room Air,7,ucmc
+Vent,Vent;Warmed;High Flow NC,7,ucmc
+Vent,CPAP;Humidified;Vent ;Warmed,6,ucmc
+Vent,Humidified;HF Vent,6,ucmc
+Vent,Humidified;Warmed;HF Vent,6,ucmc
+Vent,NRB Mask;Vent,6,ucmc
+Vent,OxyTrach;Vent,6,ucmc
+Vent,Room Air;Bag/Valve,6,ucmc
+Vent,Trach Collar;Vent;Warmed;Humidified,6,ucmc
+Vent,Vent;NRB Mask,6,ucmc
+Vent,Vent;O2 Hood,6,ucmc
+Vent,Warmed;HF Vent,6,ucmc
+Vent,Bag/Valve;Vent,5,ucmc
+Vent,Face Tent;Vent,5,ucmc
+Vent,HF Vent;High Flow NC,5,ucmc
+Vent,Vent;CPAP;Warmed,5,ucmc
+Vent,Warmed;Vent ;Humidified;RAM Cannula,5,ucmc
+Vent,Bag/Valve;Room Air,4,ucmc
+Vent,CPAP;Vent ;RAM Cannula,4,ucmc
+Vent,High Flow NC;HF Vent,4,ucmc
+Vent,RAM Cannula;Warmed;Humidified;Vent,4,ucmc
+Vent,Trach Collar;HF Vent,4,ucmc
+Vent,Trach Collar;Warmed;Vent;Humidified,4,ucmc
+Vent,Vent ;Room Air,4,ucmc
+Vent,Bipap;Humidified;Vent ;Warmed,3,ucmc
+Vent,Bipap;Humidified;Warmed;Vent,3,ucmc
+Vent,Blow-By;Vent,3,ucmc
+Vent,HF Vent;Nasal Cannula,3,ucmc
+Vent,High Flow NC;Vent;Warmed,3,ucmc
+Vent,Home Ventilator,3,ucmc
+Vent,NRB Mask;Bag/Valve,3,ucmc
+Vent,Nasal Cannula;Humidified;HF Vent,3,ucmc
+Vent,O2 Hood;Vent ;Warmed,3,ucmc
+Vent,Room Air;Trach Collar;Vent,3,ucmc
+Vent,Trach Collar;Humidified;Vent;Warmed,3,ucmc
+Vent,Trach Collar;Vent;Humidified;Warmed,3,ucmc
+Vent,Vent ;Humidified;Warmed;RAM Cannula,3,ucmc
+Vent,Vent ;Warmed;RAM Cannula;Humidified,3,ucmc
+Vent,Vent;Warmed;O2 Hood,3,ucmc
+Vent,Warmed;Humidified;HF Vent,3,ucmc
+Vent,Bag/Valve;NRB Mask,2,ucmc
+Vent,CPAP;Vent ;Warmed;Humidified,2,ucmc
+Vent,Face Mask;Warmed;Vent,2,ucmc
+Vent,HF Vent;Room Air,2,ucmc
+Vent,HF Vent;Vent;Warmed;Humidified,2,ucmc
+Vent,High Flow NC;Humidified;Warmed;HF Vent,2,ucmc
+Vent,Humidified;High Flow NC;Vent,2,ucmc
+Vent,Humidified;Warmed;Vent;Trach Collar,2,ucmc
+Vent,Nasal Cannula;Bag/Valve,2,ucmc
+Vent,OxyMask;Vent,2,ucmc
+Vent,RAM Cannula;Vent;CPAP,2,ucmc
+Vent,RAM Cannula;Vent;Humidified;Warmed,2,ucmc
+Vent,Room Air;HF Vent,2,ucmc
+Vent,T-Piece;Vent,2,ucmc
+Vent,Trach Collar;Bag/Valve,2,ucmc
+Vent,Vent ;Face Mask,2,ucmc
+Vent,Vent;Bag/Valve,2,ucmc
+Vent,Vent;High Flow NC,2,ucmc
+Vent,Vent;Nasal Cannula,2,ucmc
+Vent,Vent;Trach Collar,2,ucmc
+Vent,Warmed;Humidified;High Flow NC;Vent,2,ucmc
+Vent,Aerosol Mask;Vent,1,ucmc
+Vent,Bag/Valve;BIPAP,1,ucmc
+Vent,Bag/Valve;Bipap,1,ucmc
+Vent,Bag/Valve;High Flow NC,1,ucmc
+Vent,Bag/Valve;Nasal Cannula,1,ucmc
+Vent,Bag/Valve;Trach Collar,1,ucmc
+Vent,Bag/Valve;Warmed,1,ucmc
+Vent,Bipap;Vent ;Humidified;Warmed,1,ucmc
+Vent,Blow-By;High Flow NC;Vent,1,ucmc
+Vent,Face Tent;HF Vent,1,ucmc
+Vent,HF Vent;Bipap,1,ucmc
+Vent,HF Vent;Face Tent,1,ucmc
+Vent,HF Vent;Humidified;Vent,1,ucmc
+Vent,HF Vent;NRB Mask,1,ucmc
+Vent,High Flow NC;Bag/Valve,1,ucmc
+Vent,High Flow NC;Humidified;Bag/Valve,1,ucmc
+Vent,High Flow NC;Humidified;NRB Mask;Vent,1,ucmc
+Vent,High Flow NC;Humidified;Vent ;Warmed,1,ucmc
+Vent,High Flow NC;Humidified;Vent;Warmed,1,ucmc
+Vent,High Flow NC;Vent;Humidified,1,ucmc
+Vent,High Flow NC;Vent;Warmed;Humidified,1,ucmc
+Vent,Humidified;HF Vent;High Flow NC;Warmed,1,ucmc
+Vent,Humidified;HF Vent;Vent,1,ucmc
+Vent,Humidified;Vent ;Trach Collar,1,ucmc
+Vent,Humidified;Warmed;Trach Collar;Vent,1,ucmc
+Vent,NRB Mask;Bag/Valve;Vent,1,ucmc
+Vent,NRB Mask;HF Vent;Warmed,1,ucmc
+Vent,NRB Mask;Humidified;HF Vent;Warmed,1,ucmc
+Vent,NRB Mask;Humidified;Vent ;Warmed,1,ucmc
+Vent,Nasal Cannula;HF Vent;Humidified,1,ucmc
+Vent,Nasal Cannula;High Flow NC;HF Vent,1,ucmc
+Vent,Nasal Cannula;Humidified;Vent,1,ucmc
+Vent,Nasal Cannula;NRB Mask;HF Vent,1,ucmc
+Vent,Nasal Cannula;Vent ;Humidified,1,ucmc
+Vent,O2 Hood;Vent;Warmed,1,ucmc
+Vent,RAM Cannula;Bag/Valve,1,ucmc
+Vent,RAM Cannula;Humidified;Vent,1,ucmc
+Vent,RAM Cannula;Humidified;Warmed;Vent,1,ucmc
+Vent,RAM Cannula;Vent ;Humidified,1,ucmc
+Vent,RAM Cannula;Vent;Warmed;Humidified,1,ucmc
+Vent,Room Air;Face Mask;Bag/Valve;Face Tent,1,ucmc
+Vent,Room Air;Face Mask;Trach Collar;Bag/Valve;Face Tent;Humidified;T-Piece;HF Vent;BIPAP;Warmed,1,ucmc
+Vent,Room Air;Humidified;Vent,1,ucmc
+Vent,Room Air;Humidified;Vent ;Warmed,1,ucmc
+Vent,Room Air;Vent ;Trach Collar,1,ucmc
+Vent,T-Piece;Vent;Humidified,1,ucmc
+Vent,Trach Collar;Bag/Valve;Vent,1,ucmc
+Vent,Trach Collar;Humidified;Bag/Valve,1,ucmc
+Vent,Trach Collar;Humidified;Vent,1,ucmc
+Vent,Trach Collar;Vent ;Room Air,1,ucmc
+Vent,Trach Collar;Vent;Humidified,1,ucmc
+Vent,Trach Collar;Warmed;Humidified;Vent,1,ucmc
+Vent,Vent ;Bag/Valve,1,ucmc
+Vent,Vent ;Bipap,1,ucmc
+Vent,Vent ;HF Vent,1,ucmc
+Vent,Vent ;Humidified;Warmed;NRB Mask,1,ucmc
+Vent,Vent ;RAM Cannula;Humidified;Warmed,1,ucmc
+Vent,Vent ;T-Piece,1,ucmc
+Vent,Vent ;Trach Collar;Room Air,1,ucmc
+Vent,Vent ;Trach Collar;T-Piece,1,ucmc
+Vent,Vent ;Warmed;O2 Hood;Humidified,1,ucmc
+Vent,Vent;Aerosol Mask,1,ucmc
+Vent,Vent;Bipap;Warmed,1,ucmc
+Vent,Vent;HF Vent,1,ucmc
+Vent,Vent;High Flow NC;Warmed,1,ucmc
+Vent,Vent;Humidified;High Flow NC,1,ucmc
+Vent,Vent;Humidified;NRB Mask;Warmed,1,ucmc
+Vent,Vent;Humidified;Warmed;Face Mask,1,ucmc
+Vent,Vent;NRB Mask;Humidified;Warmed,1,ucmc
+Vent,Vent;OxyTrach,1,ucmc
+Vent,Vent;T-Piece,1,ucmc
+Vent,Vent;Warmed;O2 Hood;Humidified,1,ucmc
+Vent,Vent;Warmed;Trach Collar,1,ucmc
+Vent,Warmed;High Flow NC;Vent,1,ucmc
+Vent,Warmed;Humidified;Vent;CPAP,1,ucmc
+Vent,Warmed;Vent;HF Vent,1,ucmc
+Vent,Warmed;Vent;Humidified;CPAP,1,ucmc
+Vent,Warmed;Vent;T-Piece,1,ucmc
+NA,NA,4212391,ucmc

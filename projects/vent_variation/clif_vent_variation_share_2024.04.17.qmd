@@ -1,0 +1,1571 @@
+---
+title: "vent_variation"
+author: Nick Ingraham
+date: today
+execute: 
+  echo: false
+format: 
+  html:
+    embed-resources: true
+    number-sections: true
+    toc: true
+    html-q-tags: true
+    code-fold: true
+editor: source
+editor_options: 
+  chunk_output_type: console
+---
+# Nick TO DO STILL
+## [x] fix trach
+## [] get rid of UMN Data points 
+## [x] fail same for lab value
+## [x] fail safe for vital value
+## [x] get patient ID for demographics
+## [x] change var names 
+## [x] location_category
+
+
+## CLIF Setup
+
+### Libraries
+```{r}
+#| label: installing packages
+#| timeit: true
+
+# install.packages("tidyverse")
+library(tidyverse)
+# install.packages("ggthemes")
+library(ggthemes)
+#install.packages("styler")
+library(styler)
+#install.packages("readxl")
+library(readxl)
+#install.packages("writexl")
+library(writexl)
+#install.packages("DBI")
+library(DBI)
+#install.packages("dbplyr")
+library(dbplyr)
+#install.packages("knitr")
+library(knitr)
+#install.packages("pandoc")
+library(pandoc)
+#install.packages("janitor")
+library(janitor)
+# install.packages("duckdb")
+library(duckdb)
+#install.packages("data.table")
+library(data.table)
+#require(data.table)
+# install.packages("powerjoin")
+library(powerjoin)
+# install.packages("collapse")
+library(collapse)
+# install.packages("tidyfast")
+library(tidyfast)
+# install.packages("datapasta")
+library(datapasta)
+# install.packages("fst")
+library(fst)
+# install.packages("dtplyr")
+library(dtplyr)
+# install.packages("bit64")
+library(bit64)
+# install.packages("zoo")
+library(zoo)
+# install.packages("fuzzyjoin")
+library(fuzzyjoin)
+
+# install.packages("arrow")
+library(arrow)
+
+# install.packages("tidytable")
+#                                   causes issues (sorry if ppl like it)
+#                                   I noted where there were issues in the code
+#                                   feel free to let me know if you have other ideas!
+# library(tidytable)
+```
+
+
+### Make Folders
+```{r}
+
+create_files <- function(x){
+  dir.create({{ x }}, showWarnings = FALSE)
+} 
+# create these files ... may need them later
+lapply(c("temp", "clean_db", "tables", "raw_files", "figures"), create_files)
+
+# 
+# create_files <- function(path) {
+#   dir.create(path, showWarnings = FALSE, recursive = TRUE)
+# } 
+# 
+# # Construct full paths for directories
+# folders_to_create <- c("temp", "clean_db", "tables", "raw_files", "figures")
+# 
+# # Create the directories
+# lapply(folders_to_create, function(folder) {
+#   create_files(file.path(here("projects/vent_variation"), folder))
+# })
+
+```
+
+
+### [  ] Choose file type
+```{r}
+
+## Variables
+ # choose between csv, xls, xlsx, fst, parquet 
+ # all will work (uses readr and fst packages to choose the command and put the .xyz after the file!)
+file_type <- "fst"
+
+```
+
+### [  ] Choose file path
+```{r}
+
+## Clif Files Path
+ # where are your clif files stored
+clif_file_path <- "../../rclif/" 
+
+```
+
+### [  ] Hospital Name variable
+```{r}
+
+# will help with saving tables
+
+clif_institution <- "umn"
+
+```
+
+### Functions
+```{r}
+#| label: Functions
+#| timeit: true
+
+# Quickly look at the data like we would in stata, default is 100
+ni_peek <- function(x, n=100){
+  view(head(x, n))
+}
+
+# check missing variables
+ni_count_missing <- function(df, group_vars, x_var) {
+  df |> 
+    group_by(pick({{ group_vars }})) |> 
+    summarize(
+      n_miss = sum(is.na({{ x_var }})),
+      .groups = "drop"
+    )
+}
+# flights |>  count_missing(c(year, month, day), dep_time)
+
+# look at the variables
+ni_check_variables <- function(df, n=500) {
+  check <- tibble(
+    col_name = names(df), 
+    col_type = map_chr(df, vctrs::vec_ptype_full),
+    n_miss = map_int(df, \(x) sum(is.na(x)))
+  )
+  print(check, n=n)
+}
+
+ni_count_prop <- function(df, var, sort = TRUE) {
+  df |>
+    count({{ var }}, sort = sort) |>
+    mutate(prop = n / sum(n)
+    )
+}
+
+# Identify and create a table of duplicate rows based on encounter_id
+ni_duplicate_finder <- function(df, group_vars = c(encounter_id), n=1){
+df |> 
+  dplyr::group_by(pick({{ group_vars }})) |> 
+  filter(n() > {{ n }}) |> 
+  ungroup()
+}
+
+ni_tic <- function() {
+  .GlobalEnv$time_start_temp <- proc.time()
+  .GlobalEnv$time_start_sys <- Sys.time()
+  return(Sys.time())
+}
+
+ni_toc <- function() {
+  time_end_sys <- Sys.time()
+  .GlobalEnv$time_diff.time <- round(time_end_sys - time_start_sys,2)
+  mylist <- list(time_diff.time, cat("Finished in",timetaken(time_start_temp),"\n"
+             ))
+return(print(mylist[[1]]))
+}
+
+fio2warning <- function() {
+  warning("fio2 variable needed to be fixed, it was multiplied by 100!!!")
+}
+
+labwarning <- function() {
+  warning("lab values are character and needed to be fixed, they were forced to numeric!!!")
+}
+
+vitalwarning <- function() {
+  warning("vital values are character and needed to be fixed, they were forced to numeric!!!")
+}
+
+
+  
+```
+
+## Import
+
+### Cohort identification
+```{r}
+#~~~~~~~~~~
+# ID cohort
+# ~~~~~~~~~
+
+# Main Respiratory Support Table
+    #~~ using readr or fst package depending on the file type. (THESE WERE SET DURING SET UP ^^ )
+clif_resp_support <- get(paste0("read_", file_type))(paste0(clif_file_path, "clif_respiratory_support", ".", file_type))
+
+
+# getting a keep_list of encounter_ids that have vent or trach during their encounter... we will use this right_join the dfs below
+df_cohort_keep <- clif_resp_support |> 
+  mutate(across(where(is_character), tolower)) |>
+  filter(device_category == "vent" | tracheostomy == 1) |> 
+  select(encounter_id) |> 
+  distinct()
+
+
+# Function for importing files easily just with the file of the clif_table
+import_df <- function(x) {
+  # Construct the file path
+  file_path <- paste0(clif_file_path, x, ".", file_type)
+  
+  # Dynamically call the appropriate read function based on file_type
+  read_function <- get(paste0("read_", file_type))
+  
+  df <- read_function(file_path) |>
+    
+    # unfactor things to ensure everything is lowercase
+    mutate(across(where(is.factor), as.character)) |> 
+    
+    # get everything to lower
+    mutate(across(where(is_character), tolower)) 
+  
+    # Find all datetime variables containing 'dttm'
+  datetime_vars <- names(df)[grepl("dttm", names(df))]
+  
+  # Check and convert datetime variables
+  for (var in datetime_vars) {
+    if (!inherits(df[[var]], "POSIXct")) {
+      # Attempt to parse datetime using a common format, adjust based on your actual format
+      df[[var]] <- mdy_hms(df[[var]], quiet = TRUE)
+      
+      # Check if it just turned things into NA
+      if (is.na(ffirst(df[[var]], na.rm = TRUE))) {
+        stop(paste("Conversion failed for:", var,"\n","\nPlease look at your clif data for   ", var, "\nmake sure its POSIXct format!!"))
+        
+        
+        # Check if conversion failed (if it's still not POSIXct)
+        if (!inherits(df[[var]], "POSIXct")) {
+          stop(paste("Conversion failed for:", var,"\n","\nPlease look at your clif data for   ", var, "\nmake sure its POSIXct format!!"))
+          
+        }
+        
+      }
+    }
+    print(paste("Woohoo",var,"is in the correct dttm format!!"))
+  }
+  
+  # Join with cohort data and glimpse the result
+  df <- df %>% 
+    right_join(df_cohort_keep) %>% 
+    glimpse()
+  
+  # Assign the dataframe to a new variable in the global environment named after the file_name
+  assign(x, df, envir = .GlobalEnv)
+}
+
+
+```
+
+
+
+### Other imports / check variable alignment
+```{r}
+#~~~~~~~~~~
+# Import data and cohort tables
+#~~~~~~~~~~
+
+# Resp support table cohort
+clif_resp_support <- import_df("clif_respiratory_support") |> 
+      # Check if Variables match!!
+      # You will get an error if you do not have all the relevant variables needed
+      select(
+        encounter_id,
+        recorded_dttm,
+        device_name,
+        device_category,
+        mode_name,
+        mode_category,
+        fio2,
+        peep,
+        set_volume,
+        pressure_support,
+        set_resp_rate,
+        exhaled_volume,
+        pressure_inspiratory,
+        pressure_plateau,
+        minute_vent,
+        tracheostomy)
+
+
+# ADT File to merge with patient so we can get hospital ID
+clif_adt <- import_df("clif_adt") |> 
+      # Check if Variables match!!
+      select(
+        encounter_id,
+        location_name,
+        location_category,
+        in_dttm,
+        out_dttm,
+        hospital_id)
+
+# Vitals to merge with patient so we can get BMI information
+clif_vitals <- import_df("clif_vitals") |> 
+      # Check if Variables match!!
+      select(
+        encounter_id,
+        recorded_dttm,
+        vital_name,
+        vital_category,
+        vital_value,
+        meas_site_name)
+
+
+# Labs to merge with patient so we can get spo2 and such information
+clif_labs <- import_df("clif_labs") |> 
+  filter(lab_category %in% c("pao2",
+                             "sao2")) |> 
+      # Check if Variables match!!
+      select(
+        encounter_id,
+        lab_order_dttm,
+        lab_result_dttm,
+        lab_group,
+        lab_category,
+        lab_name,
+        lab_value,
+        reference_unit,
+        lab_type_name)
+
+# Demographics 
+clif_patient_demographics <- import_df("clif_patient_demographics") |> 
+      # Check if Variables match!!
+      select(
+        encounter_id,
+        patient_id,
+        sex,
+        race,
+        ethnicity)
+
+
+# Encounter Information 
+clif_encounter_demographic_dispo <- import_df("clif_encounter_demographic_dispo") |> 
+      # Check if Variables match!!
+      select(encounter_id,
+             disposition,
+             age_at_admission)
+
+
+
+# combining them to one df
+clif_demographics_combined <- clif_patient_demographics |> 
+  left_join(clif_encounter_demographic_dispo)
+
+
+
+# # Procedures (don't need for now, just for checking trach data at some point)
+# clif_procedures <- import_df("clif_procedures") |>
+#       # Check if Variables match!!
+#       c(encounter_id,
+#         procedure_name,
+#         start_time,
+#         hcup_category)     # UMN variable... may want to implement in CLIF... just need to link HCUP table to PX codes
+
+```
+
+# Import QA checks
+```{r}
+# Check fio2
+fio2_mean <- mean(clif_resp_support$fio2, na.rm = TRUE) 
+
+# fixing if its less than one
+# You will get a warning but it will be fixed on its own with IF statement
+if(fio2_mean < 1){ 
+  fio2warning()
+  clif_resp_support <- clif_resp_support |> mutate(fio2 = fio2 * 100)
+  }
+
+
+# Check Values of labs and vitals
+if(is.character(clif_labs$lab_value)){
+  labwarning()
+  clif_labs <- clif_labs |> 
+    mutate(lab_value = as.numeric(parse_number(lab_value)))
+}
+
+
+# Check Values of labs and vitals
+if(is.character(clif_vitals$vital_value)){
+  vitalwarning()
+  clif_vitals <- clif_vitals |> 
+    mutate(vital_value = as.numeric(parse_number(vital_value)))
+}
+
+```
+
+
+# Cleaning Data
+
+## Hourly Sequence
+```{r}
+#| label: cleaning up vent data
+#~~~~~~~~~~~~~~~~
+##~~ getting an hour sequence so we can fill in the gaps
+#~~~~~~~~~~~~~~~~
+## This is just encounter ID and recorded times at xx:59:59
+## data that occurs last in the hour when there are multiple data points 
+## in the end ... we will want this to be the data we use to fill the next hour... if time is NOT unified... you could have hour sequence that is 12:01, 1:01 everywhere and even when there IS data you risk filling in from the hour before and not getting the NEW data during that hour.
+# if we set all the new seq hours to 59:59 then you can fill those in without risking other data when you fill in and do distinct (take the first of the hour for everything).  Remember.  Even hours with 1 data will have a new hour seq row that may be before or after the data... so doing the 59:59 puts it at the end!!!
+# 
+
+hour_sequence <- 
+  clif_resp_support |> 
+  group_by(encounter_id)  |> 
+  reframe(recorded_dttm = seq(fmin(recorded_dttm), fmax(recorded_dttm), by = "1 hour")) |> 
+  
+  # Making it so that we get the new recorded times at the very end of the hour
+  mutate(recorded_dttm = recorded_dttm - (minutes(minute(recorded_dttm))) +
+           minutes(59) + seconds(59)
+  ) |> 
+  # getting hour and date columns for grouping
+  mutate(recorded_date = date(recorded_dttm),
+         recorded_hour = hour(recorded_dttm))
+```
+
+
+## Quality Check & Clean + Waterfall
+```{r}
+
+ni_tic()
+#~~~~~~~~~~~~~~~~
+##~~ Quick QA and fixing missing values throughout
+#~~~~~~~~~~~~~~~~
+
+df_resp_support  <- clif_resp_support |> 
+  select(encounter_id, recorded_dttm, device_category, device_name, mode_category, mode_name, 
+         fio2, set_volume, peep,  pressure_support, set_resp_rate, tracheostomy, 
+         exhaled_volume, pressure_inspiratory, minute_vent, pressure_plateau 
+  ) |>
+  
+  # filter is recorded_dttm missing
+  mutate(
+    # fio2
+    fio2 = fifelse(fio2 > 100, NA_real_, fio2),
+    fio2 = fifelse(fio2 <  21, NA_real_, fio2),
+    
+    # Set set_volume
+    set_volume = fifelse(set_volume > 2500, NA_real_, set_volume),
+    set_volume = fifelse(set_volume <   50, NA_real_, set_volume),
+    
+    # peep
+    peep = fifelse(peep > 30, NA_real_, peep),
+    peep = fifelse(peep <  0, NA_real_, peep),
+    
+    # pressure_support (sometimes APRV may be in here ... so limit ~ 50??)
+    pressure_support = fifelse(pressure_support > 50, NA_real_, pressure_support),
+    pressure_support = fifelse(pressure_support <  0, NA_real_, pressure_support),
+    
+    # set_resp_rate
+    set_resp_rate = fifelse(set_resp_rate > 60, NA_real_, set_resp_rate),
+    set_resp_rate = fifelse(set_resp_rate <  0, NA_real_, set_resp_rate),
+    
+    # exhaled_volume
+    exhaled_volume = fifelse(exhaled_volume > 2500, NA_real_, exhaled_volume),
+    exhaled_volume = fifelse(exhaled_volume <    0, NA_real_, exhaled_volume),
+    
+    # pressure_inspiratory
+    pressure_inspiratory = fifelse(pressure_inspiratory > 60, NA_real_, pressure_inspiratory),
+    pressure_inspiratory = fifelse(pressure_inspiratory <  0, NA_real_, pressure_inspiratory),
+    
+    # minute_vent
+    minute_vent = fifelse(minute_vent > 30, NA_real_, minute_vent),
+    minute_vent = fifelse(minute_vent <  0, NA_real_, minute_vent),
+    
+    ) |>
+  
+  # getting data and hour information
+  mutate(recorded_date = date(recorded_dttm),
+         recorded_hour = hour(recorded_dttm)) |> 
+  
+  # getting hospital ID for each hour
+  dplyr::left_join( #tidy_table doesn't like it when you use join_by() with between (Dropped tidy_table 2_2024) 
+    clif_adt |> 
+      select(encounter_id, hospital_id, location_name, location_category, in_dttm, out_dttm),
+    by = join_by(encounter_id, between(recorded_dttm, in_dttm, out_dttm))
+  ) |> 
+
+  # order for filling things in
+  arrange(encounter_id, recorded_dttm) |> 
+  
+  # Fixing when: the mode and category are there with device_name and device_cat not filled in.  fixing with the below
+  mutate(
+    device_category = 
+      fifelse(
+        is.na(device_category) & is.na(device_name) &
+          str_detect(mode_category, "assist control-volume control|simv|pressure control"),
+        "vent",
+        device_category
+      ),
+    device_name = 
+      fifelse(
+        str_detect(device_category, "vent") & is.na(device_name) &
+          str_detect(mode_category, "assist control-volume control|simv|pressure control"),
+        "mechanical ventilator",
+        device_name
+      ),
+  ) |>
+  
+  # fixing other vent things
+  #     If device before is VENT + normal vent things ... its VENT too 
+  mutate(device_category = fifelse(is.na(device_category) & 
+                                     lag(device_category == "vent") & 
+                                     set_volume > 1 & 
+                                     set_resp_rate > 1 & 
+                                     peep > 1, 
+                                   "vent", 
+                                   device_category)) |>
+  
+  #     If device after is VENT + normal vent things ... its VENT too 
+  mutate(device_category = fifelse(is.na(device_category) & 
+                                     lead(device_category == "vent") & 
+                                     set_volume > 1 & 
+                                     set_resp_rate > 1 & 
+                                     peep > 1, 
+                                   "vent", 
+                                   device_category)) |> 
+  
+  # same as above for device_name ^^^^^^^^^^^
+  mutate(device_name = fifelse(is.na(device_name) & lag(device_name == "mechanical ventilation") & set_volume > 1 & set_resp_rate > 1 & peep > 1, "mechanical ventilation", device_name)) |> 
+  
+  mutate(device_name = fifelse(is.na(device_name) & lead(device_name == "mechanical ventilation") & set_volume > 1 & set_resp_rate > 1 & peep > 1, "mechanical ventilation", device_name)) |>
+  
+  
+  # doing this for BiPAP as well 
+  mutate(device_category = fifelse(is.na(device_category) & 
+                                     lag(device_category == "nippv") & 
+                                     minute_vent > 1 & 
+                                     pressure_inspiratory > 1 & 
+                                     pressure_support > 1, 
+                                   "nippv", 
+                                   device_category)) |>
+  
+  mutate(device_category = fifelse(is.na(device_category) & 
+                                     lead(device_category == "nippv") & 
+                                     minute_vent > 1 & 
+                                     pressure_inspiratory > 1 & 
+                                     pressure_support > 1, 
+                                   "nippv", 
+                                   device_category)) |>
+  
+  
+
+  # there are times when its clearly back to CMV (resp set and volume is set but no one puts a mode back in... just leaves it blank)
+  # this is usually after pressure support ... we need to classify this now as CMV. 
+  # only exception to this should be when it says trach
+  # There are also some without device_cat or name and they have all the variables... these should be changed too 
+  mutate(
+    device_category = 
+      fifelse(
+        is.na(device_category) & 
+          !str_detect(device_name, "trach") &
+          set_volume > 0 & 
+          set_resp_rate > 0,
+        "vent",
+        device_category
+      ), 
+    device_name = 
+      fifelse(
+        is.na(device_name) & 
+          !str_detect(device_name, "trach") &
+          set_volume > 0 & 
+          set_resp_rate > 0,
+        "mechanical ventilator",
+        device_name
+      ),    
+    mode_category = 
+      fifelse(
+        is.na(mode_category) & 
+          !str_detect(device_name, "trach") &
+          set_volume > 0 & 
+          set_resp_rate > 0,
+        "assist control-volume control",
+        mode_category
+      ),
+    mode_name = 
+      fifelse(
+        is.na(mode_name) & 
+          !str_detect(device_name, "trach") &
+          set_volume > 0 & 
+          set_resp_rate > 0,
+        "cmv/ac",
+        mode_name)
+  ) |> 
+  
+  
+  # when there are duplicate times...
+  group_by(encounter_id, recorded_dttm) |> 
+  
+  # when bipap is part of a duplicate we need to get rid of it... 
+  #     its usually when a vent is STARTED and device is carried over but it goes to a new line with lots of NAs
+  #     the NA line above has the vent settings.  Its best to just drop the nippv line when its a duplicate
+  #     if we don't do this... the vent settings get sent backwards across all bipap
+
+  mutate(n = n()) |>  
+  filter(
+    #  essentially this is... DROP if n>1 and device_cat == nippv
+    !(n > 1 & device_category == "nippv")) |> 
+  
+  # redo n so we keep vent settings from above... now NAs are bad around other things and we should just drop
+  mutate(n = n()) |> 
+  filter(
+    #  essentially this is... DROP if n>1 and device_cat == NA
+    !(n > 1 & is.na(device_category))) |> 
+  
+
+  
+  # filter if missing everything  
+  filter(
+    #  essentially this is... DROP if everything missing
+    !(is.na(device_category) & 
+        is.na(device_name) &
+        is.na(mode_category) &
+        is.na(mode_name) & 
+        is.na(fio2) &        # keeps informative fio2 data around
+        is.na(set_volume)    # keeps vent data around... this happens sort of often
+      )) |> 
+    
+    
+
+  # dropping duplicates for everything else but just taking the first one
+  #       ffirst works WAY faster than fill up and down and slicing(1)
+  ffirst() |> 
+  ungroup() |> # technically don't need this  
+    
+  
+  # bring in hour sequences
+  bind_rows(hour_sequence) |>
+
+#~~~~~~~~~~~~~~~~
+##~~ Filling in data based on a waterfall of categories to ensure accuracy
+#~~~~~~~~~~~~~~~~
+  # organizing
+  arrange(encounter_id, recorded_dttm) |> 
+  relocate(encounter_id, recorded_dttm, recorded_date, recorded_hour) |> 
+  
+  # fill forward device category
+  group_by(encounter_id) |> 
+  arrange(encounter_id, recorded_dttm) |> 
+  fill(device_category) |>
+  ungroup() |> 
+  
+  # Record a new device_category when either (a) a new encounter, or (b) preceded by a...   
+  # different device category
+  mutate(
+    # need to have NA as something so it gets an ID
+    device_cat_f = fifelse(is.na(device_category), "missing", device_category), # cant have anything with NAs when factoring
+    device_cat_f = as.integer(as.factor(device_cat_f)), # need an integer for this
+    
+    # getting IDs
+    device_cat_id = fcumsum((
+      encounter_id    != flag(encounter_id, fill = TRUE) |           # (a)
+        device_cat_f  != flag(device_cat_f, fill = TRUE)))) |>       # (b)
+  
+  relocate(device_cat_id, .after = recorded_hour) |> 
+  
+  # fill device name
+  #         changed some failsafes above 4/2024 so its ok to do downup with this now
+  group_by(encounter_id, device_cat_id) |> 
+  arrange(encounter_id, recorded_dttm) |> 
+  fill(device_name, .direction = "downup") |> 
+  ungroup() |> 
+  
+  
+  # Record a new device_id when either (a) a new encounter, or 
+  #                                    (b) preceded by a different device name.
+  mutate(
+    # need to have NA as something so it gets an ID
+    device_name_f = fifelse(is.na(device_name), "missing", device_name), # cant have anything with NAs when factoring
+    device_name_f = as.integer(as.factor(device_name_f)), # need an integer for this
+    
+    # getting IDs
+    device_id = fcumsum((
+      encounter_id    != flag(encounter_id, fill = TRUE) |           # (a)
+        device_name_f != flag(device_name_f, fill = TRUE)))) |>      # (b)
+  
+  relocate(device_id, .after = recorded_hour) |> 
+  
+  # fill mode_category (downup)
+  # there are PST that are being carried over to days before when ppl get REINTUBATED
+  group_by(encounter_id, device_id) |> 
+  arrange(encounter_id, recorded_dttm) |> 
+  fill(mode_category, .direction = "downup") |> 
+  ungroup() |> 
+  
+  # Create mode_id
+  mutate(
+    mode_cat_f = fifelse(is.na(mode_category), "missing", mode_category), # cant have anything with NAs when factoring
+    mode_cat_f = as.integer(as.factor(mode_cat_f)), # need an integer for this
+    
+    mode_cat_id = fcumsum((
+      device_id     != flag(device_id, fill = TRUE) |        # (a)
+        mode_cat_f  != flag(mode_cat_f, fill = TRUE)))) |>   # (b)
+  
+  
+  relocate(mode_cat_id, .after = recorded_hour) |> 
+  
+  # fill mode name (downup) 
+  group_by(encounter_id, mode_cat_id) |> 
+  arrange(encounter_id, recorded_dttm) |> 
+  fill(mode_name, .direction = "downup") |> 
+  ungroup() |>  
+  
+  # Create mode name id
+  mutate(
+    mode_name_f = fifelse(is.na(mode_name), "missing", mode_name), # cant have anything with NAs when factoring
+    mode_name_f = as.integer(as.factor(mode_name_f)), # need an integer for this
+    
+    mode_name_id = fcumsum((
+      mode_cat_id != flag(mode_cat_id, fill = TRUE) |               # (a)
+        mode_name_f != flag(mode_name_f, fill = TRUE)))) |>         # (b)
+  
+  relocate(mode_name_id, .after = recorded_hour) |> 
+  
+  
+  # changing fio2 to 0.21 if room air as category
+  mutate(fio2 = if_else(is.na(fio2) & device_category == "room air", 21, fio2)) |> 
+  
+  # erroneous set volumes are in places where they shouldn't be for PS and trach_dome
+  mutate(
+    set_volume = fifelse(
+      (
+        mode_category == "pressure support/cpap" &    # needs to be PS/CPAP
+          !is.na(pressure_support)                    # needs to have a PS level
+      ) |
+        (
+          is.na(mode_category) &                      # mode cat needs to be NA
+            str_detect(device_name, "trach")          # only when trach stuff
+        ) |
+        (
+          mode_category == "pressure support/cpap" &  # needs to be PS/CPAP
+            str_detect(device_name, "trach")          # only when trach stuff
+        ),
+      NA_integer_,
+      set_volume),
+    
+    
+  ) |>
+  
+  # there are ppl with t-piece that should be blow_by
+  mutate(mode_category = fifelse(
+    (is.na(mode_category) & 
+       str_detect(device_name, "t-piece")),
+    "blow by",
+    mode_category
+  )) |> 
+  
+  # carry forward the rest
+  group_by(encounter_id, mode_name_id) |>  # mode_name_id is the most granular, can go up and down
+  arrange(encounter_id, recorded_dttm) |> 
+  
+  # took trach out of this so we don't fill back up 3/2024
+  fill(c(fio2, peep, set_volume, pressure_support, set_resp_rate,
+         exhaled_volume, pressure_inspiratory,  minute_vent, 
+         hospital_id, location_name, location_category, in_dttm, out_dttm
+  ), .direction = "downup"
+  ) |>
+  
+  # fill trach... only down
+  fill(c(tracheostomy), .direction = "down") |>
+  ungroup() |> 
+  
+  # need to get rid of duplicates 
+  distinct() |> 
+  select(
+    encounter_id,
+    recorded_dttm,
+    recorded_date,
+    recorded_hour,
+    mode_name_id,
+    device_category,
+    device_name,
+    mode_category,
+    mode_name,
+    mode_cat_id,
+    device_id,
+    device_cat_id,
+    fio2,
+    peep,
+    tracheostomy,
+    set_volume,
+    pressure_support,
+    set_resp_rate,
+    exhaled_volume,
+    # pressure_meanairway,
+    pressure_inspiratory,
+    pressure_plateau,
+    # obs_resp_rate,
+    minute_vent,
+    hospital_id,
+    location_name,
+    location_category,
+    # in_dttm,
+    # out_dttm,
+    # device_cat_f,
+    # device_name_f,
+    # mode_cat_f,
+    # mode_name_f,
+  ) 
+
+ni_toc()
+```
+
+
+```{r}
+### remaining issues
+# [ ]  Issue with what to do when there are PS numbers with Trach Dome... should we show it as PS or leave blank
+
+
+
+df_resp_support |> glimpse() 
+# df_resp_support |> count(device_category, device_name) |> arrange(-n) |> print(n=1000)
+# df_resp_support |> count(mode_category, mode_name) |> arrange(-n)
+# df_resp_support |> count(device_category, device_name, mode_category, mode_name) |> arrange(-n)
+# df_resp_support |> filter(is.na(device_category)) |> count(device_category, device_name, mode_category, mode_name) |> ni_peek(1000)
+
+
+## this is just a stopping point so you can come back and work below 
+## just run things before "Cleaning Data" and you can start below if its been saved once!
+write_fst(df_resp_support, "clean_db/df_resp_support.fst")
+
+
+```
+
+
+## Vitals / ibw / labs
+```{r}
+######################
+##~~ clean vitals and get ibw
+######################
+
+# quickly get back to things without doing the above
+if(!exists("df_resp_support")){
+  df_resp_support <- read_fst("clean_db/df_resp_support.fst")
+}
+
+##~~~~~~~~~~~~~
+##~~ spo2
+##~~~~~~~~~~~~~
+
+df_spo2 <- clif_vitals |> 
+  
+  # getting spo2
+  filter(vital_category == "spo2") |> 
+  
+  # making those columns
+  pivot_wider(
+    id_cols = c(encounter_id, recorded_dttm),
+    names_from = vital_category,
+    values_from = vital_value,
+    values_fn = function(x) mean(x, na.rm = TRUE)
+  ) |> 
+  
+  # getting date so we can group by this
+  mutate(recorded_date = date(recorded_dttm),
+         recorded_hour = hour(recorded_dttm)) |> 
+  
+  # taking the min spo2 by  DAY and HOUR and ENCOUNTER 
+  group_by(encounter_id, recorded_date, recorded_hour) |> 
+  summarize(spo2 = fmin(spo2, na.rm = TRUE)) |> 
+  ungroup() |> 
+  select(encounter_id, recorded_date, recorded_hour, spo2)
+  
+
+##~~~~~~~~~~~~~
+##~~ pao2 / sao2
+##~~~~~~~~~~~~~
+
+df_pao2 <-  clif_labs |> 
+  
+  select(encounter_id, recorded_dttm = lab_result_dttm, lab_category, lab_value) |>
+
+  # getting pao2 / sao2
+  pivot_wider(
+    id_cols = c(encounter_id, recorded_dttm),
+    names_from = lab_category,
+    values_from = lab_value,
+    values_fn = function(x) mean(x, na.rm = TRUE)
+  ) |> 
+  
+    # getting date so we can group by this
+  mutate(recorded_date = date(recorded_dttm),
+         recorded_hour = hour(recorded_dttm)) |> 
+  
+  # grouping by day
+  group_by(encounter_id, recorded_date) |> 
+  summarize(pao2 = fmin(pao2, na.rm = TRUE),
+            sao2 = fmin(sao2, na.rm = TRUE)
+            ) |> 
+  ungroup() |> 
+      # getting date so we can group by this
+  mutate(recorded_hour = hour(recorded_date)) |> 
+  select(encounter_id, recorded_date, recorded_hour, pao2, sao2)
+
+##~~~~~~~~~~~~~
+##~~ ibw
+##~~~~~~~~~~~~~
+
+df_ibw <- clif_vitals |> 
+  
+  # getting height and spo2
+  filter(vital_category == "height_inch") |> 
+  
+  # making those columns
+  pivot_wider(
+    id_cols = c(encounter_id, recorded_dttm),
+    names_from = vital_category,
+    values_from = vital_value,
+    values_fn = function(x) mean(x, na.rm = TRUE)
+  ) |> 
+
+  group_by(encounter_id) |> 
+  
+  # taking the first height DAY and ENCOUNTER
+  summarize(height_inch = ffirst(height_inch, na.rm = TRUE)) |> 
+  ungroup() |> 
+  
+  # get biological sex
+  left_join(clif_patient_demographics |> 
+             select(encounter_id, sex)
+            ) |> 
+  
+  # Calculate ibw for males
+  mutate(ibw = fifelse(sex == "male" & height_inch > 56, 50 + (2.3 * (height_inch - 60)), NA_real_)) |>  # 1st % of male = 60 inches
+  
+  # Calculate ibw for females
+  mutate(ibw = fifelse(sex == "female" & height_inch > 56, 45.5 + (2.3 * (height_inch - 60)), ibw)) |>  # 1st % of female = 56 inches
+  
+  # Remove records with height less than 40
+  # This also removes those without a height for the whole admission, which is ok... can't do LTVV without height known
+  filter(height_inch >= 40) |>  # assumming these are kiddos and/or amputees which means IBW will be inaccurate
+  group_by(encounter_id) |> 
+  
+  # using first ibw for the encounter
+  mutate(ibw = ffirst(ibw, na.rm = TRUE)) |> 
+  
+  # getting only the variables we want
+  select(encounter_id, ibw, sex) |> 
+  ungroup() |> 
+  distinct()
+
+
+```
+
+## Trach Variation
+```{r}
+
+   # getting trach hospital (first one with trach == 1)
+trach_hospital_id <- df_resp_support |> 
+  filter(tracheostomy == 1) |> 
+  select(encounter_id, recorded_date, trach_hospital_id = hospital_id) |> 
+  arrange(encounter_id, recorded_date) |> 
+  group_by(encounter_id) |> 
+  mutate(trach_hospital_id = ffirst(trach_hospital_id)) |> 
+  select(encounter_id, trach_hospital_id) |> 
+  distinct() 
+
+  # get the first trach day by encounter only
+trach_day1 <- df_resp_support |> 
+  filter(tracheostomy == 1) |> 
+  select(encounter_id, recorded_date) |> 
+  arrange(encounter_id, recorded_date) |> 
+  group_by(encounter_id) |> 
+  mutate(trach_day1 = fmin(recorded_date, na.rm = TRUE)) |> 
+  select(encounter_id, trach_day1) |> 
+  distinct() 
+
+  # get the first ventilator day by encounter only
+vent_day1 <- df_resp_support |> 
+  filter(device_category == "vent") |> 
+  select(encounter_id, recorded_date) |> 
+  arrange(encounter_id, recorded_date) |> 
+  group_by(encounter_id) |> 
+  mutate(vent_day1 = fmin(recorded_date, na.rm = TRUE)) |> 
+  select(encounter_id, vent_day1) |> 
+  distinct() 
+  
+df_trach_variation <- df_resp_support |> 
+  # keep encounters that have a tracheostomy
+  mutate(tracheostomy_max = fmax(tracheostomy, na.rm = TRUE),
+         .by = encounter_id) |> 
+  filter(tracheostomy_max == 1) |> 
+  
+  # getting vent days or trach days ONLY
+  filter(device_category == "vent" | tracheostomy == 1) |> 
+  
+  select(encounter_id, recorded_date, tracheostomy) |> 
+  distinct() |> 
+  
+  arrange(encounter_id, recorded_date) |> 
+  
+  # getting vent day count
+  ungroup() |> 
+  
+  # getting vent day count because some ppl might have days OFF the vent in between if we just do min(vent_day)
+  group_by(encounter_id) |> 
+  
+  # this will give 1, 2, 3, 4, 5 as long as its the same encounter_id and trach is NA
+  # once trach == 1 it parks at that max number so we can just take max
+  # also... we can drop those with vent_day_count == 0 because that means they had the trach on vent day 1!!!
+  mutate(vent_day_count = fcumsum(
+    is.na(tracheostomy)
+  )) |> 
+  left_join(trach_day1) |> 
+  left_join(vent_day1) |> 
+  left_join(trach_hospital_id) |> 
+  
+  # get rid of those with zero vent_day_count (aka they were trached the whole time)
+  filter(vent_day_count > 0) |> 
+  select(encounter_id, trach_hospital_id, trach_day1, vent_day1, vent_day_count) |> 
+  mutate(vent_day_count_max = max(vent_day_count, na.rm = TRUE)) |> 
+  
+  # true "trach_day" is vent_day_count_max - 1 because we didn't have a vent_day_zero... we started at 1
+  mutate(vent_days_before_trach = vent_day_count_max - 1) |> 
+  
+  mutate(
+  trach_day = difftime(trach_day1, vent_day1, units = "days")
+    ) |>
+  select(encounter_id, trach_hospital_id, vent_days_before_trach) |> 
+  ungroup() |>
+  distinct()
+
+df_trach_variation |> glimpse()
+  
+```
+
+## CLIF hourly level data
+
+```{r}
+
+##~~~~~~~~~~~~~
+##~~ Hourly Data
+##~~~~~~~~~~~~~
+
+df_hourly_resp_support1 <- df_resp_support |> 
+  mutate(recorded_month = month(recorded_dttm),
+         recorded_year = year(recorded_dttm)) |> 
+  
+  #~~ use recorded time to arrange these in order
+  arrange(encounter_id, recorded_dttm) |> 
+  
+  # change recorded_dttm to be the same thing at the end of the hour so we can do calculations later
+  group_by(encounter_id, recorded_date, recorded_hour) |> 
+  mutate(recorded_dttm_hour_end = flast(recorded_dttm)) |> 
+  ungroup() |> 
+  
+  #~~ vent sequence variable
+      # only go up in number if (a) new category & (b) its a vent category
+      # could add a gap to this as well for like hours and such
+  arrange(encounter_id, recorded_date) |> 
+  mutate(gap_vent_hours = fifelse(
+    device_category == "vent" | tracheostomy == 1,
+    as.numeric(difftime(lead(recorded_dttm_hour_end), recorded_dttm_hour_end, units = "hours")),
+    NA_real_
+  )) |> 
+  
+  group_by(encounter_id) |> 
+  mutate(
+    device_category_f = fifelse(is.na(device_category), "missing", device_category), # cant have anything with NAs when factoring
+    device_category_f = as.integer(as.factor(device_category_f)), # need an integer for this
+    
+    # you step to the next vent sequence if
+    #    1) its a vent
+    #    2) its a NEW device cat
+    #    3) trach is na
+    #    4) gap is <= 6
+    vent_episode_id = fcumsum(
+      device_category == "vent" & 
+        flag(device_category_f, fill = TRUE) != device_category_f &
+        is.na(tracheostomy) & 
+        gap_vent_hours <= 6
+    )) |> 
+  ungroup() 
+
+df_hourly_resp_support2 <- df_hourly_resp_support1 |> 
+  
+  # currently those with trach right away are zeros for vent_id
+  # those without vent or were subsequent after vent are currently the same number as the vent before
+  mutate(
+    # change those not with trach/vent to NA
+    vent_episode_id = fifelse(
+      device_category == "vent" | tracheostomy == 1,
+      vent_episode_id,
+      NA_real_
+    ),
+    
+    # change those trach'd on day1 without vent beforehand to enc_sequence 1
+    vent_episode_id = fifelse(
+      tracheostomy == 1 & vent_episode_id == 0,
+      1,
+      vent_episode_id
+    )
+  ) |> 
+  
+  # getting vent hour per sequence
+  group_by(encounter_id, vent_episode_id) |> 
+  mutate(vent_episode_hour_seq = fcumsum(
+    recorded_dttm_hour_end != flag(recorded_dttm_hour_end, fill = TRUE))
+  ) |> 
+  
+  # fix those not vent back to NA
+  mutate(vent_episode_hour_seq = fifelse(is.na(vent_episode_id), NA_real_, vent_episode_hour_seq)) |> 
+  
+  # get max hours per vent sequence... want to drop those <=24
+  mutate(vent_episode_duration_hours = fmax(vent_episode_hour_seq, na.rm = TRUE)) |>
+
+  ungroup() |> 
+
+  # final variables
+  select(
+  encounter_id,
+  recorded_date,
+  recorded_hour,
+  recorded_dttm_hour_end,
+  vent_episode_id,
+  vent_episode_hour_seq,
+  vent_episode_duration_hours,
+  # recorded_dttm,
+  device_category,
+  device_name,
+  mode_category,
+  mode_name,
+  fio2,
+  recorded_month,
+  recorded_year,
+  peep,
+  tracheostomy,
+  set_volume,
+  hospital_id,
+  location_name,
+  location_category,
+  pressure_support,
+  set_resp_rate,
+  exhaled_volume,
+  # pressure_meanairway,
+  pressure_inspiratory,
+  pressure_plateau,
+  # obs_resp_rate,
+  minute_vent,
+  ) |>
+  
+  #~~ group by hour so that we can take the first time point to get our information
+  # this will only keep the first row if there are duplicates
+  distinct(encounter_id, recorded_date, recorded_hour, .keep_all = TRUE) |> 
+  left_join(df_ibw) |> 
+  left_join(df_spo2) |> 
+  
+  # those without ibw need to be dropped... they won't have biological sex either (this drops whole encounters)
+  filter(!is.na(ibw)) |> 
+  
+  group_by(encounter_id) |>
+  arrange(encounter_id, recorded_dttm_hour_end) |> 
+
+  
+  # getting each hour in sequence of their hospital stay
+  mutate(enc_hour_seq = fcumsum(recorded_dttm_hour_end != flag(recorded_dttm_hour_end, fill = TRUE))) |>
+  
+  # getting the CALENDAR sequence... purely based on date... so day 1 can be 3 hours
+  mutate(enc_calendar_date_seq = fcumsum(recorded_date != flag(recorded_date, fill = TRUE))) |>
+  
+  # getting DAY sequence based on which hour it is... so everyone will be 24 hours in for day 1 etc
+  # Will mainly use this metric to use
+  mutate(enc_day_seq = ceiling(enc_hour_seq/24)) |> 
+  ungroup() |> 
+  
+  # merge trach variation data
+  left_join(df_trach_variation)
+
+
+ni_toc()
+  
+df_hourly_resp_support <- df_hourly_resp_support2 |> 
+   # final variables
+    select(
+      encounter_id,
+      # recorded_date,
+      # recorded_hour,
+      # recorded_dttm_hour_end,
+      vent_episode_id,
+      vent_episode_hour_seq,
+      vent_episode_duration_hours,
+      device_category,
+      device_name,
+      mode_category,
+      mode_name,
+      fio2,
+      recorded_month,
+      recorded_year,
+      peep,
+      tracheostomy,
+      set_volume,
+      hospital_id,
+      location_name,
+      location_category,
+      ibw,
+      sex,
+      spo2,
+      enc_hour_seq,
+      enc_calendar_date_seq,
+      enc_day_seq,
+      trach_hospital_id,
+      vent_days_before_trach
+      )
+
+
+# duplicate check
+# df_hourly_resp_support |> group_by(pick(colnames(df_hourly_resp_support))) |> filter(n() > 1) 
+
+write_fst(df_hourly_resp_support, "clean_db/df_hourly_resp_support.fst")
+
+
+rm(clif_vitals)
+gc()
+```
+
+
+
+
+
+## Fig 1 Mode Variation --> Frequency and Density of Vent Mode by hospitals
+```{r}
+if(!exists("df_hourly_resp_support")){
+  df_hourly_resp_support <- read_fst("clean_db/df_hourly_resp_support.fst")
+}
+
+
+##~~~~~~~~~~~~~
+##~~ Hospital Summary
+##~~~~~~~~~~~~~
+
+## data should be at the hourly level for each patient encounter
+# Calculate normalized counts
+mode_hospital_summary_table <- df_hourly_resp_support |> 
+  filter(device_category == "vent" & location_category == "icu") |> 
+  filter(!is.na(mode_category)) |> 
+  group_by(hospital_id) |> 
+  summarise(count = n()) |> 
+  # Normalizing counts
+  mutate(normalized_count = count / fmax(count, na.rm = TRUE),
+         # need to have NA in the data given its in the universal aesthetic
+         mode_category = NA)  |> 
+  arrange(-count) |> 
+  ungroup()
+
+write_fst(mode_hospital_summary_table, paste0("tables/mode_hospital_summary_table",clif_institution,".fst"))
+
+
+##~~~~~~~~~~~~~
+##~~ Graph df
+##~~~~~~~~~~~~~
+
+mode_hourly_resp_support <- df_hourly_resp_support |> 
+    filter(
+      # recorded_year == 2019 &
+      device_category == "vent" &  
+        location_category == "icu"  # take out operating room ventilation
+    ) |> 
+    
+    filter(!is.na(mode_category)) |>   # only 0.7% for vent device
+   mutate(
+      mode_category = fct_infreq(mode_category),
+      hospital_id_graph = fct_infreq(hospital_id)
+    ) |> 
+  select(hospital_id_graph, mode_category)
+
+mode_hourly_resp_support_table <- mode_hourly_resp_support |> 
+  count(hospital_id_graph, mode_category)
+  
+test_mode <- mode_hourly_resp_support_table |> 
+  uncount(n) 
+
+write_fst(mode_hourly_resp_support_table, paste0("tables/mode_hourly_resp_support_table_",clif_institution,".fst"))
+
+```
+
+
+```{r}
+# Nick will run the below on the table you saved with all data together
+# ... so no need to save the graph
+# Left the code  so you can explore your own data
+
+# Create a bar plot with ggplot2
+ggplot(
+  mode_hourly_resp_support,  aes(x = hospital_id_graph, fill = mode_category)) +
+  geom_bar(position = "fill") +
+  # Use labs to add a title and remove the axis labels
+  labs(title = "Ventilator Modes by Hospital", x = "Hospital", y = "Proportion of Mode Category") + 
+  # Use theme_minimal to create a minimal theme
+  theme_minimal() +
+  # adjusting tick marks for x axis
+  theme(axis.text.x = element_text(angle = 30, hjust = 1, vjust = 1)) +
+  # Add the summary data as a layer with a dummy aesthetic for color
+  geom_point(data = mode_hospital_summary_table, aes(x = hospital_id, y = normalized_count, color = "Total Counts"), size = 3) +
+  # Add horizontal lines at the height of each point, only spanning the width of the bar
+  geom_errorbar(data = mode_hospital_summary_table, aes(x = hospital_id, ymin = normalized_count, ymax = normalized_count, group = 1, color = "Total Counts"),
+                width = 0.9,  # Adjust this value to change the width of the horizontal lines
+                linewidth = 0.5) +  # Adjust size for line thickness
+  # geom_line(data = mode_hospital_summary_table, aes(x = hospital_id_graph, y = normalized_count, group = 1, color = "Total Counts"), linewidth = 1) +
+  # Customize the legend for the dummy aesthetic
+  scale_color_manual(name = "Legend", values = c("Total Counts" = "black"),
+                     labels = c("Total Counts" = "Total Mode Counts (Normalized)")) +
+  guides(fill = guide_legend(title = "Ventilator Mode Category", override.aes = list(color = NA)), 
+         color = guide_legend(title = "")) +
+  scale_fill_discrete(breaks = c("assist control-volume control", 
+                                 "pressure support/cpap", 
+                                 "pressure-regulated volume control",
+                                 "pressure control", 
+                                 "simv", 
+                                 "blow by"))
+
+
+
+```
+
+## Fig 2 Trach Variation --> Estimated Day of ventilation of Trach placement by hospitals
+```{r}
+# clean up trach days
+ trach_variation <- df_hourly_resp_support |> 
+  filter(!is.na(vent_days_before_trach)) |> 
+  select(encounter_id, trach_hospital_id, vent_days_before_trach) |> 
+  ungroup() |>
+  distinct()
+
+
+trach_variation_table <- trach_variation |>
+  count(trach_hospital_id, vent_days_before_trach)
+  
+test_trach <- trach_variation_table |> 
+  uncount(n) 
+
+write_fst(trach_variation_table, paste0("tables/trach_variation_table_",clif_institution,".fst"))
+
+```
+
+
+```{r}
+# Nick will run the below on the table you saved with all data together
+# ... so no need to save the graph
+# Left the code  so you can explore your own data
+# 
+# 
+trach_excl_early_trach <- trach_variation |> filter(vent_days_before_trach > 3)
+
+# Create a boxplot
+ggplot(trach_variation, aes(x = trach_hospital_id, y = vent_days_before_trach)) +
+  geom_boxplot() +
+  labs(title = "Variation in Tracheostomy Ventilator Day Across Hospitals",
+       x = "Hospital",
+       y = "Ventilator Day for Tracheostomy")
+
+
+# Create a violin plot
+ggplot(trach_variation, aes(x = trach_hospital_id, y = vent_days_before_trach)) +
+  geom_violin() +
+  labs(title = "Variation in Tracheostomy Ventilator Day Across Hospitals",
+       x = "Hospital",
+       y = "Ventilator Day for Tracheostomy")
+
+
+ggplot(trach_variation, aes(x = trach_hospital_id, y = vent_days_before_trach, fill = factor(trach_hospital_id))) +
+  # geom_boxplot(width = 0.1, fill = "white", outlier.shape = NA) + # Hide outliers for the boxplot
+  # geom_jitter(width = 0.2, size = 1.5, alpha = 0.4) +
+  geom_violin(adjust = 2) +
+  labs(title = "Variation in Tracheostomy Ventilator Day Across Hospitals",
+       x = "Hospital",
+       y = "Ventilator Day for Tracheostomy") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  # theme_light() +
+  guides(fill = guide_legend(title = "Hospital ID"))
+
+
+# trach_variation |> filter(vent_days_before_trach > 30) |> View()
+
+```
+
+
+## Fig 3 Initial Set Volume / ibw Variation 
+```{r}
+ltvv_variation <- df_hourly_resp_support |> 
+  # keep only those on vent and exclude non-icu times
+  filter(device_category == "vent" & location_category == "icu") |> 
+  
+  # need at least 24 hours of ventilation
+  filter(vent_episode_duration_hours >= 24) |> 
+  
+  # getting Vt by ibw
+  mutate(vt_cckg = set_volume / ibw) |> 
+  mutate(vt_bin = case_when(
+    vt_cckg <  4            ~"< 4 cc/kg",
+    vt_cckg <  5            ~"4-5 cc/kg",
+    vt_cckg <  6            ~"5-6 cc/kg",
+    vt_cckg <  7            ~"6-7 cc/kg",
+    vt_cckg <  8            ~"7-8 cc/kg",
+    vt_cckg <  9            ~"8-9 cc/kg",
+    vt_cckg <  10           ~"9-10 cc/kg",
+    vt_cckg <  11           ~"10-11 cc/kg",
+    vt_cckg <  12           ~"11-12 cc/kg",
+    vt_cckg >= 12           ~">= 12 cc/kg",
+    TRUE                    ~NA,
+  )) |> 
+  mutate(
+    vt_bin = factor(vt_bin, levels = rev(c("< 4 cc/kg", "4-5 cc/kg",
+                                           "5-6 cc/kg", "6-7 cc/kg",
+                                           "7-8 cc/kg" , "8-9 cc/kg",
+                                           "9-10 cc/kg", "10-11 cc/kg",
+                                           "11-12 cc/kg", ">= 12 cc/kg")))
+  ) |> 
+
+  # remove those without set_volumes
+  filter(!is.na(set_volume)) |> glimpse() 
+
+
+ltvv_variation_table <- ltvv_variation |> 
+  count(hospital_id, vt_bin)
+
+test_ltvv <- ltvv_variation_table |> 
+  uncount(n) 
+
+write_fst(ltvv_variation_table, paste0("tables/ltvv_variation_table_",clif_institution,".fst"))
+```
+
+
+```{r}
+
+# Nick will run the below on the table you saved with all data together
+# ... so no need to save the graph
+# Left the code  so you can explore your own data
+
+icu_hosp_ranks_8cc <- ltvv_variation |> 
+  group_by(hospital_id) |> 
+  mutate(count_hosp = n()) |> 
+  group_by(hospital_id, vt_bin, count_hosp) |> 
+  summarise(count_bin = n()) |> 
+  ungroup() |>
+  filter(vt_bin %in% c("8-9 cc/kg","9-10 cc/kg", "10-11 cc/kg", "11-12 cc/kg", ">= 12 cc/kg")) |> 
+  group_by(hospital_id) |> 
+  mutate(pct_over_8 = sum(count_bin) / count_hosp) |> 
+  select(hospital_id, pct_over_8) |> 
+  distinct() |>
+  arrange(pct_over_8) |>  
+  pull(hospital_id)
+
+
+
+ltvv_variation |> 
+  mutate(hospital_id = factor(hospital_id, levels = rev(icu_hosp_ranks_8cc))) |> 
+  ggplot(aes(y = hospital_id, fill = vt_bin )) + 
+  geom_bar(position = "fill") + 
+  scale_fill_brewer(palette = "RdBu", direction = 1) +
+  ggthemes::theme_gdocs() + 
+  labs(x = "Percentage of patient-hours of volume control ventilation",
+       y = "Hospital",
+       fill = "")
+ggsave("figures/variation_in_vent_under_8cc_sort.pdf")
+
+
+
+```
+
+
+## Table 1 CLIF patient characteristics
+```{r}
+
+
+#TABLE FUNCTIONS
+clif_med = function(v)
+{
+  a=  paste(round(median(v, na.rm = TRUE), digits =1), " (", deframe(round(quantile(v, na.rm = TRUE), digits =1)[2]), "-", deframe(round(quantile(v, na.rm = TRUE), digits = 1)[4]), ")", sep = "")
+  return(a)
+}
+
+clif_counts = function(v)
+{
+  a=  paste(sum(v, na.rm=TRUE), " (", round(mean(v, na.rm=TRUE)*100, digits=1), ")", sep = "")
+  return(a)
+}
+
+clif_mean_r = function(v)
+{
+  a=  paste(round(mean(v, na.rm = TRUE), digits=1), " (", round(sd(v, na.rm = TRUE), digits=1), ")", sep = "")
+  return(a)
+}
+
+
+clif_demographics_table_start <- df_hourly_resp_support |> 
+  select(encounter_id, tracheostomy, hospital_id, vent_episode_duration_hours) |> 
+  distinct() |> 
+  # bring in demographics
+  left_join(clif_demographics_combined) |> 
+  filter(!is.na(age_at_admission)) |> 
+  filter(sex != "unknown")  |> 
+  mutate(race = fifelse(race == "unknown", "other", race)) |> 
+  mutate(death = ifelse(disposition %in% c("expired", "hospice"), 1, 0)) 
+
+table_summary <- clif_demographics_table_start |> 
+  group_by(hospital_id) |> 
+  summarise(N = n(), 
+            Age               = clif_mean_r(age_at_admission),
+            "Sex, female"     = clif_counts(sex == "female"),
+            Race              = "",
+            Black             = paste0("  ", clif_counts(race == "black or african-american")),
+            White             = paste0("  ", clif_counts(race == "white")),
+            Asian             = paste0("  ", clif_counts(race == "asian")),
+            Other             = paste0("  ", clif_counts(!race %in% c("black or african-american", "white", "asian"))),
+            "Ethnicity, Hispanic/Latino"   = clif_counts(ethnicity == "hispanic/latino"),
+            
+            "Ventilator Days" = clif_med(vent_episode_duration_hours/24),
+            "Mortality"       = clif_counts(death)
+  ) |> 
+  mutate(hospital_id = str_to_title(hospital_id)) |> 
+  rename(Hospital = hospital_id)
+
+
+characteristics <- colnames(table_summary)
+# table_summary <- as.data.frame(t(table_summary))
+# characteristics
+
+# leaving it without transposing it yet
+table_summary
+write_fst(table_summary, paste0("tables/hospital_table_summary_",clif_institution,".fst"))
+```
+
+
+###### Not doing right now... maybe after ATS~~~~~~~~~~~~~~~~~~~
+## Table 2 Predictors of Mode Variation / Trach Variation / LTVV Variation / Prone Variation
+```{r}
+
+```
+
+

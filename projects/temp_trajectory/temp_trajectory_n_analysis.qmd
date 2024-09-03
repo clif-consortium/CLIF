@@ -1,0 +1,114 @@
+---
+title: "observation_number_qc"
+format: pdf
+editor: visual
+---
+
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+```{r}
+tables_location <- 'projects/temp_trajectory/tables'
+table_path <- here(tables_location)
+```
+
+```{r}
+# read all the csv files in the tables folder
+csv_table_filenames <- list.files(path = table_path, 
+                                   pattern = "^.*\\.csv$", full.names = TRUE)
+
+# Read all csv files into a list of data frames and then extract
+data_list <- lapply(csv_table_filenames, read_csv)
+
+
+all_data <- tibble()
+for (i in seq_along(csv_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(csv_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+  
+  all_data <- bind_rows(all_data, data_list[[i]] %>% mutate(file = object_name))
+}
+
+```
+
+site names: Site Emory Health JHHS M Health Fairview University of Michigan Northwestern Medicine OHSU RUSH UChicago Medicine
+
+total_N: 19,923 18,325 11,576 6,877 14,184 9,046 9,905 8,079
+
+```{r}
+# convert the text above into a tibble with two columns
+site_names <- c("Emory Health", "JHHS", "M Health Fairview", "University of Michigan", "Northwestern Medicine", "OHSU", "RUSH", "UChicago Medicine")
+
+total_N <- c(19923, 18325, 11576, 6877, 14184, 9046, 9905, 8079)
+
+site_N <- tibble(site_names, total_N)
+
+site_N %>%
+  knitr::kable()
+```
+
+```{r}
+all_data %>%
+  pull(file) %>% unique()
+```
+
+```{r}
+# make `site_names` in the all_data tibble based on `file`
+all_data <- all_data %>%
+  mutate(site_names = case_when(
+    file == "table_temp_traj_cohort_EU.csv" ~ "Emory Health",
+    file == "table_temp_traj_cohort_JHU.csv" ~ "JHHS",
+    file == "table_temp_traj_cohort_UMN.csv" ~ "M Health Fairview",
+    file == "table_temp_traj_cohort_UMich.csv" ~ "University of Michigan",
+    file == "table_temp_traj_cohort_NU.csv" ~ "Northwestern Medicine",
+    file == "table_temp_traj_cohort_ohsu.csv" ~ "OHSU",
+    file == "table_temp_traj_cohort_RUSH.csv" ~ "RUSH",
+    file == "table_temp_traj_cohort_UCMC.csv" ~ "UChicago Medicine"
+  ))
+```
+
+```{r}
+all_data %>%
+  group_by(site_names, group) %>%
+  summarise(N_max = max(n)) %>%
+  pivot_wider(names_from = "group", values_from = "N_max") %>%
+  select(site_names, HSR, HFR, NT, HT) %>%
+  knitr::kable()
+```
+
+# Summarize the dropped observations by site
+
+```{r}
+summary_df <- all_data %>%
+  group_by(site_names, group) %>%
+  summarise(N_max = max(n)) %>%
+  ungroup() %>%
+  group_by(site_names) %>%
+  summarise(N_temp_trajectory = sum(N_max)) %>%
+  left_join(site_N, by = "site_names") %>%
+  mutate(dropped_observations = total_N - N_temp_trajectory,
+         percent_dropped = (dropped_observations / total_N) * 100) 
+
+summary_df %>%
+  knitr::kable(digits = 2)
+```
+
+# Overall missingness 
+
+```{r}
+summary_df %>%
+  ungroup() %>%
+  summarise(N_temp_trajectory = sum(N_temp_trajectory),
+            total_N = sum(total_N)) %>%
+  mutate(dropped_observations = total_N - N_temp_trajectory,
+         percent_dropped = (dropped_observations / total_N) * 100) %>%
+  knitr::kable()
+```

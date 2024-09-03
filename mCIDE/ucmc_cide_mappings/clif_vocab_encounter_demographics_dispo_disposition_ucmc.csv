@@ -1,0 +1,39 @@
+disposition_category,disposition_name,n,site
+Admitted,Admitted as an Inpatient to this Hospital,252,ucmc
+Admitted,Still Patient,6,ucmc
+Dead,Expired,4586,ucmc
+Discharged to another facility,Discharged/transferred to Skilled Nursing Facility (SNF) with Medicare Certification,13133,ucmc
+Discharged to another facility,Discharged/transferred to an Inpatient Rehab Facility (IRF),5607,ucmc
+Discharged to another facility,Disch/trans to Another Type of Health Care Inst not Defined Elsewhere in this List,3112,ucmc
+Discharged to another facility,Discharged/transferred to a Psychiatric Hospital or Psychiatric Hospital Unit,1676,ucmc
+Discharged to another facility,Discharged/transferred to a Medicare Certified Long Term Care Hospital (LTCH),1287,ucmc
+Discharged to another facility,Discharged/transferred to a Short-Term General Hospital for Inpatient Care,459,ucmc
+Discharged to another facility,Discharged/transferred to a Designated Cancer Center or Children's Hospital,288,ucmc
+Discharged to another facility,Discharged/transferred to Court/Law Enforcement,143,ucmc
+Discharged to another facility,Discharged/transferred to a Facility that Provides Custodial or Supportive Care,38,ucmc
+Discharged to another facility,Discharged/transferred to a Federal Health Care Facility,26,ucmc
+Discharged to another facility,Discharged/transferred to a Nursing Fac Certified under Medicaid but not Medicare,5,ucmc
+Discharged to another facility,Discharged/transferred to home under care of home IV therapy provider (disc 10/1/05),1,ucmc
+Home,Discharged to Home or Self Care (Routine Discharge),1301846,ucmc
+Home,Discharged/transferred to Home Under Care of Organized Home Health Service Org,21825,ucmc
+Home,Left Against Medical Advice or Discontinued Care,21750,ucmc
+Home,Left without being seen,7243,ucmc
+Home,Left before treatment complete,1261,ucmc
+Hospice,Hospice - Home,1448,ucmc
+Hospice,Hospice - Medical Facility (Certified) Providing Hospice Level of Care,791,ucmc
+Other,,16383,ucmc
+Other,Discharged/Transferred to a Psychiatric Hospital/Unit w/ Planned Inpatient Readmission,202,ucmc
+Other,Discharged-Transferred to another category of service,145,ucmc
+Other,Discharged/Transferred to another type of Healthcare Institution not defined elsewhere,126,ucmc
+Other,Discharged to Home/Self Care w/ Planned Acute Care Hospital Inpatient Admission,60,ucmc
+Other,Error on Reg (Shouldn't have been reg'd),56,ucmc
+Other,Discharged/Transferred to SNF w/Medicare CERT w/Planned Acute Care Hospital Inpatient Readmission,9,ucmc
+Other,Discharged/Transferred to Inpatient Rehab Facility/Unit w/ Planned Inpatient Readmission,7,ucmc
+Other,Discharged/Transferred to Court/Law Enforcement w/Planned Inpatient Readmission,5,ucmc
+Other,Discharged/Transferred to a Medicaid Only Certified Nursing Facility w/Planned Inpatient Readmission,4,ucmc
+Other,Discharged/Transferred to Short-Term Hospital for Inpatient Care w/Planned Acute Readmission,3,ucmc
+Other,Discharged/Transferred to a Critical Access Hospital w/Planned Inpatient Readmission,3,ucmc
+Other,Discharged/Transferred to a Designated Disaster Alternative Care Site,3,ucmc
+Other,Discharged/Transferred to a Facility that provides Custodial or Supportive Care w/ Planned Inpatient Readmission,2,ucmc
+Other,Discharged/Transferred to Federal Health Care Facility w/ Planned Inpatient Readmission,1,ucmc
+Other,Discharged/Transferred to a Medicare Certified Long Term Care Hospital w/ Planned Inpatient Readmission,1,ucmc

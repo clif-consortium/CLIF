@@ -1,0 +1,10 @@
+﻿vital_category,lower_limit,upper_limit
+height_inches,0,96
+weight_kg,0,1100
+sbp,0,300
+dbp,0,200
+map,0,250
+pulse,0,300
+respiratory_rate,0,60
+spo2,0,100
+temp_c,11,44

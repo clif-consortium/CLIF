@@ -1,0 +1,1428 @@
+patient_id,encounter_id,sex,race,ethnicity
+1033,1760,Female,White,Hispanic
+1033,1979,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1033,1943,Female,American Indian or Alaska Native,Hispanic
+1047,2014,Male,Other,Non-hispanic
+1047,2282,Male,White,Non-hispanic
+1047,1948,Female,Black,Non-hispanic
+1047,1032,Male,Unknown,Non-hispanic
+1047,1366,Female,Other,Hispanic
+1047,1831,Male,Black,Non-hispanic
+1047,2234,Female,White,Non-hispanic
+1047,1479,Male,Black,Hispanic
+1047,2148,Female,American Indian or Alaska Native,Hispanic
+1047,1515,Male,Other,Non-hispanic
+1047,1587,Male,Other,Hispanic
+1047,1522,Female,White,Non-hispanic
+1047,2109,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1047,2158,Female,American Indian or Alaska Native,Hispanic
+1047,2190,Female,Black,Hispanic
+1047,1125,Female,White,Non-hispanic
+1047,1362,Female,American Indian or Alaska Native,Non-hispanic
+1047,1690,Female,Black,Hispanic
+1047,2157,Female,White,Hispanic
+1047,1856,Female,Unknown,Non-hispanic
+1047,2128,Male,Asian,Non-hispanic
+1047,1021,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1047,1719,Male,Black,Hispanic
+1047,1099,Male,Unknown,Non-hispanic
+1047,1381,Female,Black,Hispanic
+1047,2018,Male,Asian,Hispanic
+1047,1132,Male,Asian,Hispanic
+1047,2254,Female,Other,Non-hispanic
+1047,1717,Female,American Indian or Alaska Native,Non-hispanic
+1047,1763,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1047,1915,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1047,1346,Male,Black,Non-hispanic
+1047,1057,Male,Asian,Non-hispanic
+1047,1701,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1047,2114,Female,White,Non-hispanic
+1047,1513,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1047,1666,Female,Black,Non-hispanic
+1047,1107,Male,Unknown,Non-hispanic
+1008,1404,Female,Other,Hispanic
+1008,2311,Male,Other,Non-hispanic
+1008,1213,Male,Unknown,Non-hispanic
+1008,1917,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1008,2203,Female,American Indian or Alaska Native,Hispanic
+1008,1134,Male,Asian,Hispanic
+1008,2004,Female,Unknown,Non-hispanic
+1008,1681,Male,Black,Non-hispanic
+1008,2285,Male,Black,Hispanic
+1008,2165,Female,Asian,Non-hispanic
+1030,1179,Female,Other,Non-hispanic
+1030,1785,Male,Asian,Hispanic
+1030,1428,Male,Asian,Non-hispanic
+1030,1354,Male,Unknown,Non-hispanic
+1046,1342,Female,Black,Hispanic
+1036,1677,Male,Asian,Hispanic
+1036,1034,Male,Unknown,Hispanic
+1036,1455,Female,Asian,Non-hispanic
+1036,1738,Female,Black,Hispanic
+1036,1762,Female,Black,Non-hispanic
+1036,1367,Female,American Indian or Alaska Native,Non-hispanic
+1049,1184,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1049,1662,Female,White,Non-hispanic
+1049,1049,Male,Black,Hispanic
+1049,1153,Male,White,Hispanic
+1049,1442,Male,American Indian or Alaska Native,Hispanic
+1049,1220,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1049,1220,Male,Unknown,Non-hispanic
+1049,2307,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1049,2303,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1049,1386,Male,Unknown,Hispanic
+1049,2266,Male,American Indian or Alaska Native,Hispanic
+1049,1942,Male,Asian,Hispanic
+1049,1942,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1049,1243,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1049,1187,Female,American Indian or Alaska Native,Non-hispanic
+1049,1857,Male,Asian,Hispanic
+1049,1857,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1049,1668,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1049,1887,Female,Asian,Hispanic
+1049,1934,Male,Black,Non-hispanic
+1049,2314,Male,Other,Hispanic
+1049,1401,Male,Unknown,Non-hispanic
+1049,1272,Female,Black,Hispanic
+1049,1558,Female,Other,Non-hispanic
+1049,1439,Female,Unknown,Non-hispanic
+1049,1003,Female,Unknown,Hispanic
+1049,2292,Female,Other,Non-hispanic
+1049,2124,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1049,2124,Female,Unknown,Hispanic
+1049,1094,Female,Other,Non-hispanic
+1049,1413,Female,White,Non-hispanic
+1049,1413,Male,Asian,Hispanic
+1049,1872,Male,Asian,Hispanic
+1049,1459,Female,White,Hispanic
+1049,1588,Male,Asian,Hispanic
+1049,1314,Male,American Indian or Alaska Native,Non-hispanic
+1049,1100,Male,Other,Non-hispanic
+1049,1126,Male,Asian,Hispanic
+1049,2281,Male,Asian,Hispanic
+1049,1734,Male,Asian,Hispanic
+1015,2178,Male,Unknown,Non-hispanic
+1015,1015,Male,Black,Hispanic
+1015,1068,Female,American Indian or Alaska Native,Non-hispanic
+1015,1133,Male,Asian,Non-hispanic
+1040,2072,Female,American Indian or Alaska Native,Hispanic
+1040,2072,Female,Unknown,Hispanic
+1040,1818,Male,American Indian or Alaska Native,Non-hispanic
+1040,1796,Male,American Indian or Alaska Native,Non-hispanic
+1040,1222,Male,White,Non-hispanic
+1040,1207,Male,Unknown,Non-hispanic
+1040,1207,Male,Asian,Non-hispanic
+1040,1914,Male,Black,Non-hispanic
+1040,2136,Female,Black,Hispanic
+1040,2139,Female,Other,Hispanic
+1040,2139,Female,Black,Non-hispanic
+1039,1172,Male,Black,Hispanic
+1039,1143,Female,Asian,Hispanic
+1039,1828,Female,Black,Non-hispanic
+1039,1859,Male,Unknown,Hispanic
+1039,1878,Male,Unknown,Hispanic
+1039,2001,Male,American Indian or Alaska Native,Hispanic
+1039,1747,Female,Other,Hispanic
+1039,1949,Female,White,Non-hispanic
+1039,2184,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1039,2100,Female,Black,Non-hispanic
+1039,1633,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1039,1550,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1039,1364,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1039,2264,Male,American Indian or Alaska Native,Non-hispanic
+1039,1700,Female,Unknown,Non-hispanic
+1039,1214,Male,Black,Hispanic
+1039,2147,Male,Asian,Non-hispanic
+1039,2244,Female,American Indian or Alaska Native,Hispanic
+1039,2062,Male,Other,Hispanic
+1029,1190,Male,Unknown,Hispanic
+1029,2321,Female,Other,Non-hispanic
+1029,2299,Male,Asian,Hispanic
+1029,2299,Female,Other,Hispanic
+1029,2177,Female,Unknown,Hispanic
+1029,1905,Female,Black,Hispanic
+1029,2077,Male,American Indian or Alaska Native,Hispanic
+1029,2091,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1373,Female,American Indian or Alaska Native,Non-hispanic
+1029,1531,Male,American Indian or Alaska Native,Hispanic
+1029,1901,Female,Black,Hispanic
+1029,2026,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,2164,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1033,Male,White,Non-hispanic
+1029,1093,Male,White,Hispanic
+1029,1008,Male,Unknown,Hispanic
+1029,1112,Male,Asian,Hispanic
+1029,2259,Female,White,Hispanic
+1029,2246,Male,Other,Non-hispanic
+1029,1971,Male,Black,Hispanic
+1029,2088,Male,American Indian or Alaska Native,Non-hispanic
+1029,2033,Male,Other,Non-hispanic
+1029,1048,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1056,Male,American Indian or Alaska Native,Non-hispanic
+1029,2049,Female,Black,Hispanic
+1029,1237,Female,Other,Hispanic
+1029,1604,Female,American Indian or Alaska Native,Non-hispanic
+1029,1955,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1906,Male,White,Non-hispanic
+1029,1851,Male,Other,Hispanic
+1029,1571,Male,Asian,Hispanic
+1029,1528,Male,Other,Non-hispanic
+1029,1911,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,2211,Female,Other,Hispanic
+1029,2013,Female,Other,Non-hispanic
+1029,1269,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,2051,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,2071,Male,Unknown,Non-hispanic
+1029,1869,Male,Unknown,Non-hispanic
+1029,2324,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1448,Male,Black,Non-hispanic
+1029,1774,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1357,Female,Unknown,Hispanic
+1029,1562,Female,Other,Non-hispanic
+1029,1098,Female,Unknown,Hispanic
+1029,2230,Female,American Indian or Alaska Native,Hispanic
+1029,1757,Male,Black,Non-hispanic
+1029,1524,Female,White,Hispanic
+1029,1993,Female,American Indian or Alaska Native,Non-hispanic
+1029,1742,Male,Unknown,Hispanic
+1029,1623,Male,Other,Non-hispanic
+1029,1382,Female,American Indian or Alaska Native,Non-hispanic
+1029,1843,Female,American Indian or Alaska Native,Hispanic
+1029,1482,Female,American Indian or Alaska Native,Non-hispanic
+1029,1298,Female,Black,Hispanic
+1029,1618,Female,White,Non-hispanic
+1029,1040,Female,Other,Hispanic
+1029,1910,Female,White,Non-hispanic
+1029,1640,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1238,Male,Unknown,Non-hispanic
+1029,1820,Male,Asian,Non-hispanic
+1029,1820,Male,Black,Hispanic
+1029,1002,Male,White,Hispanic
+1029,1798,Male,Unknown,Hispanic
+1029,1192,Female,Unknown,Non-hispanic
+1029,1454,Female,Black,Non-hispanic
+1029,1758,Female,Black,Hispanic
+1029,1992,Male,Unknown,Hispanic
+1029,2233,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,2252,Female,White,Hispanic
+1029,2031,Male,Asian,Non-hispanic
+1029,1560,Male,Asian,Hispanic
+1029,2150,Female,Asian,Non-hispanic
+1029,1061,Female,American Indian or Alaska Native,Non-hispanic
+1029,1600,Male,White,Hispanic
+1029,2054,Female,American Indian or Alaska Native,Hispanic
+1029,1780,Female,American Indian or Alaska Native,Hispanic
+1029,1960,Male,Unknown,Hispanic
+1029,1402,Male,American Indian or Alaska Native,Non-hispanic
+1029,1044,Female,Other,Hispanic
+1029,2201,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1800,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1202,Male,Black,Hispanic
+1029,1739,Female,Black,Non-hispanic
+1029,1963,Male,White,Non-hispanic
+1029,1535,Female,White,Non-hispanic
+1029,1310,Male,Other,Non-hispanic
+1029,1341,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1037,Female,Black,Non-hispanic
+1029,1660,Female,Unknown,Non-hispanic
+1029,1886,Male,Black,Non-hispanic
+1029,1091,Male,American Indian or Alaska Native,Non-hispanic
+1029,1520,Male,Asian,Non-hispanic
+1029,2003,Male,Unknown,Hispanic
+1029,1526,Female,Asian,Non-hispanic
+1029,2202,Female,Asian,Non-hispanic
+1029,1011,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1922,Male,Asian,Non-hispanic
+1029,1297,Female,Asian,Non-hispanic
+1029,1177,Female,American Indian or Alaska Native,Non-hispanic
+1029,2095,Male,White,Hispanic
+1029,1113,Female,Other,Hispanic
+1029,2162,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,2105,Male,Black,Hispanic
+1029,1626,Male,American Indian or Alaska Native,Non-hispanic
+1029,2066,Female,Asian,Non-hispanic
+1029,1578,Female,Black,Non-hispanic
+1029,1842,Male,American Indian or Alaska Native,Hispanic
+1029,1945,Male,Unknown,Hispanic
+1029,2265,Female,Unknown,Non-hispanic
+1029,2144,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1328,Female,Asian,Non-hispanic
+1029,1576,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1235,Female,Unknown,Non-hispanic
+1029,2227,Female,American Indian or Alaska Native,Non-hispanic
+1029,1368,Female,Black,Non-hispanic
+1029,1326,Male,White,Non-hispanic
+1029,1944,Female,Asian,Non-hispanic
+1029,2019,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1009,Male,Black,Hispanic
+1029,1707,Female,Black,Non-hispanic
+1029,1654,Female,White,Hispanic
+1029,1654,Male,American Indian or Alaska Native,Hispanic
+1029,1498,Male,White,Non-hispanic
+1029,2132,Male,Other,Hispanic
+1029,1983,Female,White,Hispanic
+1029,1779,Male,Other,Hispanic
+1029,1160,Female,American Indian or Alaska Native,Hispanic
+1029,2194,Female,American Indian or Alaska Native,Hispanic
+1029,1970,Female,American Indian or Alaska Native,Hispanic
+1029,1508,Male,Black,Non-hispanic
+1029,1639,Male,Black,Hispanic
+1029,2055,Female,Asian,Hispanic
+1029,1653,Female,Unknown,Hispanic
+1029,1861,Female,Asian,Hispanic
+1029,1787,Female,White,Hispanic
+1029,1400,Female,White,Hispanic
+1029,1400,Male,Asian,Non-hispanic
+1029,1925,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1775,Male,Unknown,Hispanic
+1029,1385,Male,White,Non-hispanic
+1029,2037,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1396,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1288,Female,Other,Hispanic
+1029,2183,Female,Unknown,Non-hispanic
+1029,1733,Male,Other,Hispanic
+1029,1822,Male,American Indian or Alaska Native,Hispanic
+1029,1721,Male,Black,Non-hispanic
+1029,1564,Female,Asian,Non-hispanic
+1029,2192,Male,Other,Hispanic
+1029,1371,Female,Unknown,Non-hispanic
+1029,2081,Male,Black,Hispanic
+1029,1783,Female,Asian,Hispanic
+1029,1792,Male,Black,Hispanic
+1029,2042,Male,Asian,Hispanic
+1029,2016,Male,Black,Hispanic
+1029,1790,Female,Other,Hispanic
+1029,1022,Male,American Indian or Alaska Native,Non-hispanic
+1029,1494,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,2069,Male,Asian,Non-hispanic
+1029,1565,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,2135,Male,Asian,Hispanic
+1029,1356,Female,Unknown,Non-hispanic
+1029,2138,Male,Unknown,Non-hispanic
+1029,1903,Male,Asian,Non-hispanic
+1029,2175,Female,American Indian or Alaska Native,Hispanic
+1029,2200,Female,Black,Hispanic
+1029,1315,Male,Asian,Non-hispanic
+1029,1655,Female,Black,Hispanic
+1029,1176,Male,American Indian or Alaska Native,Hispanic
+1029,1657,Male,White,Hispanic
+1029,2067,Female,Other,Non-hispanic
+1029,1972,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1447,Male,Asian,Non-hispanic
+1029,2116,Male,Other,Non-hispanic
+1029,1296,Male,Unknown,Hispanic
+1029,2291,Male,American Indian or Alaska Native,Hispanic
+1029,1991,Female,Black,Hispanic
+1029,1720,Female,Asian,Hispanic
+1029,1347,Female,Other,Non-hispanic
+1029,1259,Female,Black,Non-hispanic
+1029,1174,Male,White,Non-hispanic
+1029,1462,Female,Asian,Hispanic
+1029,1889,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1035,Female,Asian,Hispanic
+1029,1069,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1374,Female,Black,Non-hispanic
+1029,1420,Male,Asian,Non-hispanic
+1029,1097,Male,Other,Hispanic
+1029,1556,Female,American Indian or Alaska Native,Hispanic
+1029,1981,Female,Unknown,Non-hispanic
+1029,1605,Female,American Indian or Alaska Native,Hispanic
+1029,2274,Male,White,Hispanic
+1029,1807,Male,American Indian or Alaska Native,Non-hispanic
+1029,1241,Male,Other,Hispanic
+1029,1591,Female,White,Hispanic
+1029,2068,Female,Black,Hispanic
+1029,1512,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1930,Male,Unknown,Hispanic
+1029,1706,Female,Black,Non-hispanic
+1029,1854,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1078,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1060,Female,White,Non-hispanic
+1029,1060,Female,Other,Non-hispanic
+1029,1835,Female,American Indian or Alaska Native,Non-hispanic
+1029,2156,Female,American Indian or Alaska Native,Hispanic
+1029,2284,Male,Unknown,Hispanic
+1029,2170,Male,Other,Non-hispanic
+1029,1208,Male,Unknown,Hispanic
+1029,1698,Female,Other,Hispanic
+1029,2048,Male,White,Non-hispanic
+1029,1908,Male,White,Hispanic
+1029,1159,Male,Black,Hispanic
+1029,2115,Male,White,Non-hispanic
+1029,1483,Female,American Indian or Alaska Native,Non-hispanic
+1029,1794,Male,White,Non-hispanic
+1029,2113,Female,White,Hispanic
+1029,1573,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1062,Male,White,Non-hispanic
+1029,1649,Male,Other,Non-hispanic
+1029,1793,Female,Other,Hispanic
+1029,2155,Male,Unknown,Non-hispanic
+1029,1067,Male,Black,Non-hispanic
+1029,1916,Female,White,Non-hispanic
+1029,1998,Female,Other,Hispanic
+1029,1855,Male,Unknown,Non-hispanic
+1029,1709,Male,Asian,Hispanic
+1029,1395,Female,Asian,Non-hispanic
+1029,1457,Male,Other,Hispanic
+1029,1808,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1661,Male,Other,Hispanic
+1029,1185,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1510,Female,Asian,Hispanic
+1029,2279,Female,Unknown,Non-hispanic
+1029,1711,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1029,1750,Male,Unknown,Non-hispanic
+1029,1750,Male,Unknown,Non-hispanic
+1029,1809,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1029,1574,Male,American Indian or Alaska Native,Hispanic
+1029,1967,Female,Other,Hispanic
+1029,1881,Male,Unknown,Hispanic
+1029,1263,Female,American Indian or Alaska Native,Non-hispanic
+1029,1427,Male,White,Non-hispanic
+1029,1059,Male,Asian,Non-hispanic
+1029,1932,Female,Black,Non-hispanic
+1029,1689,Female,Asian,Hispanic
+1029,2228,Male,Asian,Hispanic
+1029,2228,Male,Unknown,Hispanic
+1029,2256,Male,American Indian or Alaska Native,Hispanic
+1029,1896,Male,Other,Non-hispanic
+1056,1018,Male,American Indian or Alaska Native,Non-hispanic
+1056,2316,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1056,1205,Male,Black,Hispanic
+1056,1954,Female,American Indian or Alaska Native,Hispanic
+1056,1434,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1056,1974,Female,Black,Non-hispanic
+1056,1650,Male,American Indian or Alaska Native,Hispanic
+1061,2253,Male,Asian,Non-hispanic
+1061,1168,Female,Asian,Non-hispanic
+1061,2020,Male,Black,Hispanic
+1061,1848,Female,Black,Non-hispanic
+1061,1770,Female,American Indian or Alaska Native,Non-hispanic
+1061,2121,Male,Other,Non-hispanic
+1061,1170,Male,American Indian or Alaska Native,Hispanic
+1061,1862,Male,Black,Hispanic
+1061,1888,Female,Unknown,Hispanic
+1061,1726,Male,Other,Non-hispanic
+1061,1899,Female,Other,Hispanic
+1061,1616,Female,Black,Hispanic
+1066,1325,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1066,1873,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1066,2290,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1066,1092,Male,Asian,Non-hispanic
+1052,1142,Male,Asian,Hispanic
+1052,2293,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1052,1333,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1052,1837,Female,Other,Non-hispanic
+1007,1473,Female,Unknown,Non-hispanic
+1059,1089,Male,Black,Non-hispanic
+1025,1387,Female,Asian,Non-hispanic
+1025,1554,Male,Other,Non-hispanic
+1025,1419,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1058,1295,Female,Unknown,Non-hispanic
+1058,1137,Female,White,Non-hispanic
+1058,1608,Female,American Indian or Alaska Native,Hispanic
+1058,1608,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1058,1988,Male,Asian,Hispanic
+1058,1595,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1058,1300,Male,White,Hispanic
+1058,1294,Male,Black,Hispanic
+1058,1697,Female,Asian,Non-hispanic
+1058,1697,Female,Black,Hispanic
+1058,2238,Male,Other,Non-hispanic
+1058,2238,Male,Other,Non-hispanic
+1058,2057,Male,American Indian or Alaska Native,Non-hispanic
+1058,1013,Female,Unknown,Non-hispanic
+1058,1128,Female,Black,Non-hispanic
+1058,1544,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1058,1165,Female,Unknown,Non-hispanic
+1058,1376,Female,White,Hispanic
+1058,1919,Female,Black,Non-hispanic
+1058,1941,Male,White,Non-hispanic
+1058,1306,Female,Unknown,Hispanic
+1058,1492,Female,Asian,Non-hispanic
+1058,2215,Female,Asian,Non-hispanic
+1058,1252,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1058,1624,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1058,1256,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1018,2146,Female,White,Non-hispanic
+1018,1206,Male,American Indian or Alaska Native,Non-hispanic
+1064,1687,Male,American Indian or Alaska Native,Hispanic
+1064,1990,Male,American Indian or Alaska Native,Non-hispanic
+1064,2249,Male,Asian,Non-hispanic
+1064,1239,Male,Asian,Non-hispanic
+1064,1751,Male,Other,Non-hispanic
+1064,1731,Male,American Indian or Alaska Native,Non-hispanic
+1064,2309,Female,Unknown,Hispanic
+1064,1603,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1064,2008,Male,Black,Hispanic
+1064,1383,Female,Other,Hispanic
+1064,1474,Male,Unknown,Non-hispanic
+1064,1157,Male,Unknown,Hispanic
+1064,2129,Male,American Indian or Alaska Native,Non-hispanic
+1064,1084,Female,Black,Non-hispanic
+1064,1728,Female,American Indian or Alaska Native,Hispanic
+1064,1463,Male,Black,Non-hispanic
+1064,1072,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1064,1423,Male,Unknown,Hispanic
+1019,1980,Male,Asian,Non-hispanic
+1019,1076,Male,American Indian or Alaska Native,Hispanic
+1019,1331,Female,American Indian or Alaska Native,Non-hispanic
+1019,1115,Male,Unknown,Hispanic
+1019,1771,Male,Other,Non-hispanic
+1019,1058,Female,Unknown,Non-hispanic
+1019,1602,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1019,1101,Female,Other,Non-hispanic
+1019,2213,Female,White,Non-hispanic
+1019,2012,Female,American Indian or Alaska Native,Non-hispanic
+1019,2045,Female,Black,Non-hispanic
+1019,1525,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1019,1405,Male,Unknown,Non-hispanic
+1019,1715,Female,White,Hispanic
+1019,1586,Male,American Indian or Alaska Native,Hispanic
+1019,2122,Male,American Indian or Alaska Native,Hispanic
+1019,1351,Male,Unknown,Non-hispanic
+1019,1036,Male,Unknown,Hispanic
+1019,1547,Male,Unknown,Hispanic
+1019,1959,Female,Asian,Non-hispanic
+1019,1961,Male,White,Non-hispanic
+1019,1144,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1019,1361,Female,Unknown,Hispanic
+1019,1147,Male,Black,Hispanic
+1019,1935,Female,American Indian or Alaska Native,Hispanic
+1019,2263,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1019,1149,Female,Asian,Hispanic
+1019,1772,Female,Unknown,Hispanic
+1019,1304,Male,Other,Non-hispanic
+1019,2002,Female,American Indian or Alaska Native,Non-hispanic
+1019,2205,Male,Other,Non-hispanic
+1019,1209,Male,White,Non-hispanic
+1019,1926,Male,Unknown,Hispanic
+1019,1575,Female,Unknown,Non-hispanic
+1019,1038,Female,Other,Hispanic
+1019,1597,Male,Unknown,Non-hispanic
+1019,1615,Female,Unknown,Hispanic
+1019,2239,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1019,1080,Male,Black,Non-hispanic
+1019,2009,Male,Unknown,Hispanic
+1019,1596,Male,Unknown,Hispanic
+1020,2304,Male,Asian,Hispanic
+1020,1632,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1020,1320,Female,American Indian or Alaska Native,Non-hispanic
+1020,1106,Male,Black,Non-hispanic
+1020,1390,Female,American Indian or Alaska Native,Non-hispanic
+1020,1485,Male,American Indian or Alaska Native,Hispanic
+1055,1050,Female,White,Non-hispanic
+1055,1378,Male,White,Non-hispanic
+1055,1491,Female,American Indian or Alaska Native,Non-hispanic
+1055,1977,Male,Other,Hispanic
+1055,2145,Male,Asian,Non-hispanic
+1055,1847,Male,White,Non-hispanic
+1055,2271,Male,White,Non-hispanic
+1055,1628,Female,White,Hispanic
+1055,1920,Male,White,Non-hispanic
+1050,1581,Male,Black,Hispanic
+1050,2288,Male,American Indian or Alaska Native,Hispanic
+1050,1517,Male,Other,Hispanic
+1050,1580,Female,Other,Non-hispanic
+1050,1699,Male,Black,Hispanic
+1050,1846,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1050,2130,Male,Other,Hispanic
+1050,1950,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1050,1397,Male,Other,Hispanic
+1050,1231,Male,Unknown,Non-hispanic
+1050,1426,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1050,1121,Female,Black,Non-hispanic
+1050,2313,Female,Unknown,Hispanic
+1050,1659,Male,American Indian or Alaska Native,Non-hispanic
+1050,2034,Male,Other,Hispanic
+1050,1152,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1050,1155,Female,White,Non-hispanic
+1050,1054,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1050,1075,Male,Asian,Hispanic
+1050,1503,Female,White,Hispanic
+1073,1410,Female,White,Non-hispanic
+1073,1066,Female,White,Non-hispanic
+1073,2112,Female,Other,Non-hispanic
+1073,1489,Female,Unknown,Hispanic
+1073,2258,Male,Other,Hispanic
+1073,1052,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1073,1188,Female,Other,Non-hispanic
+1073,1599,Female,White,Hispanic
+1073,2198,Male,Unknown,Hispanic
+1073,2232,Male,Asian,Hispanic
+1073,1480,Female,Black,Non-hispanic
+1073,1291,Male,Asian,Non-hispanic
+1073,2021,Male,American Indian or Alaska Native,Hispanic
+1073,1105,Female,Unknown,Non-hispanic
+1073,1585,Female,Unknown,Hispanic
+1073,2218,Female,White,Non-hispanic
+1073,1299,Male,Asian,Non-hispanic
+1073,1055,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1073,1046,Female,American Indian or Alaska Native,Non-hispanic
+1073,1280,Female,Other,Non-hispanic
+1073,1860,Female,Unknown,Hispanic
+1073,2289,Female,Other,Non-hispanic
+1073,1309,Female,Asian,Non-hispanic
+1073,2006,Female,White,Non-hispanic
+1073,1369,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1073,1232,Male,White,Non-hispanic
+1073,2056,Male,American Indian or Alaska Native,Hispanic
+1073,2174,Female,Other,Hispanic
+1073,2117,Male,Other,Non-hispanic
+1073,1289,Male,Asian,Hispanic
+1073,1537,Female,Other,Hispanic
+1073,1782,Male,White,Non-hispanic
+1073,1622,Male,American Indian or Alaska Native,Hispanic
+1073,1221,Male,Unknown,Hispanic
+1073,1894,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1073,2189,Female,Asian,Hispanic
+1073,2305,Male,Asian,Non-hispanic
+1073,1122,Male,Other,Non-hispanic
+1073,2073,Female,American Indian or Alaska Native,Hispanic
+1073,1969,Female,Other,Non-hispanic
+1057,1645,Male,Asian,Non-hispanic
+1057,2210,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1057,2223,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1057,1823,Male,Asian,Hispanic
+1057,1277,Female,White,Hispanic
+1057,1464,Male,Other,Non-hispanic
+1057,1740,Female,White,Non-hispanic
+1057,1755,Male,Other,Hispanic
+1057,1563,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1065,1816,Female,White,Non-hispanic
+1065,1352,Male,Other,Non-hispanic
+1065,1802,Male,American Indian or Alaska Native,Hispanic
+1065,2050,Male,Black,Non-hispanic
+1065,1673,Male,Unknown,Hispanic
+1065,1803,Female,Asian,Non-hispanic
+1065,2245,Male,Other,Hispanic
+1065,1612,Male,American Indian or Alaska Native,Hispanic
+1065,1722,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1065,1226,Female,Black,Non-hispanic
+1065,1301,Female,Unknown,Non-hispanic
+1065,1852,Male,Other,Non-hispanic
+1042,1017,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1051,1458,Female,Other,Non-hispanic
+1023,1502,Male,Black,Non-hispanic
+1023,2188,Male,American Indian or Alaska Native,Hispanic
+1023,1246,Female,Black,Hispanic
+1023,1568,Female,Other,Hispanic
+1023,2076,Male,White,Hispanic
+1023,2058,Male,American Indian or Alaska Native,Non-hispanic
+1023,2206,Male,Asian,Hispanic
+1023,1087,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1023,1195,Female,White,Hispanic
+1023,1529,Female,Other,Non-hispanic
+1023,1010,Female,Asian,Hispanic
+1002,1569,Male,Black,Non-hispanic
+1002,1569,Male,White,Non-hispanic
+1002,1282,Female,Other,Hispanic
+1002,1286,Male,Asian,Hispanic
+1002,1348,Female,American Indian or Alaska Native,Non-hispanic
+1002,1348,Female,Black,Non-hispanic
+1002,1264,Male,Asian,Hispanic
+1002,1363,Female,Black,Non-hispanic
+1002,2250,Female,Asian,Hispanic
+1002,2028,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1016,1705,Male,American Indian or Alaska Native,Hispanic
+1016,1332,Female,White,Hispanic
+1016,1827,Female,Asian,Non-hispanic
+1053,1727,Male,Black,Hispanic
+1053,1928,Female,American Indian or Alaska Native,Non-hispanic
+1053,2261,Female,White,Non-hispanic
+1053,2261,Female,Black,Non-hispanic
+1053,2074,Female,American Indian or Alaska Native,Hispanic
+1053,1876,Female,Black,Non-hispanic
+1053,1845,Male,Other,Hispanic
+1053,1461,Male,Unknown,Hispanic
+1053,1962,Female,Unknown,Hispanic
+1053,1088,Male,American Indian or Alaska Native,Non-hispanic
+1053,1251,Male,Other,Non-hispanic
+1053,2044,Male,White,Hispanic
+1053,1274,Female,White,Hispanic
+1053,1651,Male,Black,Hispanic
+1053,1729,Male,American Indian or Alaska Native,Hispanic
+1053,1669,Male,Other,Hispanic
+1053,1495,Male,Asian,Non-hispanic
+1053,1795,Female,Unknown,Non-hispanic
+1053,1276,Male,Other,Hispanic
+1053,2097,Male,White,Non-hispanic
+1053,1975,Female,Other,Non-hispanic
+1053,2123,Female,Unknown,Non-hispanic
+1022,2191,Male,Asian,Non-hispanic
+1022,1470,Female,Asian,Hispanic
+1022,1370,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1022,1443,Female,Black,Non-hispanic
+1060,1108,Male,Black,Hispanic
+1060,2319,Male,Black,Non-hispanic
+1024,1749,Female,American Indian or Alaska Native,Hispanic
+1005,1012,Male,White,Hispanic
+1005,1349,Male,Other,Hispanic
+1005,1518,Male,White,Hispanic
+1005,2024,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1379,Male,Unknown,Hispanic
+1005,1708,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1545,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1355,Male,Asian,Hispanic
+1005,1042,Male,Black,Non-hispanic
+1005,1579,Male,Other,Non-hispanic
+1005,1123,Female,American Indian or Alaska Native,Non-hispanic
+1005,2224,Male,White,Non-hispanic
+1005,1965,Female,American Indian or Alaska Native,Hispanic
+1005,2053,Male,Black,Hispanic
+1005,1248,Female,Black,Non-hispanic
+1005,2119,Male,White,Non-hispanic
+1005,2078,Male,Asian,Non-hispanic
+1005,1077,Female,Unknown,Non-hispanic
+1005,1844,Female,Other,Non-hispanic
+1005,1406,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1384,Male,Asian,Hispanic
+1005,1744,Male,Black,Hispanic
+1005,1319,Female,Black,Non-hispanic
+1005,1026,Male,Other,Non-hispanic
+1005,1592,Male,Asian,Hispanic
+1005,1989,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,2063,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1005,2101,Female,Black,Non-hispanic
+1005,1672,Female,Unknown,Hispanic
+1005,1874,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1937,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1005,1171,Female,White,Non-hispanic
+1005,1377,Female,Unknown,Non-hispanic
+1005,2222,Male,White,Non-hispanic
+1005,1871,Male,American Indian or Alaska Native,Hispanic
+1005,2163,Male,Asian,Non-hispanic
+1005,2163,Male,Black,Non-hispanic
+1006,1829,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1006,2118,Male,American Indian or Alaska Native,Hispanic
+1043,1865,Male,White,Hispanic
+1043,1129,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1043,1778,Female,Asian,Hispanic
+1043,1789,Male,White,Hispanic
+1043,1636,Male,Unknown,Hispanic
+1043,1745,Male,Unknown,Non-hispanic
+1070,1982,Female,Black,Non-hispanic
+1070,1784,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1070,1031,Male,American Indian or Alaska Native,Non-hispanic
+1070,1041,Female,Black,Hispanic
+1070,1667,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1070,1070,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1009,1665,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1009,2111,Female,Other,Non-hispanic
+1048,1978,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1048,1053,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1048,2315,Female,Black,Non-hispanic
+1048,2041,Female,Asian,Hispanic
+1048,1984,Male,Other,Non-hispanic
+1048,1083,Female,Asian,Hispanic
+1048,1258,Male,Black,Hispanic
+1048,2060,Female,Unknown,Non-hispanic
+1048,1284,Female,Asian,Non-hispanic
+1048,2208,Male,American Indian or Alaska Native,Hispanic
+1048,1345,Male,American Indian or Alaska Native,Non-hispanic
+1048,1900,Female,Unknown,Hispanic
+1048,1465,Female,Black,Hispanic
+1048,1216,Female,American Indian or Alaska Native,Hispanic
+1021,1335,Male,Other,Hispanic
+1063,1891,Male,Black,Non-hispanic
+1067,1266,Male,American Indian or Alaska Native,Hispanic
+1067,2092,Male,White,Hispanic
+1067,2280,Male,Unknown,Hispanic
+1067,1472,Female,Unknown,Non-hispanic
+1067,2193,Male,Unknown,Hispanic
+1067,2185,Female,Black,Hispanic
+1067,1658,Female,Other,Non-hispanic
+1067,2032,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1067,1716,Male,Unknown,Non-hispanic
+1067,1678,Male,Other,Hispanic
+1067,2061,Female,American Indian or Alaska Native,Non-hispanic
+1067,1606,Female,White,Hispanic
+1067,1403,Female,Black,Hispanic
+1010,1027,Female,American Indian or Alaska Native,Non-hispanic
+1010,2262,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1010,1637,Female,American Indian or Alaska Native,Hispanic
+1000,1895,Female,Other,Hispanic
+1000,1478,Male,Unknown,Non-hispanic
+1071,1169,Female,White,Non-hispanic
+1071,1414,Female,Other,Non-hispanic
+1071,1957,Male,Other,Hispanic
+1071,1684,Female,Unknown,Non-hispanic
+1071,1344,Female,Asian,Hispanic
+1071,1748,Female,Unknown,Hispanic
+1071,1029,Female,Asian,Hispanic
+1071,2179,Female,Unknown,Hispanic
+1071,1927,Female,White,Hispanic
+1071,1279,Male,Other,Non-hispanic
+1071,2182,Male,White,Non-hispanic
+1071,1499,Male,Black,Hispanic
+1071,1225,Female,Unknown,Hispanic
+1071,1617,Male,Other,Non-hispanic
+1071,1559,Male,Asian,Non-hispanic
+1071,1923,Male,Black,Hispanic
+1071,1429,Female,American Indian or Alaska Native,Hispanic
+1071,1399,Female,White,Hispanic
+1071,2038,Male,Black,Hispanic
+1071,1360,Male,Other,Hispanic
+1037,2255,Female,White,Non-hispanic
+1037,2094,Male,Black,Non-hispanic
+1072,2160,Male,American Indian or Alaska Native,Non-hispanic
+1062,2023,Male,American Indian or Alaska Native,Non-hispanic
+1062,1020,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1062,1813,Female,Asian,Hispanic
+1062,1598,Male,Other,Non-hispanic
+1062,1398,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1062,1987,Female,Asian,Hispanic
+1062,1211,Male,American Indian or Alaska Native,Non-hispanic
+1062,1063,Female,Black,Hispanic
+1062,1425,Male,Other,Non-hispanic
+1026,1477,Male,Unknown,Hispanic
+1026,1555,Female,White,Hispanic
+1034,1912,Female,American Indian or Alaska Native,Non-hispanic
+1044,1417,Female,American Indian or Alaska Native,Non-hispanic
+1041,1834,Male,Other,Hispanic
+1041,2308,Male,Other,Hispanic
+1041,2064,Female,Black,Non-hispanic
+1041,1723,Female,Other,Non-hispanic
+1041,1156,Male,Unknown,Hispanic
+1041,1710,Male,American Indian or Alaska Native,Hispanic
+1041,2229,Female,American Indian or Alaska Native,Non-hispanic
+1041,2065,Male,Black,Hispanic
+1041,2248,Male,Other,Hispanic
+1041,2225,Male,American Indian or Alaska Native,Non-hispanic
+1041,1082,Male,Asian,Non-hispanic
+1041,1553,Male,Asian,Hispanic
+1041,2276,Female,Unknown,Non-hispanic
+1041,2173,Male,Asian,Non-hispanic
+1041,1278,Male,Asian,Non-hispanic
+1041,1849,Male,American Indian or Alaska Native,Hispanic
+1041,2296,Male,White,Non-hispanic
+1041,1730,Female,Asian,Hispanic
+1041,1079,Female,Unknown,Hispanic
+1041,1450,Female,Asian,Hispanic
+1041,1281,Female,American Indian or Alaska Native,Hispanic
+1041,1244,Female,Other,Non-hispanic
+1041,1641,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1041,1496,Male,American Indian or Alaska Native,Hispanic
+1041,1533,Male,Other,Hispanic
+1041,2283,Male,Black,Non-hispanic
+1041,1652,Female,Unknown,Non-hispanic
+1041,1253,Female,Asian,Non-hispanic
+1041,1850,Female,Black,Non-hispanic
+1041,1265,Female,Asian,Non-hispanic
+1041,2204,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1041,1839,Male,Other,Hispanic
+1041,1761,Female,White,Non-hispanic
+1041,1162,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1041,1456,Male,American Indian or Alaska Native,Non-hispanic
+1041,1883,Female,American Indian or Alaska Native,Hispanic
+1041,2082,Male,Black,Hispanic
+1045,1516,Female,Black,Hispanic
+1012,1933,Male,American Indian or Alaska Native,Non-hispanic
+1012,1627,Male,Unknown,Non-hispanic
+1012,1453,Female,American Indian or Alaska Native,Hispanic
+1012,1773,Female,American Indian or Alaska Native,Non-hispanic
+1074,1324,Male,Asian,Non-hispanic
+1001,1609,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1001,1572,Female,Unknown,Hispanic
+1001,2217,Female,Asian,Hispanic
+1001,2047,Female,White,Hispanic
+1001,1811,Female,Unknown,Non-hispanic
+1001,1136,Male,Asian,Hispanic
+1001,1467,Female,American Indian or Alaska Native,Non-hispanic
+1001,2120,Female,Asian,Hispanic
+1001,1255,Female,Black,Non-hispanic
+1001,2154,Male,Unknown,Hispanic
+1038,1051,Female,Other,Hispanic
+1038,1475,Male,American Indian or Alaska Native,Hispanic
+1038,1530,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1038,1712,Male,Asian,Hispanic
+1038,1180,Female,American Indian or Alaska Native,Hispanic
+1038,2278,Male,Unknown,Non-hispanic
+1032,2322,Male,Other,Non-hispanic
+1032,1797,Female,Black,Non-hispanic
+1032,1109,Female,Black,Hispanic
+1032,2272,Female,Unknown,Non-hispanic
+1032,1768,Male,Unknown,Hispanic
+1032,1005,Female,Asian,Non-hispanic
+1032,1704,Male,American Indian or Alaska Native,Hispanic
+1032,1671,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1032,1151,Male,Other,Non-hispanic
+1032,1249,Female,Unknown,Non-hispanic
+1076,2269,Female,Unknown,Non-hispanic
+1076,1506,Male,White,Hispanic
+1076,1393,Male,Black,Non-hispanic
+1076,1951,Female,White,Hispanic
+1076,1735,Female,Other,Non-hispanic
+1076,1199,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1027,1589,Male,Unknown,Non-hispanic
+1027,2301,Female,Other,Hispanic
+1027,1424,Male,Asian,Non-hispanic
+1027,1466,Male,Black,Hispanic
+1027,1074,Female,White,Non-hispanic
+1027,1786,Male,Black,Hispanic
+1027,1625,Male,White,Non-hispanic
+1027,1486,Male,Other,Hispanic
+1027,1250,Female,Unknown,Hispanic
+1027,1047,Male,American Indian or Alaska Native,Hispanic
+1027,2007,Male,American Indian or Alaska Native,Hispanic
+1027,2268,Male,Asian,Hispanic
+1027,1203,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1027,2207,Female,Black,Hispanic
+1027,1230,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1027,2126,Male,White,Non-hispanic
+1068,1688,Male,Unknown,Non-hispanic
+1068,1240,Male,Asian,Non-hispanic
+1068,1769,Female,American Indian or Alaska Native,Hispanic
+1068,1838,Male,American Indian or Alaska Native,Hispanic
+1068,1095,Male,Asian,Hispanic
+1068,1343,Female,Other,Non-hispanic
+1068,1634,Female,Black,Hispanic
+1068,1648,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1068,1909,Female,White,Hispanic
+1068,1527,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1068,1290,Female,American Indian or Alaska Native,Non-hispanic
+1068,1086,Male,Asian,Non-hispanic
+1068,1674,Female,American Indian or Alaska Native,Hispanic
+1068,1173,Female,Unknown,Non-hispanic
+1068,1173,Male,American Indian or Alaska Native,Hispanic
+1068,1753,Male,White,Hispanic
+1068,1815,Male,Black,Hispanic
+1068,1812,Female,Black,Hispanic
+1068,2143,Female,Unknown,Hispanic
+1068,2089,Male,White,Non-hispanic
+1075,1218,Female,Asian,Hispanic
+1075,1691,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1075,1870,Male,Asian,Non-hispanic
+1004,1452,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1476,Male,Black,Non-hispanic
+1004,1476,Female,American Indian or Alaska Native,Hispanic
+1004,1329,Female,Other,Non-hispanic
+1004,1670,Male,American Indian or Alaska Native,Hispanic
+1004,1621,Male,Unknown,Non-hispanic
+1004,1593,Male,Asian,Hispanic
+1004,1804,Female,White,Non-hispanic
+1004,1440,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1215,Female,American Indian or Alaska Native,Hispanic
+1004,1293,Female,Unknown,Non-hispanic
+1004,1311,Female,Asian,Non-hispanic
+1004,1000,Male,White,Non-hispanic
+1004,1853,Female,Black,Hispanic
+1004,1561,Male,White,Hispanic
+1004,1561,Female,Other,Hispanic
+1004,1415,Female,Black,Hispanic
+1004,1415,Female,Asian,Non-hispanic
+1004,1308,Female,White,Hispanic
+1004,1582,Male,Unknown,Hispanic
+1004,1582,Female,Asian,Non-hispanic
+1004,1630,Female,Black,Hispanic
+1004,1178,Male,Other,Non-hispanic
+1004,1766,Female,Unknown,Hispanic
+1004,1693,Female,Other,Non-hispanic
+1004,2270,Female,American Indian or Alaska Native,Non-hispanic
+1004,1913,Female,Unknown,Hispanic
+1004,2027,Female,American Indian or Alaska Native,Hispanic
+1004,1196,Female,Unknown,Hispanic
+1004,2273,Male,Black,Non-hispanic
+1004,1567,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1302,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1713,Male,American Indian or Alaska Native,Hispanic
+1004,1412,Female,American Indian or Alaska Native,Non-hispanic
+1004,2318,Male,Other,Hispanic
+1004,2318,Female,White,Hispanic
+1004,2096,Female,Unknown,Hispanic
+1004,1682,Male,Unknown,Non-hispanic
+1004,1316,Male,Unknown,Non-hispanic
+1004,1519,Male,Unknown,Non-hispanic
+1004,1307,Female,White,Hispanic
+1004,1737,Male,Other,Hispanic
+1004,1127,Male,American Indian or Alaska Native,Hispanic
+1004,1868,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1679,Female,White,Hispanic
+1004,2297,Male,Black,Hispanic
+1004,2212,Female,White,Non-hispanic
+1004,2219,Female,Other,Hispanic
+1004,1680,Female,White,Hispanic
+1004,1964,Female,White,Non-hispanic
+1004,1441,Male,Other,Non-hispanic
+1004,1372,Female,Asian,Non-hispanic
+1004,1372,Male,Black,Non-hispanic
+1004,2167,Male,American Indian or Alaska Native,Non-hispanic
+1004,1686,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,2005,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1759,Female,American Indian or Alaska Native,Non-hispanic
+1004,1736,Female,Asian,Hispanic
+1004,1703,Male,Other,Hispanic
+1004,1551,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1825,Female,White,Hispanic
+1004,1532,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1532,Female,Black,Hispanic
+1004,2240,Female,Black,Hispanic
+1004,2085,Female,American Indian or Alaska Native,Hispanic
+1004,2172,Female,Asian,Non-hispanic
+1004,1045,Male,Unknown,Non-hispanic
+1004,1260,Female,Unknown,Non-hispanic
+1004,1194,Male,Asian,Non-hispanic
+1004,1590,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1921,Male,Asian,Non-hispanic
+1004,1394,Male,Other,Hispanic
+1004,2017,Female,Asian,Non-hispanic
+1004,1523,Female,Other,Non-hispanic
+1004,1620,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1446,Female,Black,Non-hispanic
+1004,1321,Female,White,Hispanic
+1004,1805,Male,American Indian or Alaska Native,Hispanic
+1004,2030,Female,Unknown,Hispanic
+1004,1353,Female,Black,Non-hispanic
+1004,1353,Female,Asian,Hispanic
+1004,1444,Male,Asian,Hispanic
+1004,1610,Male,Unknown,Non-hispanic
+1004,1111,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1986,Female,American Indian or Alaska Native,Hispanic
+1004,2079,Female,White,Hispanic
+1004,1594,Male,Other,Non-hispanic
+1004,1182,Male,Other,Non-hispanic
+1004,2046,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1898,Female,Unknown,Non-hispanic
+1004,2231,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,1028,Female,White,Hispanic
+1004,1339,Female,Other,Hispanic
+1004,1549,Female,White,Non-hispanic
+1004,1863,Female,Asian,Non-hispanic
+1004,1695,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1409,Female,Other,Hispanic
+1004,1521,Female,Black,Non-hispanic
+1004,1656,Female,Other,Hispanic
+1004,1359,Female,Black,Hispanic
+1004,1966,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1004,1791,Male,White,Hispanic
+1004,1071,Male,American Indian or Alaska Native,Hispanic
+1004,2015,Male,White,Hispanic
+1004,2294,Male,White,Hispanic
+1004,1336,Male,American Indian or Alaska Native,Hispanic
+1004,1408,Female,Unknown,Non-hispanic
+1004,1197,Male,White,Non-hispanic
+1004,1675,Male,American Indian or Alaska Native,Hispanic
+1004,1024,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1004,2260,Female,American Indian or Alaska Native,Hispanic
+1054,1233,Male,Other,Hispanic
+1054,1892,Male,Black,Hispanic
+1054,1814,Male,American Indian or Alaska Native,Hispanic
+1054,1840,Female,White,Non-hispanic
+1054,1312,Male,Unknown,Hispanic
+1054,1358,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1358,Female,American Indian or Alaska Native,Non-hispanic
+1054,2199,Male,White,Hispanic
+1054,1940,Male,Unknown,Hispanic
+1054,1836,Female,American Indian or Alaska Native,Non-hispanic
+1054,1836,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,2084,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1227,Female,Black,Non-hispanic
+1054,2106,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1879,Male,Unknown,Non-hispanic
+1054,2236,Male,White,Hispanic
+1054,1893,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1391,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,2168,Male,White,Hispanic
+1054,1718,Male,White,Non-hispanic
+1054,1806,Male,Unknown,Hispanic
+1054,1163,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1163,Male,Unknown,Non-hispanic
+1054,1273,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1254,Female,American Indian or Alaska Native,Non-hispanic
+1054,2011,Female,Other,Hispanic
+1054,1752,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1884,Female,Black,Hispanic
+1054,1685,Female,Other,Non-hispanic
+1054,2137,Male,Other,Non-hispanic
+1054,1421,Male,Black,Non-hispanic
+1054,1953,Female,Black,Non-hispanic
+1054,1801,Female,Black,Hispanic
+1054,2142,Female,Unknown,Hispanic
+1054,2317,Female,Other,Non-hispanic
+1054,1754,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1183,Male,American Indian or Alaska Native,Hispanic
+1054,1025,Male,Unknown,Non-hispanic
+1054,1422,Female,White,Hispanic
+1054,1902,Female,Other,Hispanic
+1054,1181,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1181,Female,Asian,Non-hispanic
+1054,1830,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1819,Male,Unknown,Non-hispanic
+1054,1999,Female,Black,Non-hispanic
+1054,1166,Male,Asian,Non-hispanic
+1054,1885,Male,Unknown,Non-hispanic
+1054,1242,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1952,Female,American Indian or Alaska Native,Non-hispanic
+1054,2153,Female,Unknown,Hispanic
+1054,1158,Female,American Indian or Alaska Native,Hispanic
+1054,1158,Male,Asian,Non-hispanic
+1054,1767,Female,White,Hispanic
+1054,1635,Female,Other,Hispanic
+1054,1997,Female,Other,Non-hispanic
+1054,2141,Male,Unknown,Hispanic
+1054,1724,Female,Asian,Non-hispanic
+1054,1724,Female,American Indian or Alaska Native,Non-hispanic
+1054,1210,Male,Asian,Hispanic
+1054,2152,Male,Black,Hispanic
+1054,1430,Female,Unknown,Hispanic
+1054,1732,Male,Black,Hispanic
+1054,2102,Female,White,Hispanic
+1054,1746,Female,Asian,Non-hispanic
+1054,1631,Female,Asian,Hispanic
+1054,1085,Male,Asian,Hispanic
+1054,1261,Male,Asian,Non-hispanic
+1054,1261,Female,White,Non-hispanic
+1054,1880,Female,American Indian or Alaska Native,Hispanic
+1054,1303,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,2075,Female,White,Hispanic
+1054,1073,Male,American Indian or Alaska Native,Non-hispanic
+1054,1305,Female,Other,Non-hispanic
+1054,2151,Male,Unknown,Hispanic
+1054,2235,Female,American Indian or Alaska Native,Non-hispanic
+1054,2241,Female,Unknown,Hispanic
+1054,1875,Female,Other,Hispanic
+1054,1904,Female,American Indian or Alaska Native,Non-hispanic
+1054,2243,Male,Asian,Non-hispanic
+1054,1536,Male,White,Hispanic
+1054,1267,Male,Other,Non-hispanic
+1054,1683,Male,American Indian or Alaska Native,Hispanic
+1054,1007,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1090,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1090,Female,Black,Hispanic
+1054,1566,Female,American Indian or Alaska Native,Hispanic
+1054,2171,Female,White,Hispanic
+1054,1189,Female,Asian,Non-hispanic
+1054,1104,Male,Black,Hispanic
+1054,2267,Female,American Indian or Alaska Native,Non-hispanic
+1054,2237,Male,Asian,Hispanic
+1054,2237,Male,White,Hispanic
+1054,2035,Male,White,Non-hispanic
+1054,1540,Male,Black,Hispanic
+1054,1540,Male,Black,Non-hispanic
+1054,1416,Male,American Indian or Alaska Native,Hispanic
+1054,1702,Female,Asian,Hispanic
+1054,1431,Female,Other,Hispanic
+1054,1431,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1054,1577,Female,Asian,Hispanic
+1054,1557,Male,White,Non-hispanic
+1054,1318,Male,Other,Hispanic
+1054,1219,Male,White,Non-hispanic
+1054,1236,Male,Other,Non-hispanic
+1054,1541,Male,American Indian or Alaska Native,Hispanic
+1054,1541,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1054,1275,Male,Unknown,Non-hispanic
+1011,1212,Female,American Indian or Alaska Native,Non-hispanic
+1011,1613,Female,White,Hispanic
+1069,1016,Female,Other,Hispanic
+1069,1619,Female,White,Non-hispanic
+1069,2209,Female,Asian,Non-hispanic
+1069,2257,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1069,1583,Male,Asian,Hispanic
+1069,1756,Female,Asian,Non-hispanic
+1013,1500,Male,American Indian or Alaska Native,Hispanic
+1013,2108,Male,Asian,Hispanic
+1013,1714,Male,Black,Non-hispanic
+1013,1271,Female,Black,Non-hispanic
+1013,2320,Female,Asian,Non-hispanic
+1017,2036,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2036,Female,Asian,Hispanic
+1017,1436,Male,White,Hispanic
+1017,1436,Male,White,Non-hispanic
+1017,1150,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1150,Female,American Indian or Alaska Native,Hispanic
+1017,1204,Male,Black,Non-hispanic
+1017,1938,Male,Black,Hispanic
+1017,1019,Male,American Indian or Alaska Native,Hispanic
+1017,1019,Female,Asian,Non-hispanic
+1017,1148,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1148,Male,Other,Non-hispanic
+1017,2159,Male,Unknown,Hispanic
+1017,1936,Male,Unknown,Hispanic
+1017,1614,Female,Asian,Non-hispanic
+1017,1268,Male,American Indian or Alaska Native,Non-hispanic
+1017,2298,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2298,Female,Black,Hispanic
+1017,2131,Female,Other,Non-hispanic
+1017,2131,Female,Black,Non-hispanic
+1017,1488,Female,Asian,Hispanic
+1017,1488,Male,White,Non-hispanic
+1017,1643,Male,American Indian or Alaska Native,Hispanic
+1017,1418,Male,Unknown,Hispanic
+1017,1534,Female,American Indian or Alaska Native,Hispanic
+1017,1534,Female,Other,Non-hispanic
+1017,1647,Female,Asian,Non-hispanic
+1017,2070,Male,American Indian or Alaska Native,Hispanic
+1017,2070,Female,Black,Hispanic
+1017,1858,Male,Asian,Hispanic
+1017,1858,Male,Black,Non-hispanic
+1017,1167,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1167,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1081,Female,White,Hispanic
+1017,1504,Female,American Indian or Alaska Native,Non-hispanic
+1017,1245,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1245,Male,American Indian or Alaska Native,Non-hispanic
+1017,1826,Female,Black,Non-hispanic
+1017,1826,Male,Asian,Non-hispanic
+1017,1481,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1481,Male,Asian,Non-hispanic
+1017,1139,Male,Other,Hispanic
+1017,1140,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1140,Female,American Indian or Alaska Native,Non-hispanic
+1017,1380,Male,Other,Hispanic
+1017,1380,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1164,Male,Unknown,Non-hispanic
+1017,2040,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2040,Male,Black,Non-hispanic
+1017,1116,Female,White,Non-hispanic
+1017,1116,Male,Black,Hispanic
+1017,1322,Female,Asian,Hispanic
+1017,1322,Male,American Indian or Alaska Native,Non-hispanic
+1017,2087,Male,Other,Hispanic
+1017,2029,Female,American Indian or Alaska Native,Non-hispanic
+1017,1976,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1976,Male,American Indian or Alaska Native,Hispanic
+1017,1102,Male,Other,Hispanic
+1017,1102,Female,White,Non-hispanic
+1017,1117,Male,White,Non-hispanic
+1017,1642,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2166,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,2110,Female,Asian,Hispanic
+1017,2110,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1119,Male,Black,Hispanic
+1017,1119,Female,Black,Hispanic
+1017,1445,Female,Black,Hispanic
+1017,1445,Male,White,Non-hispanic
+1017,1607,Female,Unknown,Hispanic
+1017,1607,Male,American Indian or Alaska Native,Hispanic
+1017,1388,Female,Other,Non-hispanic
+1017,1388,Female,Asian,Non-hispanic
+1017,1317,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1317,Female,Asian,Non-hispanic
+1017,1996,Male,White,Hispanic
+1017,1996,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2216,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2216,Female,White,Non-hispanic
+1017,1584,Female,American Indian or Alaska Native,Non-hispanic
+1017,1584,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1931,Male,American Indian or Alaska Native,Hispanic
+1017,1931,Male,White,Non-hispanic
+1017,1543,Male,Asian,Hispanic
+1017,1799,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1799,Female,Unknown,Hispanic
+1017,1004,Female,Other,Non-hispanic
+1017,1776,Female,American Indian or Alaska Native,Non-hispanic
+1017,1776,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1337,Male,American Indian or Alaska Native,Hispanic
+1017,2287,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2306,Male,Other,Hispanic
+1017,2306,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1437,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1985,Male,Asian,Hispanic
+1017,1985,Female,Unknown,Non-hispanic
+1017,2186,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2186,Female,American Indian or Alaska Native,Non-hispanic
+1017,1832,Male,Asian,Non-hispanic
+1017,1832,Female,Other,Non-hispanic
+1017,1340,Male,Black,Non-hispanic
+1017,1340,Female,American Indian or Alaska Native,Non-hispanic
+1017,1484,Female,American Indian or Alaska Native,Hispanic
+1017,1191,Female,Unknown,Non-hispanic
+1017,1191,Female,Black,Hispanic
+1017,1030,Male,Asian,Non-hispanic
+1017,1030,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,2107,Male,American Indian or Alaska Native,Non-hispanic
+1017,1103,Male,Other,Hispanic
+1017,1103,Male,Unknown,Non-hispanic
+1017,1200,Male,Other,Hispanic
+1017,2127,Male,Unknown,Non-hispanic
+1017,2127,Male,Unknown,Non-hispanic
+1017,1907,Male,Black,Non-hispanic
+1017,1907,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1154,Male,Asian,Hispanic
+1017,1154,Male,American Indian or Alaska Native,Non-hispanic
+1017,1511,Male,Unknown,Hispanic
+1017,1947,Female,Other,Hispanic
+1017,1947,Female,Other,Hispanic
+1017,2187,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2187,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1375,Female,White,Non-hispanic
+1017,1375,Male,Unknown,Hispanic
+1017,2275,Male,Black,Hispanic
+1017,2275,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1017,1287,Male,Asian,Non-hispanic
+1017,1918,Female,White,Non-hispanic
+1017,2098,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,2098,Female,Unknown,Non-hispanic
+1017,2176,Male,Unknown,Non-hispanic
+1017,2176,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1392,Female,Other,Non-hispanic
+1017,1392,Female,Other,Hispanic
+1017,1509,Male,Asian,Hispanic
+1017,1223,Female,White,Hispanic
+1017,1694,Male,Other,Non-hispanic
+1017,1694,Male,Unknown,Hispanic
+1017,1824,Female,White,Hispanic
+1017,1124,Male,Black,Hispanic
+1017,1124,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1017,1201,Male,Unknown,Hispanic
+1017,1110,Male,Black,Hispanic
+1017,1110,Male,White,Non-hispanic
+1017,1956,Female,Black,Hispanic
+1017,1956,Male,Asian,Non-hispanic
+1028,1841,Male,American Indian or Alaska Native,Hispanic
+1028,1867,Male,Asian,Hispanic
+1028,1725,Male,White,Non-hispanic
+1028,1882,Female,Asian,Non-hispanic
+1028,1198,Male,Unknown,Hispanic
+1028,1193,Female,White,Hispanic
+1028,1389,Female,Asian,Non-hispanic
+1028,1833,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1028,2181,Male,Other,Non-hispanic
+1031,1497,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,1968,Male,Asian,Non-hispanic
+1031,2180,Female,Other,Hispanic
+1031,2169,Female,Other,Non-hispanic
+1031,1270,Male,Unknown,Hispanic
+1031,2214,Female,Unknown,Non-hispanic
+1031,1438,Female,Black,Hispanic
+1031,1994,Female,Unknown,Hispanic
+1031,1570,Female,White,Hispanic
+1031,1487,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1031,2052,Female,White,Hispanic
+1031,2196,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,1676,Female,American Indian or Alaska Native,Non-hispanic
+1031,1064,Male,Unknown,Non-hispanic
+1031,1138,Male,Asian,Non-hispanic
+1031,1468,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,1120,Female,Asian,Non-hispanic
+1031,1145,Female,American Indian or Alaska Native,Non-hispanic
+1031,1014,Female,White,Hispanic
+1031,1451,Female,Asian,Hispanic
+1031,1471,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,2134,Male,American Indian or Alaska Native,Non-hispanic
+1031,1043,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1031,1692,Female,American Indian or Alaska Native,Non-hispanic
+1031,1131,Male,Unknown,Hispanic
+1031,1460,Male,Other,Non-hispanic
+1031,1507,Female,Other,Non-hispanic
+1031,1247,Male,Unknown,Hispanic
+1031,1924,Female,Unknown,Hispanic
+1031,2059,Male,Unknown,Non-hispanic
+1031,1897,Male,Other,Non-hispanic
+1031,1764,Female,Unknown,Non-hispanic
+1031,2286,Male,American Indian or Alaska Native,Hispanic
+1031,1638,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,1411,Male,Asian,Non-hispanic
+1031,2242,Male,White,Non-hispanic
+1031,1433,Male,White,Non-hispanic
+1031,1866,Female,American Indian or Alaska Native,Non-hispanic
+1031,2080,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1031,2295,Male,American Indian or Alaska Native,Hispanic
+1031,1338,Male,White,Hispanic
+1031,2125,Female,American Indian or Alaska Native,Non-hispanic
+1031,1973,Female,Other,Non-hispanic
+1031,1262,Male,American Indian or Alaska Native,Non-hispanic
+1031,1257,Male,Unknown,Non-hispanic
+1031,2090,Female,White,Non-hispanic
+1031,2090,Female,Unknown,Hispanic
+1031,1141,Male,Unknown,Hispanic
+1031,1995,Female,Asian,Non-hispanic
+1031,1175,Male,American Indian or Alaska Native,Hispanic
+1031,1161,Male,Asian,Non-hispanic
+1031,2302,Female,American Indian or Alaska Native,Non-hispanic
+1031,1493,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1031,1118,Male,Other,Hispanic
+1031,1490,Female,Unknown,Hispanic
+1031,1629,Male,American Indian or Alaska Native,Hispanic
+1031,1743,Female,American Indian or Alaska Native,Non-hispanic
+1031,1229,Male,Black,Non-hispanic
+1031,1039,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1031,2000,Male,Unknown,Hispanic
+1031,1663,Male,Native Hawaiian or Other Pacific Islander,Hispanic
+1035,2226,Female,Asian,Hispanic
+1003,1001,Female,Asian,Hispanic
+1003,2086,Female,Other,Hispanic
+1003,2104,Female,American Indian or Alaska Native,Hispanic
+1003,1330,Male,Other,Hispanic
+1003,1765,Male,Other,Non-hispanic
+1003,2277,Male,White,Hispanic
+1003,2277,Female,American Indian or Alaska Native,Non-hispanic
+1003,1407,Male,Black,Hispanic
+1003,2323,Female,American Indian or Alaska Native,Non-hispanic
+1003,2251,Male,Unknown,Non-hispanic
+1003,1611,Female,Black,Non-hispanic
+1003,1217,Male,American Indian or Alaska Native,Non-hispanic
+1003,2039,Female,Asian,Hispanic
+1003,1365,Male,Unknown,Hispanic
+1003,2025,Male,American Indian or Alaska Native,Hispanic
+1003,1539,Male,Unknown,Non-hispanic
+1003,1006,Female,Asian,Non-hispanic
+1003,1929,Female,White,Non-hispanic
+1003,1323,Male,White,Hispanic
+1003,1890,Male,Other,Non-hispanic
+1003,1601,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1003,1228,Female,American Indian or Alaska Native,Non-hispanic
+1003,1696,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1003,2325,Male,Unknown,Non-hispanic
+1003,2099,Male,American Indian or Alaska Native,Hispanic
+1003,1234,Female,White,Non-hispanic
+1003,1023,Male,Black,Hispanic
+1003,2133,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1003,1514,Male,Unknown,Hispanic
+1003,2083,Female,Native Hawaiian or Other Pacific Islander,Hispanic
+1003,1958,Female,White,Hispanic
+1003,2220,Male,White,Hispanic
+1003,1781,Female,Black,Hispanic
+1003,1788,Female,Unknown,Hispanic
+1003,1130,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1003,2221,Male,White,Non-hispanic
+1003,1864,Female,Unknown,Hispanic
+1003,1327,Male,White,Hispanic
+1003,1313,Female,Black,Non-hispanic
+1003,1224,Female,Black,Hispanic
+1014,1096,Male,Asian,Hispanic
+1014,1186,Male,American Indian or Alaska Native,Hispanic
+1014,2010,Male,Unknown,Hispanic
+1014,2043,Male,Asian,Non-hispanic
+1014,1283,Female,Black,Non-hispanic
+1014,2312,Female,Unknown,Non-hispanic
+1014,1741,Female,Other,Non-hispanic
+1014,1817,Male,White,Non-hispanic
+1014,2195,Male,Black,Non-hispanic
+1014,1877,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1014,2197,Female,White,Non-hispanic
+1014,1538,Female,Asian,Hispanic
+1014,2103,Female,Unknown,Non-hispanic
+1014,2149,Male,Asian,Non-hispanic
+1014,1505,Female,Asian,Non-hispanic
+1014,1285,Female,Unknown,Hispanic
+1014,1542,Male,White,Hispanic
+1014,1292,Female,Other,Non-hispanic
+1014,1939,Male,American Indian or Alaska Native,Non-hispanic
+1014,1810,Female,American Indian or Alaska Native,Non-hispanic
+1014,2022,Female,American Indian or Alaska Native,Hispanic
+1014,1435,Male,Unknown,Non-hispanic
+1014,1644,Female,Black,Hispanic
+1014,2161,Male,Other,Non-hispanic
+1014,1432,Male,Black,Non-hispanic
+1014,1135,Male,Unknown,Non-hispanic
+1014,1548,Female,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1014,1821,Male,White,Non-hispanic
+1014,1646,Male,Native Hawaiian or Other Pacific Islander,Non-hispanic
+1014,1065,Male,Unknown,Hispanic
+1014,1469,Male,Unknown,Hispanic
+1014,1114,Male,Other,Hispanic
+1014,1664,Male,Black,Hispanic
+1014,1449,Female,White,Non-hispanic
+1014,2140,Male,Asian,Non-hispanic
+1014,2310,Female,Other,Hispanic
+1014,1552,Male,White,Hispanic
+1014,1777,Female,Black,Non-hispanic
+1014,1946,Female,Other,Non-hispanic
+1014,1334,Female,Asian,Non-hispanic
+1014,1501,Male,Other,Non-hispanic
+1014,2093,Female,Asian,Non-hispanic
+1014,1350,Male,White,Non-hispanic
+1014,2300,Male,Unknown,Hispanic
+1014,2247,Male,Other,Hispanic
+1014,1146,Female,American Indian or Alaska Native,Non-hispanic
+1014,1546,Female,Black,Hispanic

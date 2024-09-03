@@ -1,0 +1,153 @@
+---
+title: "CIDE mapping generator"
+format: html
+editor: visual
+---
+
+## Introduction
+
+This script constructs `*_name` -> `*_category` mappings for all relevant Common ICU Data Elements (CIDE) from a CLIF database
+
+# Load in CLIF tables
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+```{r}
+tables_location <- 'rclif'
+table_path <- here(tables_location)
+file_type <- "parquet"
+
+#update the site name
+site <-'ucmc'
+```
+
+
+```{r}
+# List all CLIF files
+clif_table_filenames <- list.files(path = table_path, 
+                                   pattern = paste0("^clif_.*\\.",file_type, "$"), full.names = TRUE)
+
+# Read all CLIF files into a list of data frames and then extract
+if (file_type == "parquet") {
+  data_list <- lapply(clif_table_filenames, read_parquet)
+} else if (file_type == "csv"){
+  data_list <- lapply(clif_table_filenames, read_csv)
+} else if (file_type == "fst"){
+  data_list <- lapply(clif_table_filenames, read.fst)
+} else {
+  stop("Unsupported file format")
+}
+
+for (i in seq_along(clif_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(clif_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+}
+
+remove(clif_table_filenames)
+```
+
+
+```{r}
+# Function to detect loaded CLIF tables
+# Note this will detect anything that starts with clif_ in the global environment
+detect_clif_tables <- function() {
+  objects <- ls(envir = .GlobalEnv)
+  clif_tables <- objects[str_detect(objects, "^clif_")]
+  clif_tables <- str_replace(clif_tables, "^clif_", "")
+  return(clif_tables)
+}
+
+# Detect CLIF tables loaded in the environment
+clif_tables <- detect_clif_tables()
+```
+
+
+```{r}
+clif_tables
+```
+
+
+# CIDE mapping generator
+
+`construct_cide_mappings` is a function to construct *_name to *_category mappings for each * variable in a CLIF table. So it identifies columns with the same prefix and suffixes "name" and "category" and constructs a mapping between them. For example, it maps `mode_name` to `mode_category`.
+
+The function returns a separate csv file for each `*_name` and `*_category` mapping. For example, the mapping for `mode_name` to `mode_category` will be saved in `clif_vocab_respiratory_support_mode_mapping.csv`. In general, the csv names are `clif_vocab_<table_name>_<variable_name>_mapping.csv`.
+
+```{r}
+construct_cide_mappings <- function(table_name, site_name) {
+  # find the table in the global environment with the name clif_<table_name>
+  table <- get(paste0("clif_", table_name))
+  
+  # add a check that table is a single dataframe and report the name of the table in the error message
+  if (!is.data.frame(table)) {
+    stop("The table argument must be a single data frame")
+  }
+  
+  # Get the columns with the same prefix and suffixes "name" and "category"
+  name_columns <- table %>% select(ends_with("name")) %>% colnames()
+  category_columns <- table %>% select(ends_with("category")) %>% colnames()
+  
+  # Construct the mapping for each pair of name and category columns
+  for (i in seq_along(name_columns)) {
+    name_column <- name_columns[i]
+    
+    #find the corresponding category column
+    category_column <- category_columns[str_detect(category_columns, str_remove(name_column, "_name"))]
+    
+    # Construct the mapping with group_by and count
+    # Added a warning if no category column is found
+    if (length(category_column) == 0) {
+      warning(paste0("No category column found for ", name_column))
+      next
+    } else {
+          mapping <- table %>% 
+      group_by(!!sym(category_column)) %>% 
+      count(!!sym(name_column)) %>% 
+      ungroup() %>% 
+      arrange(!!sym(category_column), desc(n)) %>%
+      mutate(site = site_name)
+    }
+
+    
+    # Create a folder for the CIDE mappings
+    cide_mappings_folder <- paste0(site, "_cide_mappings")
+
+    if (!dir.exists(cide_mappings_folder)) {
+      dir.create(cide_mappings_folder)
+      }
+    
+    # Save the mapping to a csv file
+    mapping_filename <- paste0(cide_mappings_folder, "/clif_vocab_", 
+                               table_name, "_", str_remove(name_column, "_name"), 
+                               "_", site_name, ".csv")
+    write_csv(mapping, mapping_filename)
+  }
+}
+```
+
+## Run the CIDE generator on ADT to test it
+```{r}
+construct_cide_mappings("adt", site)
+```
+
+
+## Run the CIDE generator on all CLIF tables
+
+```{r}
+# Run the CIDE generator on all CLIF tables
+for (table in clif_tables) {
+  print(table)
+  construct_cide_mappings(table, site)
+}
+```
+
+
+

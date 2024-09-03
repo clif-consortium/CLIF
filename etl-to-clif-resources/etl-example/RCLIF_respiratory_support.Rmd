@@ -1,0 +1,172 @@
+---
+title: "RCLIF Respiratory Support"
+output: html_document
+date: "2023-07-03"
+author: Kaveri Chhikara
+---
+
+## Load Libraries
+
+```{r, echo= FALSE}
+library(tidyverse)
+library(bigreadr)
+library(digest)
+library(readxl)
+library(arrow)
+library(here)
+```
+
+# EHR --> RCLIF Respiratory Support 
+
+This script converts raw EHR data to the RCLIF respiraotry support table. 
+Create an R Project with the following directory structure. 
+
+- `RCLIF` 
+-- `data`
+-- `output`
+-- `code`
+-- `figures`
+-- `utils`
+
+Save this file under the `code` directory. Save the raw data files in the `data` directory.
+
+## USER INPUT
+
+Provide file paths 
+
+```{r filepath}
+flowsheet_path <- "data/parquet/C19_FLOW_LDS_part1.parquet"
+flowsheet2_path <- "data/parquet/C19_FLOW_LDS_part2.parquet"
+#CLIF limited vocab
+limited_vocab_rs_filepath <- "limited_vocabulary/clif_vocab_respiratory_support_modes.xlsx"
+#list of all inpatient encounters. used to filter all other tables in RCLIF.
+all_hb_encounters_filepath <- "output/all_hb_encounters.csv"
+```
+
+Input required flowsheet measure names from your data. These are identified with preliminary exploratory data analysis of the flowsheet data at each site, and mapping them to the required RCLIF schema for the respiratory support table.
+
+```{r}
+## Map CLIF vocab to flowsheet names at UCMC
+required_flowsheet_names <- c(
+  device_description = "RT RS OXYGEN DEVICE",
+  lpm = "RT RS OXYGEN FLOW",
+  peep = "RT RS VENT PRESSURES PEEP/CPAP",
+  set_volume = "RT RS VENT VOLUMES VT SET",
+  exhaled_volume = "RT RS VENT VOLUMES VE (EXPIRED MINUTE VOLUME)", 
+  pressure_support = "RT RS VENT PRESSURE PRESSURE SUPPORT",
+  mode_name = "RT RS CONVENTIONAL VENT MODES",
+  set_resp_rate = "RT RS RESP RATE SET",
+  ## U of C has multiple entries for fiO2, which are combined later in the code.
+  fiO2_vent = "RT RS VENT FIO2",
+  fiO2_rt = "RT RS FIO2",
+  fiO2_ni = "RT RS NI FIO2"
+  )
+```
+
+### Load data 
+
+```{r load_data}
+## Update according to the number of files and file format
+flowsheet1 <- read_parquet(here(flowsheet_path))
+all_flowsheet <- rbind(flowsheet1, flowsheet2)
+rm(flowsheet1)
+rm(flowsheet2)
+```
+
+The flowsheet dataset used in this script has the following schema 
+
+```{r, echo=FALSE}
+names(all_flowsheet)
+```
+We want to convert this long table into the required wide format for the respiratory support table in RCLIF. 
+
+At this point, each site should explore the `all_flowsheet` data to identify the `required_flowsheet_names` and update the user input section above. 
+
+
+### Inpatient encounters list
+
+```{r}
+all_hb_encounters <- read_csv(here(all_hb_encounters_filepath), show_col_types = FALSE)
+```
+
+### RCLIF Limited vocab
+
+```{r}
+rclif_limited_vocab_rs <- read_excel(here(limited_vocab_rs_filepath))
+```
+
+## Respiratory support 
+
+Step 1. Select the required columns, filter to inpatient encounters and required flowsheet names and pivot.
+Step 2. Join with CLIF Limited vocabulary
+Step 3. Assign correct data type to each variable, calculate the final fiO2 value, and create device_name variable according to CLIF limited vocabulary. Some strings in device_description from the raw data may have multiple devices. For this, we follow an order of prioritization: Vent, NIPPV, CPAP, High Flow NC, Nasal Cannula, Trach Collar, Face Mask, Room Air, Other. 
+
+
+```{r}
+wide_rs <- all_flowsheet %>% 
+  ## Step 1
+  select(C19_PATIENT_ID, C19_HAR_ID, recorded_time, flo_meas_name, meas_value) %>%
+  filter(C19_HAR_ID %in% all_hb_encounters$C19_HAR_ID & flo_meas_name %in% c(required_flowsheet_names)) %>%
+  pivot_wider(names_from = flo_meas_name, values_from = meas_value) %>% 
+  rename(!!!required_flowsheet_names) %>% 
+  ## Step 2
+  full_join(rclif_limited_vocab_rs, by = "mode_name") %>% 
+  ##Step 3
+  mutate(recorded_dttm = format(as.POSIXct(recorded_time, origin = "1970-01-01"),  "%Y-%m-%d %H:%M:%S"),
+         set_volume = as.numeric(set_volume),
+         exhaled_volume = as.numeric(exhaled_volume),
+         pressure_support = as.numeric(pressure_support),
+         set_resp_rate = as.numeric(set_resp_rate),
+         peep = as.numeric(peep),
+         lpm = as.numeric(lpm),
+         fiO2_rt = as.numeric(fiO2_rt),
+         fiO2_vent = as.numeric(fiO2_vent),
+         fiO2_ni = as.numeric(fiO2_ni),
+         # fiO2 calculation- take the first non NA value among the fiO2 columns
+         fi_O2_combine = coalesce(fiO2_rt, fiO2_vent, fiO2_ni),
+         fiO2 = as.numeric(fi_O2_combine)/100,
+         device_name = case_when(
+           is.na(device_description) ~ NA_character_,
+           (grepl('Vent', device_description, ignore.case = TRUE) | grepl('Bag', device_description, ignore.case = TRUE) |
+              grepl('Valve', device_description, ignore.case = TRUE)) &
+             !grepl('Venturi Mask', device_description, ignore.case = TRUE) ~ 'Vent',
+           grepl('Bipap', device_description, ignore.case = TRUE)  ~ 'NIPPV',
+           grepl('CPAP', device_description, ignore.case = TRUE) ~ 'CPAP',
+           grepl('High Flow NC', device_description, ignore.case = TRUE) ~ 'High Flow NC',
+           grepl('Cannula', device_description, ignore.case = TRUE) ~ 'Nasal Cannula',
+           grepl('Trach Collar', device_description, ignore.case = TRUE) ~ 'Trach Collar',
+           grepl('Mask', device_description, ignore.case = TRUE) ~ 'Face Mask',
+           grepl('Room Air', device_description, ignore.case = TRUE) ~ 'Room Air',
+           TRUE ~ 'Other'),
+         # resolve cases when the first string in o2_device is Vent, remaining string includes Venturi Mask
+         device_name = ifelse(map_chr(str_split(tolower(device_description), 
+                                                ";"), ~.[1]) == 'vent', 'Vent', device_name),
+         # fix errors in lpm
+         lpm = case_when(
+          lpm < 0 ~ NA_real_,
+          device_name == 'Room Air' ~ NA_real_,
+          device_name == 'Vent' ~ NA_real_,
+          device_name == 'NIPPV' ~ NA_real_,
+          device_name == 'Trach Collar' ~ NA_real_,
+          device_name == 'Nasal Cannula' & lpm > 6 ~ 6,
+          device_name == 'High Flow' & lpm > 60 ~ 60,
+          lpm > 60 ~ NA_real_,
+          TRUE ~ lpm)) %>% 
+   rename(patient_id = C19_PATIENT_ID,
+         encounter_id = C19_HAR_ID) %>% 
+  select(patient_id, encounter_id, recorded_dttm, device_description, device_name,
+         mode_name, mode_category, lpm, fiO2, peep, set_volume,exhaled_volume,
+         pressure_support, set_resp_rate) %>% 
+  arrange(patient_id, encounter_id, recorded_dttm)
+  
+```
+
+## write parquet
+
+```{r}
+write_parquet(wide_rs,"/Users/kavenchhikara/Desktop/RCLIF/output/clif_respiratory_support.parquet")
+```
+
+
+
+

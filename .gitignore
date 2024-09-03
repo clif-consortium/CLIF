@@ -1,0 +1,18 @@
+.DS_Store
+
+# Ignore Parquet, excel, and R project files
+*.parquet
+*.xlsx
+
+*.Rproj
+.Rproj.user
+.Rhistory
+
+# ignore R scripts for now
+
+# jupter checkpoints
+.ipynb_checkpoints/
+
+# test files
+test.csv
+test_predictions.csv

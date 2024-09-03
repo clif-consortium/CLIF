@@ -1,0 +1,162 @@
+lab_category,lab_name,n,site
+LDH,LACTIC DEHYDROGENASE,97451,ucmc
+LDH,UCM_LAB LACTIC DEHYDROGENASE,17860,ucmc
+LDH,LACTATE DEHYDROGENASE (LD),7,ucmc
+albumin,ALBUMIN,590058,ucmc
+albumin,UCM_LAB ALBUMIN,139246,ucmc
+alkaline_phosphatase,ALKALINE PHOSPHATASE,571157,ucmc
+alkaline_phosphatase,UCM_LAB ALKALINE PHOSPHATASE,134852,ucmc
+alkaline_phosphatase,"ALK PHOS, TOTAL",379,ucmc
+alkaline_phosphatase,ALKALINE PHOSPHATASE INTERFACE EXTERNAL,8,ucmc
+alt,ALT (SGPT),571104,ucmc
+alt,UCM_LAB ALT (SGPT),135109,ucmc
+alt,ALT (SGPT) MANUAL ENTRY EXTERNAL,10,ucmc
+ast,AST (SGOT),570624,ucmc
+ast,UCM_LAB AST (SGOT),134828,ucmc
+ast,AST (SGOT)MANUAL ENTRY EXTERNAL,9,ucmc
+basophil,BASOPHILS,505022,ucmc
+basophil,UCM_LAB BASOPHILS - AUTOMATED,92593,ucmc
+basophil,UCM_LAB BASOPHILS - MANUAL WAM,24154,ucmc
+basophil,UCM_LAB BASOPHILS - MANUAL,22,ucmc
+bilirubin_conjugated,"BILIRUBIN, CONJUGATED",234024,ucmc
+bilirubin_conjugated,"UCM_LAB BILIRUBIN, CONJUGATED",50805,ucmc
+bilirubin_conjugated,"UCM_LAB BILIRUBIN, CONJUGATED, PEDIATRIC",2454,ucmc
+bilirubin_total,"BILIRUBIN, TOTAL",572722,ucmc
+bilirubin_total,UCM_LAB BILIRUBIN TOTAL,135477,ucmc
+bilirubin_total,TOTAL BILIRUBIN,10224,ucmc
+bilirubin_total,"BILIRUBIN, TOTAL MANUAL ENTRY EXTERNAL",1,ucmc
+bilirubin_unconjugated,"BILIRUBIN, UNCONJUGATED",236430,ucmc
+bilirubin_unconjugated,"UCM_LAB BILIRUBIN, UNCONJUGATED",50805,ucmc
+bun,BLOOD UREA NITROGEN,1264423,ucmc
+bun,UCM_LAB BLOOD UREA NITROGEN,262898,ucmc
+bun,UCM_LAB POC BUN (ADULT),1947,ucmc
+bun,UCM_LAB POC BUN (ART),206,ucmc
+bun,UCM_LAB POC BUN (VENOUS),139,ucmc
+bun,UCM_LAB POC BUN (MIX VEN),4,ucmc
+calcium,CALCIUM,1266207,ucmc
+calcium,UCM_LAB CALCIUM,262864,ucmc
+carbon_dioxide,CARBON DIOXIDE,1253748,ucmc
+carbon_dioxide,UCM_LAB CARBON DIOXIDE,262511,ucmc
+carbon_dioxide,"CO2,WHOLE BLOOD",22004,ucmc
+carbon_dioxide,CO2 (VENOUS),11816,ucmc
+carbon_dioxide,CARBON DIOXIDE (CO2),10471,ucmc
+carbon_dioxide,CO2 (MIXED VENOUS),128,ucmc
+carbon_dioxide,CARBON DIOXIDE MANUAL ENTRY EXTERNAL,5,ucmc
+chloride,CHLORIDE,1263051,ucmc
+chloride,CHLORIDE MANUAL ENTRY EXTERNAL,3,ucmc
+creatinine,CREATININE,1265170,ucmc
+creatinine,UCM_LAB CREATININE,259092,ucmc
+creatinine,CREATININE (POC),6812,ucmc
+crp,C-REACTIVE PROTEIN,86242,ucmc
+crp,UCM_LAB C-REACTIVE PROTEIN,15464,ucmc
+crp,"C-REACTIVE PROTEIN, HIGH SENSITIVITY",839,ucmc
+eosinophils,EOSINOPHILS,505333,ucmc
+eosinophils,UCM_LAB EOSINOPHILS - AUTOMATED,92687,ucmc
+eosinophils,UCM_LAB EOSINOPHIL - MANUAL,29,ucmc
+esr,"ESR, WESTERGREN",36717,ucmc
+esr,"UCM_LAB ESR, WESTERGREN",6628,ucmc
+ferritin,FERRITIN,62651,ucmc
+ferritin,UCM_LAB FERRITIN,14793,ucmc
+glucose_serum,"GLUCOSE, SER/PLASMA",1252772,ucmc
+glucose_serum,UCM_LAB GLUCOSE,263041,ucmc
+glucose_serum,GLUCOSE,111782,ucmc
+glucose_serum,GLUCOSE (VENOUS),11824,ucmc
+glucose_serum,GLUCOSE (MIXED VENOUS),128,ucmc
+glucose_serum,GLUCOSE SER/PLASM MANUAL ENTRY EXTERNAL,7,ucmc
+hemoglobin,HEMOGLOBIN,1447584,ucmc
+hemoglobin,UCM_LAB HEMOGLOBIN - AUTOMATED,238951,ucmc
+hemoglobin,UCM_LAB HEMOGLOBIN ARTERIAL,29068,ucmc
+hemoglobin,HEMOGLOBIN (VENOUS),11846,ucmc
+hemoglobin,UCM_LAB HEMOGLOBIN,7654,ucmc
+hemoglobin,HEMOGLOBIN (MIXED VENOUS),133,ucmc
+inorganic_phosphate,INORGANIC PHOSPHATE,764156,ucmc
+inorganic_phosphate,UCM_LAB INORGANIC PHOSPHATE,151439,ucmc
+inorganic_phosphate,INORGANIC PHOSPHATE MANUAL ENTRY EXTERNAL,3,ucmc
+inr,INR,290370,ucmc
+inr,UCM_LAB INR,52746,ucmc
+lactic_acid,LACTIC ACID,121420,ucmc
+lactic_acid,UCM_LAB LACTIC ACID,25064,ucmc
+lymphocyte,LYMPHOCYTES,506358,ucmc
+magnesium,MAGNESIUM,796837,ucmc
+magnesium,UCM_LAB MAGNESIUM,158612,ucmc
+monocyte,MONOCYTES,506579,ucmc
+neutrophil,NEUTROPHILS,498518,ucmc
+paco2,PACO2,146253,ucmc
+paco2,PCO2 (ARTERIAL),140536,ucmc
+paco2,PCO2,56793,ucmc
+paco2,UCM_LAB PCO2 (TEMP CORR ART),23555,ucmc
+paco2,UCM_LAB PCO2 ARTERIAL,23527,ucmc
+paco2,PCO2 (PEDS ARTERIAL),5615,ucmc
+paco2,UCM_LAB POC PCO2(ARTERIAL),5530,ucmc
+paco2,UCM_LAB POC PCO2 (ART),2140,ucmc
+paco2,UCM_LAB POC PCO2 (ARTERIAL),7,ucmc
+pao2,PAO2,146056,ucmc
+pao2,PO2 (ARTERIAL),141052,ucmc
+pao2,PO2,37999,ucmc
+pao2,UCM_LAB PO2 ARTERIAL,23514,ucmc
+pao2,UCM_LAB PO2 (TEMP CORR ART),23509,ucmc
+pao2,PO2 (PEDS ARTERIAL),5614,ucmc
+pao2,UCM_LAB POC PO2 (ART),2125,ucmc
+pco2_venous,PCO2 (VENOUS),46354,ucmc
+pco2_venous,PCO2 (MIXED VENOUS),17722,ucmc
+pco2_venous,UCM_LAB PCO2 VENOUS,7730,ucmc
+pco2_venous,UCM_LAB PCO2 (TEMP CORR VENOUS),7711,ucmc
+pco2_venous,UCM_LAB PCO2 MIXED VENOUS,4257,ucmc
+pco2_venous,UCM_LAB PCO2 (TEMP CORR MIXED VENOUS),4234,ucmc
+pco2_venous,UCM_LAB POC PCO2 (VENOUS),1394,ucmc
+pco2_venous,UCM_LAB POC PCO2(MIXED VENOUS),45,ucmc
+pco2_venous,UCM_LAB POC PCO2 (MIX VEN),17,ucmc
+pco2_venous,UCM_LAB POC PCO2 (MIXED VENOUS),3,ucmc
+ph_arterial,PH,184011,ucmc
+ph_arterial,PH (ARTERIAL),159314,ucmc
+ph_arterial,UCM_LAB PH (TEMP CORR ART),23546,ucmc
+ph_arterial,UCM_LAB PH ARTERIAL,23516,ucmc
+ph_arterial,UCM_LAB POC PH(ARTERIAL),5533,ucmc
+ph_arterial,UCM_LAB POC PH (ART),2115,ucmc
+ph_arterial,UCM_LAB POC PH (ARTERIAL),52,ucmc
+ph_venous,PH,52486,ucmc
+ph_venous,"PH, VENOUS",43951,ucmc
+ph_venous,PH (MIXED VENOUS),17681,ucmc
+ph_venous,UCM_LAB POC PH(VENOUS),8656,ucmc
+ph_venous,UCM_LAB PH (TEMP CORR VENOUS),7974,ucmc
+ph_venous,UCM_LAB PH VENOUS,7732,ucmc
+ph_venous,UCM_LAB PH (TEMP CORR MIXED VENOUS),4240,ucmc
+ph_venous,UCM_LAB PH MIXED VENOUS,4224,ucmc
+ph_venous,UCM_LAB POC PH (VENOUS),1404,ucmc
+ph_venous,UCM_LAB POC PH,47,ucmc
+ph_venous,PH (VENOUS),18,ucmc
+ph_venous,UCM_LAB POC PH (MIX VEN),17,ucmc
+ph_venous,UCM_LAB POC PH (MIXED VENOUS),1,ucmc
+platelet_count,PLATELET COUNT,1148042,ucmc
+platelet_count,UCM_LAB PLATELET COUNT - AUTOMATED,237805,ucmc
+platelet_count,PLATELET ESTIMATION,211352,ucmc
+platelet_count,UCM_LAB PLATELET ESTIMATION - MANUAL,40226,ucmc
+platelet_count,PLATELET COUNT MANUAL ENTRY EXTERNAL,61,ucmc
+potassium,"POTASSIUM, SERUM/PLASMA",1303805,ucmc
+potassium,UCM_LAB K+,265745,ucmc
+potassium,"POTASSIUM,WHOLE BLD.",23738,ucmc
+potassium,POTASSIUM,10582,ucmc
+potassium,"UCM_LAB K+, WHOLE BLOOD",6672,ucmc
+potassium,"POTASSIUM, SERUM",2522,ucmc
+potassium,"POTASSIUM, FLUID",11,ucmc
+potassium,POTASSIUM SER/PLASMA MANUAL ENTRY EXTERNAL,4,ucmc
+pt,PT,290291,ucmc
+pt,UCM_LAB PT,52805,ucmc
+ptt,PTT PATIENT RESULT,262744,ucmc
+ptt,UCM_LAB PTT PATIENT RESULT,48436,ucmc
+ptt,"PTT, HEPARIN REMOVED",716,ucmc
+sao2,SAO2,146657,ucmc
+sao2,S02,37952,ucmc
+sao2,UCM_LAB SAO2,23493,ucmc
+sao2,SO2,18763,ucmc
+sao2,UCM_LAB POC SAO2(ARTERIAL),324,ucmc
+sao2,SO2 CALCULATED,22,ucmc
+so2_mixed_venous,SO2,320,ucmc
+so2_mixed_venous,SO2 (MIXED VENOUS),135,ucmc
+so2_mixed_venous,SO2 CALCULATED,1,ucmc
+sodium,SODIUM,1263888,ucmc
+total_protein,TOTAL PROTEIN,582911,ucmc
+total_protein,UCM_LAB TOTAL PROTEIN,134733,ucmc
+troponin,HIGH SENSITIVITY TROPONIN T,159509,ucmc
+troponin,UCM_LAB HIGH SENSITIVITY TROPONIN T,32303,ucmc
+wbc,WBC,1136197,ucmc

@@ -1,0 +1,15 @@
+﻿vital_name  (UCMC),vital_category,meas_site_name
+BLOOD PRESSURE,blood_pressure,not specified
+NUR RS ARTERIAL BLOOD PRESSURE,blood_pressure,arterial
+NUR RS ARTERIAL BLOOD PRESSURE 2,blood_pressure,arterial
+PULSE,heart_rate,not specified
+NUR TS MEAN ARTERIAL PRESSURE NOT CALCULATED,map,not specified
+NUR RS ARTERIAL LINE MEAN PRESSURE,map,arterial
+NUR RS IABP MAP (MONITOR),map,not specified
+NUR RS ARTERIAL LINE MEAN PRESSURE 2,map,arterial
+RESPIRATIONS,respiratory_rate,not specified
+PULSE OXIMETRY,spO2,not specified
+TEMPERATURE,temp_c,not specified
+NUR RS CORE TEMPERATURE MEASUREMENT,temp_c,core
+WEIGHT/SCALE,weight_kg,not specified
+HEIGHT,height_inch,not specified

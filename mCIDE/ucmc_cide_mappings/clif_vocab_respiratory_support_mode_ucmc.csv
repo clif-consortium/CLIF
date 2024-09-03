@@ -1,0 +1,28 @@
+mode_category,mode_name,n,site
+Assist Control-Volume Control,A/C Volume,270521,ucmc
+Assist Control-Volume Control,AC,1,ucmc
+Other,NAVA,106356,ucmc
+Other,BiPAP,43993,ucmc
+Other,ASV,39902,ucmc
+Other,AVAPS,898,ucmc
+Other,BiLevel APRV,564,ucmc
+Other,BiVent APRV,423,ucmc
+Other,S/T,22,ucmc
+Other,BiVent,6,ucmc
+Pressure Control,SIMV - PC PS,324174,ucmc
+Pressure Control,NIV-PC,44612,ucmc
+Pressure Control,A/C Pressure,43260,ucmc
+Pressure Control,SIMV PC,1326,ucmc
+Pressure Control,PCV,8,ucmc
+Pressure Support/CPAP,CPAP,323290,ucmc
+Pressure Support/CPAP,PS/CPAP,238402,ucmc
+Pressure Support/CPAP,VS/CPAP,4299,ucmc
+Pressure-Regulated Volume Control,SIMV - PRVC/PCVG,85903,ucmc
+Pressure-Regulated Volume Control,PRVC - PCVG,2665,ucmc
+SIMV,SIMV - VC PS,23266,ucmc
+NA,NA,4671822,ucmc
+NA,NIV-PS,454,ucmc
+NA,APVcmv,422,ucmc
+NA,Other (Comment),187,ucmc
+NA,Biphasic,2,ucmc
+NA,PCPS,1,ucmc

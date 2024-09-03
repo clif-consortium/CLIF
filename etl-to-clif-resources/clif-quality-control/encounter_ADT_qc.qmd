@@ -1,0 +1,169 @@
+---
+title: "Encounter and ADT QC"
+format: html
+editor: visual
+---
+
+# Introduction
+
+Running this notebook on your RCLIF database performs a series of QC checks and cohort descriptions that focus on what type of encounters you have in your CLIF database.
+
+## Required Libraries
+
+Note: check that `here()` successfully identifies your CLIF folder
+
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+## Load in RCLIF tables
+
+Add your CLIF tables to the `rclif` subfolder
+
+```{r}
+tables_location <- 'rclif'
+site <-'UCMC'
+table_path <- here(tables_location)
+file_type <- "parquet"
+```
+
+```{r}
+# List all CLIF files
+clif_table_filenames <- list.files(path = table_path, 
+                                   pattern = paste0("^clif_.*\\.",file_type, "$"), full.names = TRUE)
+
+# Read all CLIF files into a list of data frames and then extract
+if (file_type == "parquet") {
+  data_list <- lapply(clif_table_filenames, read_parquet)
+} else if (file_type == "csv"){
+  data_list <- lapply(clif_table_filenames, read_csv)
+} else if (file_type == "fst"){
+  data_list <- lapply(clif_table_filenames, read.fst)
+} else {
+  stop("Unsupported file format")
+}
+
+for (i in seq_along(clif_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(clif_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+}
+```
+
+# QC check admission data
+
+## identify admissions with no ADT data
+
+```{r}
+missing_adt_admits <- clif_encounter_demographics_dispo %>%
+  filter(!encounter_id %in% clif_adt$encounter_id)
+
+unique_encounters_with_adt <- clif_adt %>% pull(encounter_id) %>% unique()
+```
+
+## encounters with ADT
+
+```{r}
+unique_encounters_with_adt %>% length()
+```
+
+## encounters without ADT data
+
+```{r}
+missing_adt_admits %>% nrow()
+```
+
+these later ones represent encounters we need not bother ourselves with for CLIF.
+
+## duplicate entries in `encounter_demographics_dispo`
+
+```{r}
+
+encounters_w_adt <- clif_encounter_demographics_dispo %>%
+       filter(encounter_id %in% unique_encounters_with_adt)
+
+nrow(encounters_w_adt)
+```
+
+`r nrow(clif_encounter_demographics_dispo)` total rows in `clif_encounter_demographics_dispo`
+
+```{r}
+unique_encounter_id_list <- encounters_w_adt %>%
+  pull(encounter_id) %>% unique()
+
+unique_encounter_id_list %>% length()
+```
+
+There should be no duplicate encounters in `clif_encounter_demographics_dispo`after filtering down to encounters with ADT data
+
+## Extra limited identifier rows
+
+```{r}
+nrow(clif_limited_identifers) - (unique_encounter_id_list %>% length())
+
+clif_limited_identifers %>%
+  arrange(patient_id, admission_dttm) %>%
+  group_by(patient_id) %>%
+  left_join(encounters_w_adt) %>%
+  arrange(patient_id, admission_dttm) %>%
+  select(patient_id, encounter_id, admission_dttm, discharge_dttm, disposition_name) %>%
+  kable()
+```
+
+We don't need these extra encounters in `limited_identifiers`, only those encounters that have a corresponding hospital admission in `encounters_w_adt`
+
+```{r}
+admission_summary <- encounters_w_adt %>%
+  left_join(clif_limited_identifers) %>%
+  arrange(patient_id, admission_dttm) %>%
+  select(patient_id, encounter_id, admission_dttm, discharge_dttm, disposition_name, disposition_category)
+
+first_location <- clif_adt %>%
+  filter(encounter_id %in% admission_summary$encounter_id) %>%
+  arrange(encounter_id, in_dttm) %>%
+  group_by(encounter_id) %>%
+  filter(row_number() ==1 )
+
+admission_summary <- admission_summary %>%
+  left_join(first_location %>% 
+              select(encounter_id, location_name, location_category)) %>%
+  arrange(patient_id, admission_dttm) %>%
+  select(patient_id, encounter_id,admission_dttm, discharge_dttm, location_name, location_category, disposition_name, disposition_category)
+```
+
+```{r}
+admission_summary %>%
+  kable()
+```
+
+### Check there are no admissions with negative time
+
+```{r}
+admission_summary %>%
+  mutate(admit_time = discharge_dttm < admission_dttm) %>%
+  filter(admit_time <0) %>%
+  kable()
+```
+
+## initial location summary
+
+```{r}
+admission_summary %>%
+  count(location_category) %>%
+  kable()
+```
+
+```{r}
+admission_summary %>%
+  group_by(location_category) %>%
+  count(location_name) %>%
+  kable()
+```
+
+Most "other" first locations are procedural suites. Check the `location_name` breakdown carefully your institution

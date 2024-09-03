@@ -1,0 +1,198 @@
+﻿mode_name,mode_category
+A/C Volume,Assist Control-Volume Control
+PS/CPAP,Pressure Support/CPAP
+SIMV - PC PS,Pressure Control
+CPAP,Pressure Support/CPAP
+SIMV - PRVC/PCVG,Pressure-Regulated Volume Control
+A/C Pressure,Pressure Control
+NIV-PC,Pressure Control
+ASV,Other
+NAVA,Other
+SIMV - VC PS,SIMV
+PRVC - PCVG,Pressure-Regulated Volume Control
+VS/CPAP,Pressure Support/CPAP
+BiLevel APRV,Other
+SIMV PC,Pressure Control
+BiVent APRV,Other
+AVAPS,Other
+CMV/AC,Assist Control-Volume Control
+CMV/AC (Continuous Mandatory Ventilation/ Assist Control),Assist Control-Volume Control
+AC,Assist Control-Volume Control
+VCV,Assist Control-Volume Control
+AC (Assist Control),Assist Control-Volume Control
+CMV,Assist Control-Volume Control
+SIMV/VC,Assist Control-Volume Control
+ac,Assist Control-Volume Control
+vcv,Assist Control-Volume Control
+SIMV+VG,Assist Control-Volume Control
+cmv,Assist Control-Volume Control
+Cmv,Assist Control-Volume Control
+simv-vc,Assist Control-Volume Control
+PRVC A/C,Pressure-Regulated Volume Control
+PCV/VG,Pressure-Regulated Volume Control
+SPRVC,Pressure-Regulated Volume Control
+PSV+VG,Pressure-Regulated Volume Control
+A/C+VG,Pressure-Regulated Volume Control
+MMV/PS (Mandatory Minute Volume with added Pressure Support),Other
+SPRVC/PS,Pressure-Regulated Volume Control
+PRVC SIMV,Pressure-Regulated Volume Control
+sprvc,Pressure-Regulated Volume Control
+sprvc/ps,Pressure-Regulated Volume Control
+VC,Pressure-Regulated Volume Control
+S(PRVC)+PS,Pressure-Regulated Volume Control
+PC/SPRVC,Pressure-Regulated Volume Control
+Sprvc,Pressure-Regulated Volume Control
+PRVC,Pressure-Regulated Volume Control
+PCV Plus assist,Pressure Control
+PCV Plus assist (Pressure Control Ventilation/ Assist Control),Pressure Control
+PCV Plus,Pressure Control
+PCV,Pressure Control
+PCV PLUS (Pressure Control Ventilation Plus (added secondary Mode),Pressure Control
+SPCPS,Pressure Control
+SIMV/PC/PS,Pressure Control
+SIMV/PC,Pressure Control
+PC/SIMV,Pressure Control
+PCV+,Pressure Control
+PC,Pressure Control
+NIV PC,Pressure Control
+SIMV PC/PS,Pressure Control
+PC SIMV,Pressure Control
+S(PC)+PS,Pressure Control
+SIMV PC+PS,Pressure Control
+pc simv,Pressure Control
+SIMV(PC)+PS,Pressure Control
+PC/PS,Pressure Control
+PCSIMV,Pressure Control
+SIMV/pc,Pressure Control
+SPC/PS,Pressure Control
+simv/pc/ps,Pressure Control
+SIMV,SIMV
+SIMV/PS,SIMV
+SIMV (Synchronized Intermittent Mandatory Ventilation),SIMV
+SIMV (Synchronized Intermittent Mandatory Ventilation),SIMV
+simv/ps,SIMV
+simv,SIMV
+SIMV PS,SIMV
+CPAP/PS,Pressure Support/CPAP
+CPAP/PSV,Pressure Support/CPAP
+CPAP/PS (Continuous positive airway pressure with Pressure Support),Pressure Support/CPAP
+PS,Pressure Support/CPAP
+CPAP,Pressure Support/CPAP
+PS (Pressure Support),Pressure Support/CPAP
+CPAP PSV VC,Pressure Support/CPAP
+CPAP (Continuous positive airway pressure),Pressure Support/CPAP
+PSV,Pressure Support/CPAP
+PS/CPAP,Pressure Support/CPAP
+cpap,Pressure Support/CPAP
+Continuous Positive Airway Pressure,Pressure Support/CPAP
+ps,Pressure Support/CPAP
+cpap/ps,Pressure Support/CPAP
+NIV/CPAP,Pressure Support/CPAP
+Cpap,Pressure Support/CPAP
+NIV PS,Pressure Support/CPAP
+CPAP/ps,Pressure Support/CPAP
+Cpap/Ps,Pressure Support/CPAP
+cpap/psv,Pressure Support/CPAP
+Trach Mask,Blow by
+Trach Mask - PMV,Blow by
+Trach collar,Blow by
+Track Mask - PMV,Blow by
+T-piece,Blow by
+trach mask,Blow by
+Trach Cap,Other
+Trach Cap NC,Other
+SIMV/PS (Synchronized Intermittent Mandatory Ventilation with Pressure Support),Other
+Other (see comments),Other
+APRV,Other
+APRV (Airway Pressure Release Ventilation),Other
+Bi-Level,Other
+MMV/PS,Other
+MMV,Other
+st,Other
+NPPV mask,Other
+s/t,Other
+BiVent,Other
+S/T,Other
+bipap,Other
+NAVA,Other
+ST,Other
+avaps,Other
+AVAPS,Other
+BIPAP,Other
+Bipap,Other
+hfnc,Other
+BiPAP,Other
+NIV/PC,Other
+HFOV,Other
+NIV,Other
+nava,Other
+HFNC,Other
+S/t,Other
+SIMV/PRVC/PS,Pressure-Regulated Volume Control
+NPPV (Non Invasive Positive pressure ventilation),Pressure Support/CPAP
+SIMV/PCVG,Pressure-Regulated Volume Control
+BILEVEL,Other
+SIMV VC + PS,Assist Control-Volume Control
+MMV (Mandatory Minute Volume),Other
+SPRVC PS,Pressure-Regulated Volume Control
+nc,Other
+cpap/o2,Pressure Support/CPAP
+Extubated,Other
+Pressure Support,Pressure Support/CPAP
+auto titrate,Other
+PCV-VG,Pressure-Regulated Volume Control
+Pressure support,Pressure Support/CPAP
+SIMV/PCPS,Pressure Control
+auto titrating,Other
+avap,Other
+pressure support,Pressure Support/CPAP
+PCV+ assist,Pressure Control
+SMV/PC/PS,Pressure Control
+Sprvs,Pressure-Regulated Volume Control
+Volume Control,Assist Control-Volume Control
+bipap st,Other
+ra,Other
+AC/VC,Assist Control-Volume Control
+"AVAPS, secondary setting",Other
+Assist Control,Assist Control-Volume Control
+Assisted Control Mode,Assist Control-Volume Control
+BILEVEl,Other
+"Bi- level, auto titrating",Other
+"Bi-level, auto",Other
+"Bi-level, auto titrating",Other
+"Bi-level, auto titrating.",Other
+Bilevel,Other
+Bipap ST,Other
+CMV/AV,Assist Control-Volume Control
+CPAP/pressure support,Pressure Support/CPAP
+P/S,Pressure Support/CPAP
+PC-AC,Pressure Control
+PC/AC,Pressure Control
+PCV + assist,Pressure Control
+PCV/AC,Pressure Control
+PRVC/AC,Pressure-Regulated Volume Control
+PS 12/5/30%,Pressure Support/CPAP
+PS 8,Pressure Support/CPAP
+Pressue support 8/5,Pressure Support/CPAP
+Pressur support,Pressure Support/CPAP
+SIMV (PRVC) +PS,Pressure-Regulated Volume Control
+SIMV VC,Assist Control-Volume Control
+SIMV/PRVC,Pressure-Regulated Volume Control
+SPSPC,Pressure Control
+VC- SIMV,Assist Control-Volume Control
+VC-AC,Assist Control-Volume Control
+Vc ac,Assist Control-Volume Control
+cpap/02,Pressure Support/CPAP
+pcv-vg,Pressure-Regulated Volume Control
+pressure support/CMV,Assist Control-Volume Control
+psv/bipap,Pressure Support/CPAP
+simv vcv,Assist Control-Volume Control
+vOLUME CONTROL,Assist Control-Volume Control
+volume support,Assist Control-Volume Control
+T-piece/trach collar,
+Hand bagging,
+CPAP with jet,
+AC/PRVC,
+TC,
+VS,
+NCIMV,

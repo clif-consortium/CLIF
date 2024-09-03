@@ -1,0 +1,59 @@
+location_category,location_name,n,site
+ER,ED CCD,363053,ucmc
+ER,ER COMER,107942,ucmc
+ER,ER MITCHELL,1,ucmc
+ICU,N04E,8264,ucmc
+ICU,PICU,4766,ucmc
+ICU,N03E,4384,ucmc
+ICU,N09S,4307,ucmc
+ICU,N09N,4161,ucmc
+ICU,N08N,3462,ucmc
+ICU,N08S,3397,ucmc
+ICU,CICN,2716,ucmc
+ICU,CICU,1901,ucmc
+ICU,N03B,1393,ucmc
+ICU,MTCU,322,ucmc
+ICU,NICU COVID PUI PACU,7,ucmc
+OR,CD MAIN OR,53363,ucmc
+OR,DCAM MAIN OR,22741,ucmc
+OR,COMER MAIN OR,11960,ucmc
+Other,F3BC,62241,ucmc
+Other,GAST PROCEDURE UNIT,21280,ucmc
+Other,CCH5,11357,ucmc
+Other,CCH6N,8340,ucmc
+Other,CATH LAB CD,5547,ucmc
+Other,CERT INTERVENTIONAL,4982,ucmc
+Other,PULMONARY PROC UNIT,2767,ucmc
+Other,WVSU,1531,ucmc
+Other,CTCU,1237,ucmc
+Other,CCH6S,564,ucmc
+Other,FBCED,242,ucmc
+Other,COMER SURGE SPACE,72,ucmc
+Other,TN3N,48,ucmc
+Other,HP HOSPITAL AT HOME,9,ucmc
+Other,PULM PROC CCD,5,ucmc
+Other,IADM,2,ucmc
+Other,ING EAST 5 IMH,1,ucmc
+Ward,T3NO,14970,ucmc
+Ward,N10W,10310,ucmc
+Ward,N08W,9970,ucmc
+Ward,N04N,8867,ucmc
+Ward,N03N,8446,ucmc
+Ward,N08E,8396,ucmc
+Ward,N04W,8113,ucmc
+Ward,N09W,7933,ucmc
+Ward,N09E,7882,ucmc
+Ward,N03W,7385,ucmc
+Ward,N10E,7378,ucmc
+Ward,N03S,6678,ucmc
+Ward,N04S,5671,ucmc
+Ward,T3SW,5455,ucmc
+Ward,T5SW,5338,ucmc
+Ward,T5SE,5336,ucmc
+Ward,T4NE,5217,ucmc
+Ward,T4NW,5060,ucmc
+Ward,T3SE,4901,ucmc
+Ward,T5NW,4532,ucmc
+Ward,T5NE,3455,ucmc
+Ward,T4SE,2988,ucmc
+Ward,T4SW,2801,ucmc

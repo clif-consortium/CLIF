@@ -1,0 +1,66 @@
+med_category,med_name,n,site
+Inhaled,albuterol,18502,ucmc
+Inhaled,terbutaline,1106,ucmc
+Inhaled,ipratropium,58,ucmc
+anticoagulation,heparin,399204,ucmc
+anticoagulation,cangrelor,13090,ucmc
+anticoagulation,argatroban,10586,ucmc
+anticoagulation,eptifibatide,336,ucmc
+cardiac,amiodarone,94967,ucmc
+cardiac,clevidipine,81764,ucmc
+cardiac,lidocaine,47717,ucmc
+cardiac,nicardipine,33886,ucmc
+cardiac,esmolol,16560,ucmc
+cardiac,procainamide,6402,ucmc
+cardiac,nitroprusside,3762,ucmc
+cardiac,diltiazem,2563,ucmc
+cardiac,papaverine,1071,ucmc
+cardiac,labetalol,830,ucmc
+diuretics,bumetanide,33154,ucmc
+diuretics,furosemide,31115,ucmc
+endocrine,insulin,181701,ucmc
+endocrine,oxytocin,55160,ucmc
+endocrine,cosyntropin,31,ucmc
+fluids_electrolytes,bicarbonate,22581,ucmc
+fluids_electrolytes,tpn,73,ucmc
+gastrointestinal,octreotide,17312,ucmc
+gastrointestinal,pantoprazole,5312,ucmc
+gastrointestinal,esomeprazole,1,ucmc
+others,morphine,28217,ucmc
+others,sodium bicarbonate,22581,ucmc
+others,magnesium,16688,ucmc
+others,sodium chloride,16071,ucmc
+others,naloxone,2863,ucmc
+others,aminophylline,2768,ucmc
+others,aminocaproic,1762,ucmc
+others,bupivacaine,1329,ucmc
+others,terbutaline,1106,ucmc
+others,phentolamine,304,ucmc
+others,ropivacaine,185,ucmc
+others,zidovudine,83,ucmc
+others,liothyronine,79,ucmc
+others,baclofen,22,ucmc
+paralytics,cisatracurium,75724,ucmc
+paralytics,rocuronium,1551,ucmc
+paralytics,vecuronium,414,ucmc
+pulmonary vasaldilators (IV),epoprostenol,4961,ucmc
+pulmonary vasaldilators (IV),alprostadil,302,ucmc
+pulmonary vasaldilators (IV),treprostinil,144,ucmc
+sedation,propofol,850384,ucmc
+sedation,fentanyl,650130,ucmc
+sedation,midazolam,304882,ucmc
+sedation,hydromorphone,43103,ucmc
+sedation,ketamine,36026,ucmc
+sedation,morphine,28217,ucmc
+sedation,remifentanil,11419,ucmc
+sedation,pentobarbital,5539,ucmc
+sedation,lorazepam,555,ucmc
+vasoactives,norepinephrine,695193,ucmc
+vasoactives,phenylephrine,203185,ucmc
+vasoactives,vasopressin,179134,ucmc
+vasoactives,dopamine,157222,ucmc
+vasoactives,dobutamine,121856,ucmc
+vasoactives,milrinone,94896,ucmc
+vasoactives,epinephrine,84612,ucmc
+vasoactives,angiotensin,14901,ucmc
+vasoactives,isoproterenol,2701,ucmc

@@ -1,0 +1,42 @@
+﻿flo_group_name,flo_meas_name,clif_mapping,units
+O2 Delivery,RT RS OXYGEN DEVICE,device_name,
+O2 Delivery,ED RT RS OXYGEN DEVICE,device_name,
+Non-Invasive Vent (CPAP/BiPAP),RT RS NON-INVASIVE VENT,device_name,
+Oxygen Device,ED RS OXYGEN DEVICE,device_name,
+FiO2 (%) (HFO),RT RS HFO FIO2,fio2_set,%
+FiO2 % (NI),RT RS NI FIO2,fio2_set,%
+FiO2 (%),RT RS FIO2,fio2_set,%
+FiO2 (%) (Vent),RT RS VENT FIO2,fio2_set,%
+Peak Flow,RT RS RESP RATE INSP FLOW,flow_rate_set,L/min
+Peak Flow  (L/min),RT RS PEAK FLOW,flow_rate_set,L/min
+Peak Flow (L/min),RT RP PEAK FLOW PEDS,flow_rate_set,L/min
+Insp Time (sec),RT RS RESP RATE INSP TIME SEC,inspiratory_time_set,sec
+Insp Time,RT RS NI RESP RATE INSP TIME,inspiratory_time_set,
+Oxygen Flow (L/min),RT RS OXYGEN FLOW,lpm_set,L/min
+VE - (Expired Minute Volume),RT RS VENT VOLUMES VE (EXPIRED MINUTE VOLUME),minute_vent_obs,L/min
+Mode,RT RS CONVENTIONAL VENT MODES,mode name,
+Mode,RT RS NON-INVASIVE VENT MODE,mode name,
+Mode,RT RS UNIV VENTILATOR MODE,mode name,
+Peak Pressure,RT RS VENT PRESSURE PIP OBSERVED,peak_inspiratory_pressure_obs,cm H2O
+IPAP - Observed,RT RS VENT PRESSURES IPAP OBSERVED,peak_inspiratory_pressure_obs,cm H2O
+IPAP - Set,RT RS VENT PRESSURES IPAP SET,peak_inspiratory_pressure_set,cm H2O
+PIP - Set,RT RS VENT PRESSURE PIP SET,peak_inspiratory_pressure_set,cm H2O
+PEEP - Observed,RT RS VENT PRESSURES AUTO PEEP,peep_obs,
+PEEP,RT RS VENT PRESSURES PEEP/CPAP,peep_set,
+CPAP,RT RS VW CPAP,peep_set,
+Plateau Pressure,RT RS VENT PRESSURES PLATEAU PRESSURES,plateau_pressure_obs,
+PC Set,RT RS VENT PRESSURES PC SET,pressure_control_set,cwp
+Inspiratory Pressure,RT RS INSPIRATORY PRESSURE,pressure_control_set,
+Pressure Support,RT RS VENT PRESSURE PRESSURE SUPPORT,pressure_support_set,cm H2O
+Pressure Support,RT RS NON-INVASIVE PRESSURE SUPPORT,pressure_support_set,cm H2O
+PS,RT RS VW PS,pressure_support_set,cm H2O
+Rate - Observed,RT RS RESP RATE OBSERVED,resp_rate_obs,bpm
+Rate - Observed,RT RS NI RESP RATE OBSERVED,resp_rate_obs,bpm
+Rate - Set,RT RS RESP RATE SET,resp_rate_set,bpm
+Rate - Set,RT RS NI RESP RATE SET,resp_rate_set,bpm
+PEEP/EPAP,RT RS UNIV VENTILATOR PEEP/EPAP,peep_set,cm H2O
+Expired VT,RT RS VENT VOLUMES VT MANDATORY,tidal_volume_obs,mL
+Spontaneous VT,RT RS SPONTANEOUS VT,tidal_volume_obs,mL
+Vte- Spontaneous,RT RS VENT VOLUMES VTE SPONT,tidal_volume_obs,mL
+Vt - Set (Tidal Volume),RT RS VENT VOLUMES VT SET,tidal_volume_set,mL
+Artificial Airway Type,RT RS ARTIFICIAL AIRWAY TYPE,tracheostomy,

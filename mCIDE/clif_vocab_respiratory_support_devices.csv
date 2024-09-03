@@ -1,0 +1,52 @@
+﻿device_name,device_category
+Room Air,Room Air
+Nasal Cannula,Nasal Cannula
+Mechanical Ventilator,Vent
+BiPAP/CPAP,NIPPV
+Ventilator,Vent
+Oxymask,Face Mask
+High Flow Nasal Cannula (HFNC),High Flow NC
+Trach mask,Trach Collar
+Nasal cannula with humidification,Nasal Cannula
+Trach dome,Trach Collar
+Simple face mask,Face Mask
+Oxi Plus,Face Mask
+Oxymizer cannula,Face Mask
+NA,NA
+Oxymizer,Face Mask
+Bi-Pap,NIPPV
+High-flow NC,High Flow NC
+CPAP,CPAP
+Simple mask,Face Mask
+Face tent,Face Mask
+Non-rebreather mask,Face Mask
+Other (Comments),Other
+Aerosol mask,Face Mask
+T-piece,Vent
+Cool Aerosol,Other
+Partial rebreather mask,Face Mask
+ETT,Vent
+Venturi mask,Face Mask
+Other (Comment),Other
+Oscillator Vent Settings,Vent
+Transtracheal catheter,Trach Collar
+Ambu,NIPPV
+Blow-by,Other
+Oxygen hood,Other
+Neopuff,Other
+Partial Rebreather,Face Mask
+Subambient O2,Room Air
+Ram Cannula,Nasal Cannula
+Headbox/Hood,Other
+Gin,Other
+Si-Pap,NIPPV
+LMA,Other
+EPAP,NIPPV
+IPAP,NIPPV
+none,Room Air
+me,Other
+nas,Other
+None (Room air),Room Air
+Oxygen,NA
+Oxygen humidified,NA
+Room air humidified,Room Air

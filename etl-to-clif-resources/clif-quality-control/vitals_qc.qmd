@@ -1,0 +1,95 @@
+---
+title: "Vitals table ETL QC report"
+format: html
+editor: visual
+---
+
+# Introduction
+
+Running this notebook on your RCLIF database performs a series of QC checks that focus on the internal consistency of the vitals table.
+
+## Required Libraries
+
+Note: check that `here()` successfully identifies your CLIF folder
+
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+## Load in RCLIF tables
+
+Add your CLIF tables to the `rclif` subfolder.
+
+```{r}
+tables_location <- 'rclif'
+site <-'UCMC'
+table_path <- here(tables_location)
+file_type <- "parquet"
+```
+
+```{r}
+# List all CLIF files
+clif_table_filenames <- list.files(path = table_path, 
+                                   pattern = paste0("^clif_.*\\.",file_type, "$"), full.names = TRUE)
+
+# Read all CLIF files into a list of data frames and then extract
+if (file_type == "parquet") {
+  data_list <- lapply(clif_table_filenames, read_parquet)
+} else if (file_type == "csv"){
+  data_list <- lapply(clif_table_filenames, read_csv)
+} else if (file_type == "fst"){
+  data_list <- lapply(clif_table_filenames, read.fst)
+} else {
+  stop("Unsupported file format")
+}
+
+for (i in seq_along(clif_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(clif_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+}
+```
+
+# Sample random hospitalizations and sort
+
+```{r}
+n_sample <- 1000
+sample_hospitalizations <- clif_encounter_demographics_dispo %>%
+  pull(encounter_id) %>%
+  sample(size = n_sample)
+
+```
+
+`clif_vitals`is typically an enormous dataset, so we randomly sample a `r n_sample` hospitalizations to make this QC check faster
+
+```{r}
+clif_vitals_sample <- clif_vitals %>% 
+  filter(encounter_id %in% sample_hospitalizations) %>%
+  arrange(encounter_id, recorded_dttm)
+
+```
+
+## Load in and run general outlier handling script
+
+## Box plots of each vital by measurement site
+
+```{r}
+clif_vitals_sample %>%
+  ggplot(aes(x = meas_site_name, y =vital_value)) +
+  geom_boxplot() + facet_wrap(~vital_category, scales = "free")
+```
+
+## Temperature QC
+
+```{r}
+clif_vitals %>%
+  filter(vital_category == "temp_c") %>%
+  pull(vital_value) %>%
+  summary()
+```

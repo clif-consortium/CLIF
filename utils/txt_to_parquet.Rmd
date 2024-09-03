@@ -1,0 +1,76 @@
+---
+title: "txt_to_parquet"
+output: html_document
+date: "2024-04-01"
+---
+
+
+## Convert raw txt files to parquet
+
+This script converts raw .txt files to parquet format. 
+Create an R Project with the following directory structure. 
+
+- `RCLIF` 
+-- `data`
+-- `output`
+-- `code`
+-- `figures`
+-- `utils`
+
+Save this file under the `code` directory. Save the raw data files in the `data` directory.
+
+```{r}
+library(purrr)
+library(data.table)
+library(bigreadr)
+library(arrow)
+library(here)
+library(tools)
+```
+
+## USER INPUT
+```{r}
+# Provide an input file name. This could be for one file- for instance C19_labs or for multiple files that are saved with similar patterns, for instance, all raw data files begin with the string C19. 
+input_filename <- "C19"
+```
+
+## Functions
+
+```{r}
+convert_txt_parquet <- function(string) {
+  # Get the list of file paths
+  file_paths <- list.files(
+    path = here("data"),
+    recursive = TRUE,
+    pattern = string,
+    full.names = TRUE
+  )
+  
+  # Process each file individually
+  purrr::map(file_paths, function(file_path) {
+    # Read the file into a data frame
+    data <- big_fread1(file_path, sep = "|", 
+                       quote = "",
+                       every_nlines=10000000,
+                       fill=TRUE)
+    
+    # Construct the output file name
+    base_name <- tools::file_path_sans_ext(basename(file_path))
+    output_file_path <- here("data/parquet", paste0(base_name, ".parquet"))
+    
+    # Save the data frame as a .parquet file
+    arrow::write_parquet(data, output_file_path)
+    
+    # Print a message indicating the file has been written
+    print(paste("Finished writing", output_file_path))
+  })
+}
+```
+
+
+```{r}
+## Takes approximately 8-10 mins to convert 12 C19 files. ~50 GB of data 
+convert_txt_parquet(string = input_filename)
+```
+
+

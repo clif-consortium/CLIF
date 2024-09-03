@@ -1,0 +1,408 @@
+---
+title: "Respiratory support table ETL QC report"
+format: html
+editor: visual
+---
+
+# Introduction
+
+Running this notebook on your RCLIF database performs a series of QC checks that (eventually) focus on the internal consistency of the respiratory support table. It is designed to help you quality check a fully set up `clif_respiratory_support` table.
+
+## Required Libraries
+
+Note: check that `here()` successfully identifies your CLIF folder
+
+```{r}
+library(knitr)
+library(here)
+library(tidyverse)
+library(arrow)
+```
+
+## Load in RCLIF tables
+
+Add your CLIF tables to the `rclif` subfolder.
+
+To do:
+
+-   render the report as \`respiratory_qc\_\<site\>.html\`
+
+```{r}
+tables_location <- 'rclif'
+site <-'UCMC'
+table_path <- here(tables_location)
+file_type <- "parquet"
+```
+
+```{r}
+# List all CLIF files
+clif_table_filenames <- list.files(path = table_path, 
+                                   pattern = paste0("^clif_.*\\.",file_type, "$"), full.names = TRUE)
+
+# Read all CLIF files into a list of data frames and then extract
+if (file_type == "parquet") {
+  data_list <- lapply(clif_table_filenames, read_parquet)
+} else if (file_type == "csv"){
+  data_list <- lapply(clif_table_filenames, read_csv)
+} else if (file_type == "fst"){
+  data_list <- lapply(clif_table_filenames, read.fst)
+} else {
+  stop("Unsupported file format")
+}
+
+for (i in seq_along(clif_table_filenames)) {
+  # Extract the base name of the file (without extension)
+  object_name <- str_remove(basename(clif_table_filenames[i]), "\\.parquet$")
+  # Make the object name valid for R (replace invalid characters with underscores)
+  object_name <- make.names(object_name)
+  # Assign the tibble to a variable with the name of the file
+  assign(object_name, data_list[[i]])
+}
+```
+
+# Sort each table by encounter and time
+
+```{r}
+clif_respiratory_support <- clif_respiratory_support %>% 
+  arrange(encounter_id, recorded_dttm)
+
+# clif_vitals <- clif_vitals %>% arrange(encounter_id, recorded_dttm)
+# 
+# clif_scores <- clif_scores %>%
+#   arrange(encounter_id, score_time)
+# 
+# clif_medication_admin_continuous <- clif_medication_admin_continuous %>%
+#   arrange(encounter_id, admin_dttm)
+# 
+# clif_labs <- clif_labs %>%
+#   arrange(encounter_id, lab_collect_dttm)
+# 
+# clif_adt <- clif_adt %>% arrange(encounter_id, in_dttm)
+# 
+# clif_dialysis <- clif_dialysis %>% arrange(encounter_id, start_dttm)
+```
+
+# General quality checks
+
+### `device_name` to `device_category` mapping
+
+```{r}
+clif_respiratory_support %>%
+  group_by(device_category) %>%
+  count(device_name) %>%
+  filter(n > 100) %>%
+  arrange(device_category, -n) %>%
+  select(device_name, device_category, n) %>%
+  kable()
+```
+
+# `Nasal Cannula` quality checks
+
+```{r}
+# Function to calculate summary statistics
+calc_summary_stats <- function(df, var) {
+  data <- df[[var]]
+  median_val <- median(data, na.rm = TRUE)
+  p25_val <- quantile(data, 0.25, na.rm = TRUE)
+  p75_val <- quantile(data, 0.75, na.rm = TRUE)
+  min_val <- min(data, na.rm = TRUE)
+  max_val <- max(data, na.rm = TRUE)
+  missing_pct <- mean(is.na(data)) * 100
+  return(c(percent_missing = missing_pct,
+           median = median_val, p25 = p25_val, p75 = p75_val, 
+           min = min_val, max = max_val))
+}
+
+# List of variables to summarize
+variables <- c("fio2_set", "lpm_set", "tidal_volume_set", "resp_rate_set",
+               "pressure_control_set", "pressure_support_set", "flow_rate_set",
+               "peak_inspiratory_pressure_set", "inspiratory_time_set", "peep_set",
+               "tidal_volume_obs", "resp_rate_obs", "plateau_pressure_obs",
+               "peak_inspiratory_pressure_obs", "peep_obs", "minute_vent_obs")
+
+summary_table <- function(device, mode = NA){
+  # Initialize an empty list to store the results
+  summary_stats <- list()
+  
+  
+  # Loop through each variable and calculate the summary statistics
+  
+  if (is.na(mode)) {
+    filtered_df <- clif_respiratory_support %>% filter(device_category == device)
+  } else {
+    filtered_df <- clif_respiratory_support %>% 
+      filter(device_category == device & mode_category == mode)
+  }
+  for (var in variables) {
+    summary_stats[[var]] <- calc_summary_stats(filtered_df, var)
+  }
+  
+  # Convert the list to a data frame for better display
+  summary_stats_df <- do.call(rbind, summary_stats) %>%
+    as.data.frame() %>%
+    rownames_to_column(var = "Variable")
+  
+  # Format the table for a Quarto document
+  kable(summary_stats_df, caption = paste0("Summary Statistics when device_category = ", device),
+        col.names = c("Variable", "% Missing", "Median", "25th Percentile", "75th Percentile",
+                        "Min", "Max"),
+        digits = 2)
+}
+
+summary_table("Nasal Cannula")
+```
+
+Only `lpm_set` should be routinely documented when `device_category == "Nasal Cannula`.
+
+`resp_rate_obs` should also be mostly missing, as this should only be the respiratory rate recorded by the ventilator.
+
+# `High Flow NC` quality checks
+
+```{r}
+summary_table("High Flow NC")
+```
+
+Only `lpm_set` and `fio2_set` should be routinely documented when `device_category == "High Flow NC"`.
+
+`resp_rate_obs` should also be mostly missing, as this should only be the respiratory rate recorded by the ventilator.
+
+# `NIPPV` quality checks
+
+## `device_name` to `device_category` mapping
+
+```{r}
+clif_respiratory_support %>%
+  filter(device_category %in% c("NIPPV", "CPAP")) %>%
+  group_by(device_category) %>%
+  count(device_name) %>%
+  filter(n > 100) %>%
+  kable()
+```
+
+## `mode_name` to `mode_category` mapping for `CPAP` for `NIPPV`
+
+```{r}
+clif_respiratory_support %>%
+  filter(device_category %in% c("NIPPV", "CPAP")) %>%
+  group_by(device_category, mode_category) %>%
+  count(mode_name) %>%
+  arrange(device_category, -n) %>%
+  filter(n > 100) %>%
+  kable()
+```
+
+`mode_category` for CPAP and NIPPV should be `Pressure Support/CPAP` in general, with a few exceptions (e.g. `mode_name == "NIV-PC` should be mapped to `mode_categpry == "Pressure Control"`)
+
+## CPAP summary table
+
+```{r}
+summary_table("CPAP")
+```
+
+For `device_category == "CPAP"`, we expect to see `peep_set`, and `fio2_set` documented. `tidal_volume_obs`, `resp_rate_obs`, `peak_inspiratory_pressure_obs` may be present if the CPAP machine records it.
+
+### Encounter level missingness of `fio2_set`, `peep_set` for encounters receiving `CPAP`
+
+```{r}
+clif_respiratory_support %>%
+  filter(device_category == "CPAP") %>%
+  group_by(encounter_id) %>%
+  summarize(fio2_set_missing = mean(is.na(fio2_set)),
+            peep_set_missing = mean(is.na(peep_set))) %>%
+  ungroup() %>%
+  summarise(fio2_set_missing = mean(fio2_set_missing),
+            peep_set_missing = mean(peep_set_missing)) %>%
+  kable()
+
+```
+
+## NIPPV summary table
+
+```{r}
+summary_table("NIPPV")
+```
+
+### NIPPV spot check example
+
+```{r}
+clif_respiratory_support %>%
+  filter(device_name == "NIPPV") %>%
+  group_by(encounter_id) %>%
+  mutate(min_time = min(recorded_dttm),
+         time = difftime(recorded_dttm, min_time, units = "hours")) %>%
+  select(encounter_id, time, device_name, device_category, mode_name, mode_category, fio2_set, peep_set, 
+         pressure_support_set, peak_inspiratory_pressure_set)  %>%
+  head(n = 20) %>%
+  kable()
+```
+
+### Encounter level missingness of `fio2_set`, `peep_set`, and *either* (`pressure_support_set` or `peep_set`) for encounters receiving `NIPPV`
+
+```{r}
+clif_respiratory_support %>%
+  filter(device_category == "NIPPV") %>%
+  group_by(encounter_id) %>%
+  summarize(fio2_set_missing = mean(is.na(fio2_set)),
+            peep_set_missing = mean(is.na(peep_set)),
+            ps_or_peak_insp_set_missing = mean(is.na(pressure_support_set & peak_inspiratory_pressure_set))) %>%
+  ungroup() %>%
+  summarise(fio2_set_missing = mean(fio2_set_missing),
+            peep_set_missing = mean(peep_set_missing),
+            ps_or_peak_insp_set_missing = mean(ps_or_peak_insp_set_missing)) %>%
+  kable()
+```
+
+For `device_category == "NIPPV"`, we expect to see `peep_set`, `fio2_set`, and *either* `pressure_support_set` or `peak_inspiratory_pressure_set` documented.
+
+`resp_rate_set` may be documented, if there is a set respiratory rate.
+
+`tidal_volume_obs`, `resp_rate_obs`, `peak_inspiratory_pressure_obs` may be present if the NIPPV machine records it.
+
+# Ventilator data QC
+
+First we identify `encounter_id`s where the patient was on a Vent at some point
+
+```{r}
+encounters_w_vent <- clif_respiratory_support %>%
+  filter(device_category == "Vent") %>%
+  pull(encounter_id) %>%
+  unique()
+```
+
+Extract the entire respiratory support table for these patients
+
+```{r}
+vent_resp_tables <- clif_respiratory_support %>%
+  filter(encounter_id %in% encounters_w_vent) 
+
+
+vent_resp_tables <- vent_resp_tables %>%
+  group_by(encounter_id) %>%
+  mutate(min_time = min(recorded_dttm),
+         time = difftime(recorded_dttm, min_time, units = "hours")) %>% 
+  ungroup() %>%
+  select(-recorded_dttm, -min_time) %>%
+  select(patient_id, encounter_id, time, everything())
+```
+
+## `mode_name` to `mode_category` mapping for `device_name == "Vent"`
+
+```{r}
+vent_resp_tables %>%
+  group_by(mode_category) %>%
+  count(mode_name) %>%
+  arrange(mode_category, -n) %>%
+  kable()
+```
+
+Refer to CDE tables on the CLIF github for the most up-to-date mapping of `mode_name` to `mode_category` for `device_name == "Vent"`
+
+## Mode Specific QC checks
+
+### Assist Control-Volume Control
+
+```{r}
+summary_table("Vent", "Assist Control-Volume Control")
+```
+
+For `device_category == "Vent"` and `mode_category == "Assist Control-Volume Control"`, we expect to see `tidal_volume_set`, `resp_rate_set`, `fio2_set`, `peep_set` documented.
+
+We expect *either* `inspiratory_time_set` or `flow_rate_set` to be documented.
+
+### Pressure Support/CPAP
+
+```{r}
+summary_table("Vent", "Pressure Support/CPAP")
+```
+
+for `device_category == "Vent"` and `mode_category == "Pressure Support/CPAP"`, we expect to see `pressure_support_set`, `fio2_set`, `peep_set` documented.
+
+### Pressure Control
+
+```{r}
+summary_table("Vent", "Pressure Control")
+```
+
+for `device_category == "Vent"` and `mode_category == "Pressure Control"`, we expect to see `pressure_control_set`, `fio2_set`, `peep_set` documented.
+
+### SIMV
+
+```{r}
+summary_table("Vent", "SIMV")
+```
+
+for `device_category == "Vent"` and `mode_category == "SIMV"`, we expect to see `resp_rate_set`, `fio2_set`, `peep_set` documented.
+
+If it's `SIMV-VC`, we should see `tidal_volume_set`and `pressure_support_set` documented.
+
+If it's `SIMV-PC`, we should see `pressure_control_set` and `pressure_support_set` documented.
+
+If it's `SIMV-PRVC`, we should see `tidal_volume_set` and `pressure_support_set` documented.
+
+### Pressure Regulated Volume Control
+
+```{r}
+summary_table("Vent", "Pressure-Regulated Volume Control")
+```
+
+for `device_category == "Vent"` and `mode_category == "Pressure-Regulated Volume Control"`, we expect to see `tidal_volume_set`, `resp_rate_set`, `fio2_set`, `peep_set` documented.
+
+## Visualization of respiratory course
+
+These visualizations are meant to QC check several individual patients course
+
+```{r}
+vent_resp_tables %>%
+  filter(encounter_id == encounters_w_vent[1])
+```
+
+```{r}
+visualize_patient_course <- function(e_id){
+  dispo <- clif_encounter_demographics_dispo %>%
+  filter(encounter_id == e_id) %>%
+  pull(disposition_category)
+
+vent_resp_tables %>%
+  mutate(device_category = factor(device_category, levels = c("Vent", "NIPPV", "CPAP", "High Flow NC", "Nasal Cannula", "Room Air"))) %>% 
+  filter(encounter_id == e_id) %>%
+  fill(device_category, .direction = "down" ) %>% 
+  fill(mode_category, .direction = "down" ) %>% 
+  filter(is.na(device_category) == FALSE) %>% 
+  mutate(mode_category = ifelse(device_category %in% c("High Flow NC", 
+                                                    "Nasal Cannula",
+                                                   "Room Air"), NA, mode_category)) %>%
+  ggplot(aes(x = time, 
+             y = device_category,
+             color = mode_category,
+             fill = mode_category)) +
+  geom_tile(width = 1) +
+  ggthemes::theme_gdocs() + 
+  theme(legend.position = "bottom",
+        legend.direction = "horizontal", 
+        legend.box = "horizontal",
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 10)) + 
+  labs(color = "", fill = "", x = "hours since respiratory support first documented",
+       title = paste0("Patient disposition = ", dispo)) 
+}
+
+visualize_patient_course(encounters_w_vent[1])
+```
+
+```{r}
+visualize_patient_course(encounters_w_vent[100])
+```
+
+```{r}
+visualize_patient_course(encounters_w_vent[700])
+```
+
+
+
+
+
+
+
+
+
+
