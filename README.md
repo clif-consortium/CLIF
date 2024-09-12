@@ -74,7 +74,7 @@ One of CLIF's key contributions is an open-source web application that enables u
  * Susan Han, MD
  * Snigdha Jain, MD
 
-### Data Scientistis 
+### Data Scientists 
  * Kaveri Chhikara, MS
  * Rachel Baccile, MPP
  * Kyle Carey, MS
