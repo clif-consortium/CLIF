@@ -22,7 +22,7 @@ To develop a structured relational database, we initiated a comprehensive data c
 
 [Updated ERD and data dictionary](https://clif-consortium.github.io/website/data-dictionary.html) 
 
-There is a clinician assigned to each CLIF table who serves as the ffirst point of contact for any queries related to the schema or common data elements for that table.
+Each CLIF table has an assigned clinician who serves as the primary point of contact for any inquiries related to the schema or common data elements specific to that table.
 
 | Tables                      | Point of Contact                               | Email                                      | GitHub Username      |
 |-----------------------------|------------------------------------------------|--------------------------------------------|-----------------------|
