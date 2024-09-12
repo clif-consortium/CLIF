@@ -1,6 +1,6 @@
 # Common Longitudinal ICU Format (CLIF)
 
-Official Website to the CLIF Consortium - [CLIF Consortium](https://clif-consortium.github.io/website/)
+Official Website to the CLIF Consortium - [CLIF Consortium](https://kaveric.github.io/clif-consortium/about.html)
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -22,6 +22,34 @@ To develop a structured relational database, we initiated a comprehensive data c
 
 [Updated ERD and data dictionary](https://clif-consortium.github.io/website/data-dictionary.html) 
 
+There is a clinician assigned to each CLIF table who serves as the ffirst point of contact for any queries related to the schema or common data elements for that table.
+
+| Tables                      | Point of Contact                               | Email                                      | GitHub Username      |
+|-----------------------------|------------------------------------------------|--------------------------------------------|-----------------------|
+| patient                      | Pat Lyons, MD                                  | lyonspa@ohsu.edu                          | plyons                |
+| hospitalization              | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
+| admission_diagnosis          | J.C. Rojas, MD, MS                            | juan_rojas@rush.edu                        |                       |
+| provider                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
+| adt                          | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
+| vitals                       | Catherine Gao, MD                             | catherine.gao@northwestern.edu             | cloverbunny           |
+| scores                       | Snigdha Jain, MD                              | snigdha.jain@yale.edu                      | snigdhajainyale       |
+| dialysis                     | Jay Koyner, MD                                | jkoyner@uchicago.edu                       |                       |
+| intake_output                |                                               |                                            |                       |
+| procedures                   | J.C. Rojas, MD                                | juan_rojas@rush.edu                        |                       |
+| therapy_session              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker          |
+| therapy_details              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker          |
+| respiratory_support          | Nicholas Ingraham, MD                         | ingra107@umn.edu                          | ingra107              |
+| position                     | Chad Hochberg, MD                             | chochbe1@jh.edu                           | chochbe1              |
+| ecmo_mcs                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                          | ingra107              |
+| labs                         | Catherine Gao, MD                             | catherine.gao@northwestern.edu             | cloverbunny           |
+| microbiology_culture         | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
+| microbiology_nonculture      | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
+| sensitivity                  | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
+| medication_orders            | Anna Barker, MD, PhD                          | baanna@med.umich.edu                      | baanna23              |
+| medication_admin_intermittent| Anna Barker, MD, PhD                          | baanna@med.umich.edu                      | baanna23              |
+| medication_admin_continuous  | Chad Hochberg, MD                             | chochbe1@jh.edu                           | chochbe1              |
+
+
 ## Data Architecture 
 
 One of CLIF's key contributions is an open-source web application that enables users to convert a relational database into a longitudinal dataset with custom time intervals, select study-specific variables, and choose a preferred programming language. This facilitates straightforward data processing and enables effortless cross-center comparisons and integrations, bypassing the need for DUAs when analytic queries do not need pooled patient-level data. CLIF's deployment across four of the planned eight health systems has successfully compiled a robust ICU encounter-centric relational database, documenting 87,120 ICU admissions and capturing data from 71,190 unique patients.
@@ -29,6 +57,41 @@ One of CLIF's key contributions is an open-source web application that enables u
 | ![Diagram_CLIF_ATS_v3.jpg](/images/Diagram_CLIF_ATS_v3.jpg) | 
 |:--:| 
 ||
+
+
+## Current team members 
+
+### Clinicians 
+ * William Parker, MD, PhD 
+ * Bhakti Patel, MD 
+ * Kevin Buell, MBBS
+ * J.C. Rojas, MD
+ * Catherine Gao, MD
+ * Pat Lyons, MD
+ * Chad Hochberg, MD
+ * Nicholas Ingraham, MD 
+ * Siva Bhavani, MD
+ * Susan Han, MD
+ * Snigdha Jain, MD
+
+### Data Scientistis 
+ * Kaveri Chhikara, MS
+ * Rachel Baccile, MPP
+ * Kyle Carey, MS
+ * Vaishvik C., MS
+ * Saki Amagai, PhD
+ * Brenna Park-Egan, MS
+ * Muna Nour, MPH
+ * Anna Barker, MD, PhD
+
+### Collaborators 
+ * Jay Koyner, MD
+ * Kevin Smith, MD
+ * Haley Beck, MA
+ * Yuan Luo, PhD
+ * Chengsheng Mao, PhD
+ * Susan Han, MD
+
 
 
 
