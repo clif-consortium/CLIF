@@ -4,7 +4,7 @@ Official Website to the CLIF Consortium - [CLIF Consortium](https://kaveric.gith
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-![Maturity Level](https://img.shields.io/badge/maturity-Beta-yellow)
+[![Maturity Level](https://img.shields.io/badge/maturity-Beta-yellow)](https://clif-consortium.github.io/website/data-dictionary.html#overall-maturity-level-for-clif)
 
 
 ## Introduction
