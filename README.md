@@ -24,30 +24,30 @@ To develop a structured relational database, we initiated a comprehensive data c
 
 Each CLIF table has an assigned clinician who serves as the primary point of contact for any inquiries related to the schema or common data elements specific to that table.
 
-| Tables                      | Point of Contact                               | Email                                      | GitHub Username      |
-|-----------------------------|------------------------------------------------|--------------------------------------------|-----------------------|
-| patient                      | Pat Lyons, MD                                  | lyonspa@ohsu.edu                          | plyons                |
-| hospitalization              | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
-| admission_diagnosis          | J.C. Rojas, MD, MS                            | juan_rojas@rush.edu                        |                       |
-| provider                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
-| adt                          | Nicholas Ingraham, MD                         | ingra107@umn.edu                           | ingra107              |
-| vitals                       | Catherine Gao, MD                             | catherine.gao@northwestern.edu             | cloverbunny           |
-| scores                       | Snigdha Jain, MD                              | snigdha.jain@yale.edu                      | snigdhajainyale       |
-| dialysis                     | Jay Koyner, MD                                | jkoyner@uchicago.edu                       |                       |
-| intake_output                |                                               |                                            |                       |
-| procedures                   | J.C. Rojas, MD                                | juan_rojas@rush.edu                        |                       |
-| therapy_session              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker          |
-| therapy_details              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker          |
-| respiratory_support          | Nicholas Ingraham, MD                         | ingra107@umn.edu                          | ingra107              |
-| position                     | Chad Hochberg, MD                             | chochbe1@jh.edu                           | chochbe1              |
-| ecmo_mcs                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                          | ingra107              |
-| labs                         | Catherine Gao, MD                             | catherine.gao@northwestern.edu             | cloverbunny           |
-| microbiology_culture         | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
-| microbiology_nonculture      | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
-| sensitivity                  | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org          |                       |
-| medication_orders            | Anna Barker, MD, PhD                          | baanna@med.umich.edu                      | baanna23              |
-| medication_admin_intermittent| Anna Barker, MD, PhD                          | baanna@med.umich.edu                      | baanna23              |
-| medication_admin_continuous  | Chad Hochberg, MD                             | chochbe1@jh.edu                           | chochbe1              |
+| Tables                       | Point of Contact                              | Email                                         | GitHub Username       |
+|------------------------------|-----------------------------------------------|-----------------------------------------------|-----------------------|
+| patient                      | Pat Lyons, MD                                 | lyonspa@ohsu.edu                              | plyons                |
+| hospitalization              | Nicholas Ingraham, MD                         | ingra107@umn.edu                              | ingra107              |
+| admission_diagnosis          | J.C. Rojas, MD, MS                            | juan_rojas@rush.edu                           | sajor2000             |
+| provider                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                              | ingra107              |
+| adt                          | Nicholas Ingraham, MD                         | ingra107@umn.edu                              | ingra107              |
+| vitals                       | Catherine Gao, MD                             | catherine.gao@northwestern.edu                | cloverbunny           |
+| scores                       | Snigdha Jain, MD                              | snigdha.jain@yale.edu                         | snigdhajainyale       |
+| dialysis                     | Jay Koyner, MD                                | jkoyner@uchicago.edu                          |                       |
+| intake_output                |                                               |                                               |                       |
+| procedures                   | J.C. Rojas, MD                                | juan_rojas@rush.edu                           | sajor2000             |
+| therapy_session              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker             |
+| therapy_details              | William Parker, MD, PhD & Bhakti Patel, MD    | wparker@uchicago.edu; bpatel@bsd.uchicago.edu | 08wparker             | 
+| respiratory_support          | Nicholas Ingraham, MD                         | ingra107@umn.edu                              | ingra107              |
+| position                     | Chad Hochberg, MD                             | chochbe1@jh.edu                               | chochbe1              |
+| ecmo_mcs                     | Nicholas Ingraham, MD                         | ingra107@umn.edu                              | ingra107              |
+| labs                         | Catherine Gao, MD                             | catherine.gao@northwestern.edu                | cloverbunny           |
+| microbiology_culture         | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org              |                       |
+| microbiology_nonculture      | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org              |                       |
+| sensitivity                  | Kevin Buell, MBBS                             | kevin.buell@uchicagomedicine.org              |                       |
+| medication_orders            | Anna Barker, MD, PhD                          | baanna@med.umich.edu                          | baanna23              |
+| medication_admin_intermittent| Anna Barker, MD, PhD                          | baanna@med.umich.edu                          | baanna23              |
+| medication_admin_continuous  | Chad Hochberg, MD                             | chochbe1@jh.edu                               | chochbe1              |
 
 
 ## Data Architecture 
@@ -63,7 +63,6 @@ One of CLIF's key contributions is an open-source web application that enables u
 
 ### Clinicians 
  * William Parker, MD, PhD 
- * Bhakti Patel, MD 
  * Kevin Buell, MBBS
  * J.C. Rojas, MD
  * Catherine Gao, MD
@@ -72,6 +71,7 @@ One of CLIF's key contributions is an open-source web application that enables u
  * Nicholas Ingraham, MD 
  * Siva Bhavani, MD
  * Susan Han, MD
+ * Anna Barker, MD, PhD
  * Snigdha Jain, MD
 
 ### Data Scientists 
@@ -82,10 +82,10 @@ One of CLIF's key contributions is an open-source web application that enables u
  * Saki Amagai, PhD
  * Brenna Park-Egan, MS
  * Muna Nour, MPH
- * Anna Barker, MD, PhD
 
 ### Collaborators 
  * Jay Koyner, MD
+ * Bhakti Patel, MD 
  * Kevin Smith, MD
  * Haley Beck, MA
  * Yuan Luo, PhD
