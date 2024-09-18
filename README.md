@@ -70,7 +70,6 @@ One of CLIF's key contributions is an open-source web application that enables u
  * Chad Hochberg, MD
  * Nicholas Ingraham, MD 
  * Siva Bhavani, MD
- * Susan Han, MD
  * Anna Barker, MD, PhD
  * Snigdha Jain, MD
 
