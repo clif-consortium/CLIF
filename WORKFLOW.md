@@ -71,7 +71,7 @@ This document outlines the standardized workflow for Extract, Transform, Load (E
     - Required CLIF tables.
     - Cohort requirements.
     - Analysis plan and objectives.
-  - Use the standardized proposal template provided by the consortium.
+  - Use the [standardized proposal template](https://github.com/clif-consortium/CLIF/blob/main/docs/CLIF_project_proposal_template.docx) provided by the consortium.
 
 - **Participation Sign-Up**:
   - Allocate 5-7 days for consortium sites to review the proposal and sign up to participate.
