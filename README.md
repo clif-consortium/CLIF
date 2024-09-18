@@ -6,7 +6,7 @@ Official Website to the CLIF Consortium - [CLIF Consortium](https://kaveric.gith
 
 [![Maturity Level](https://img.shields.io/badge/maturity-Beta-yellow)](https://clif-consortium.github.io/website/data-dictionary.html#overall-maturity-level-for-clif)
 
-[CLIF Project Workflow Documentation]()
+[CLIF Project Workflow Documentation](https://github.com/clif-consortium/CLIF/blob/main/WORKFLOW.md)
 
 
 ## Introduction
