@@ -26,21 +26,20 @@ This document outlines the standardized workflow for Extract, Transform, Load (E
 
 ## ETL Workflow
 
-### Table Schema Approval
+### Point of Contact (POC) Responsibilities
 
-- **Point of Contact (POC) Responsibilities**:
-  - Before initiating the ETL process, the table schema must be reviewed and approved by the respective POC.
-  - The POC is responsible for addressing [all issues](https://github.com/clif-consortium/CLIF/issues) related to their assigned table and should collaborate with other consortium members as needed to resolve queries and close issues promptly.
-  - Once resolved, the issue should be updated and closed within the tracking system.
-  - The POC must document the task or progress in the [CLIF Consortium Internal Tracker](https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?gid=937947072#gid=937947072).
-  - Follow this procedure to update the [website repository](https://github.com/clif-consortium/website):
-    1. Sync your fork with the main repository.
-    2. Pull the latest changes from the main branch.
-    3. Make your changes.
-    4. Commit the changes with a clear message.
-    5. Push the changes to your fork.
-    6. Submit a **Pull Request** to the main repository (look for the "Contribute" button).
-  - Ensure that any changes requiring approval are reviewed and approved by the relevant collaborator before merging.
+- Before initiating the ETL process, the table schema must be reviewed and approved by the respective POC.
+- The POC is responsible for addressing [all issues](https://github.com/clif-consortium/CLIF/issues) related to their assigned table and should collaborate with other consortium members as needed to resolve queries and close issues promptly.
+- Once resolved, the issue should be updated and closed within the tracking system.
+- The POC must document the task or progress in the [CLIF Consortium Internal Tracker](https://docs.google.com/spreadsheets/d/1l8nvjHmmf4lxCviPp12rxafRo2zNApKGOGK126Tn2_s/edit?gid=937947072#gid=937947072).
+- Follow this procedure to update the [website repository](https://github.com/clif-consortium/website):
+  1. Sync your fork with the main repository.
+  2. Pull the latest changes from the main branch.
+  3. Make your changes.
+  4. Commit the changes with a clear message.
+  5. Push the changes to your fork.
+  6. Submit a **Pull Request** to the main repository (look for the "Contribute" button).
+- Ensure that any changes requiring approval are reviewed and approved by the relevant collaborator before merging.
 
 ### ETL Best Practices
 
