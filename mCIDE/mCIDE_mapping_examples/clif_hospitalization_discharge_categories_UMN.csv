@@ -1,0 +1,86 @@
+﻿discharge_name,discharge_category,site
+Acute Rehab Facility,Acute Inpatient Rehab Facility,UMN
+Rehab Facility - Inpatient,Acute Inpatient Rehab Facility,UMN
+Acute Rehab Facility with Planned Hospital IP Readmission,Acute Inpatient Rehab Facility,UMN
+Planned Acute Care IP Readmission - Rehab Facility - Inpatient,Acute Inpatient Rehab Facility,UMN
+Left Against Medical Advice,Against Medical Advice (AMA),UMN
+Left Without Being Seen,Against Medical Advice (AMA),UMN
+Short Term Hospital,Acute Care Hospital,UMN
+Intermediate Care Facility,Acute Care Hospital,UMN
+Another Health Care Institution Not Defined,Acute Care Hospital,UMN
+Acute Hospital - Non-HealthEast,Acute Care Hospital,UMN
+Swing Bed,Acute Care Hospital,UMN
+Another Health Care Institution with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Federal Hospital,Acute Care Hospital,UMN
+Acute Hospital - HealthEast,Acute Care Hospital,UMN
+Cancer Center or Children's Hospital,Acute Care Hospital,UMN
+Critical Access Hospital,Acute Care Hospital,UMN
+Intermediate Care Facility - State Designated,Acute Care Hospital,UMN
+Short Term Hospital with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Planned Acute Care IP Readmission - Acute Hospital,Acute Care Hospital,UMN
+Critical Access Hospital with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Intermediate Care Facility with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Federal Hospital with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Disch/Trans to Designated Disaster Alternative Site,Acute Care Hospital,UMN
+Swing Bed with Planned Hospital IP Readmission,Acute Care Hospital,UMN
+Cancer Center or Children's Hosp with Planned IP Hospital Readmission,Acute Care Hospital,UMN
+Planned Acute Care IP Readmission - Federal Hospital,Acute Care Hospital,UMN
+Disaster Alternate Care,Acute Care Hospital,UMN
+Assisted Living,Assisted Living,UMN
+Psychiatric Hospital,Psychiatric Hospital,UMN
+Psych Facility - HealthEast,Psychiatric Hospital,UMN
+Substance Abuse Treatment Program - Inpatient/Not Part of Acute Care Facility,Chemical Dependency,UMN
+CD Facility - HealthEast,Chemical Dependency,UMN
+Psych Facility - Other,Psychiatric Hospital,UMN
+Psychiatric Hospital with Planned Hospital IP Readmission,Psychiatric Hospital,UMN
+CD Facility - Other,Chemical Dependency,UMN
+Crisis Residence,Chemical Dependency,UMN
+Planned Acute Care IP Readmission - Psych Facility - Other,Psychiatric Hospital,UMN
+Mental Health Jud Commit Anoka,Psychiatric Hospital,UMN
+Expired,Expired,UMN
+Expired in Hospice,Expired,UMN
+Expired in Medical Facility,Expired,UMN
+Expired at Home,Expired,UMN
+Expired - Place Unknown,Expired,UMN
+Group Home,Group Home,UMN
+Jail/Police Custody,Jail,UMN
+Shelter,Shelter,UMN
+MN Correctional Facility,Group Home,UMN
+Halfway House,Group Home,UMN
+Court/Law Enforcement,Group Home,UMN
+Jail/Police Custody with Planned Hospital IP Readmission,Jail,UMN
+Home or Self Care,Home,UMN
+Home-Health Care Svc,Home,UMN
+Home Care - HealthEast,Home,UMN
+Home IV  Drug Therapy,Home,UMN
+Home Care - Other,Home,UMN
+CORE Clinic,Home,UMN
+Home with Planned Hospital IP Readmission,Home,UMN
+IRTS - Intensive Residential Treatment Program,Home,UMN
+IRTS,Home,UMN
+Home-Health Care Svc with Planned Hospital IP Readmission,Home,UMN
+Adoptive Parent / Foster Care,Home,UMN
+Planned Acute Care IP Readmission - Home or Self Care,Home,UMN
+Planned Acute Care IP Readmission - Home Care - Other,Home,UMN
+Hospice/Home,Hospice,UMN
+Hospice/Medical Facility,Hospice,UMN
+Hospice - Home Care,Hospice,UMN
+Hospice - Medical Facility,Hospice,UMN
+Long Term Acute Care,Long Term Care Hospital (LTACH),UMN
+LTACH - Bethesda,Long Term Care Hospital (LTACH),UMN
+LTACH - Non-HealthEast,Long Term Care Hospital (LTACH),UMN
+Long Term Acute Care with Planned Hospital IP Readmission,Long Term Care Hospital (LTACH),UMN
+Planned Acute Care IP Readmission - LTACH,Long Term Care Hospital (LTACH),UMN
+FV Cutover,Missing,UMN
+ED Dismiss - Never Arrived,Missing,UMN
+ED Dismiss - Diverted Elsewhere,Missing,UMN
+NA,Missing,UMN
+ED Dismiss - Code 9,Missing,UMN
+Level III Nursery,Missing,UMN
+Skilled Nursing Facility,Skilled Nursing Facility (SNF),UMN
+Medicaid Only Certified Nursing Facility,Skilled Nursing Facility (SNF),UMN
+Skilled Nursing Facility with Planned IP Hospital Readmission,Skilled Nursing Facility (SNF),UMN
+Nursing Facility with Planned Hospital IP Readmission,Skilled Nursing Facility (SNF),UMN
+Planned Acute Care IP Readmission - Skilled Nursing Facility,Skilled Nursing Facility (SNF),UMN
+Still a Patient,Still Admitted,UMN
+Admitted as an Inpatient,Still Admitted,UMN
