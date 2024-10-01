@@ -1,8 +1,7 @@
-﻿med_category,med_group
+med_category,med_group
 norepinephrine,vasoactives
 epinephrine,vasoactives
 phenylephrine,vasoactives
-angiotensin,vasoactives
 vasopressin,vasoactives
 dopamine,vasoactives
 dobutamine,vasoactives
@@ -30,11 +29,12 @@ amiodarone,cardiac
 lidocaine,cardiac
 nicardipine,cardiac
 clevidipine,cardiac
-nitroglycerine,cardiac
+nitroglycerin,cardiac
 nitroprusside,cardiac
 esmolol,cardiac
 diltiazem,cardiac
 labetalol,cardiac
+angiotensin,cardiac
 procainamide,cardiac
 papaverine,cardiac
 adenosine,cardiac
@@ -65,7 +65,7 @@ dextrose,others
 sodium chloride,others
 aminocaproic,others
 aminophylline,others
-terbutaline,others
+levothyroxine,others
 naloxone,others
 phentolamine,others
 liothyronine,others
@@ -74,3 +74,4 @@ tacrolimus,others
 ropivacaine,others
 bupivacaine,others
 baclofen,others
+other,others
