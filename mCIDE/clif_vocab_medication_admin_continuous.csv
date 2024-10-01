@@ -1,0 +1,77 @@
+med_category,med_group
+norepinephrine,vasoactives
+epinephrine,vasoactives
+phenylephrine,vasoactives
+vasopressin,vasoactives
+dopamine,vasoactives
+dobutamine,vasoactives
+milrinone,vasoactives
+isoproterenol,vasoactives
+propofol,sedation
+dexmedetomidine,sedation
+ketamine,sedation
+midazolam,sedation
+fentanyl,sedation
+hydromorphone,sedation
+morphine,sedation
+remifentanil,sedation
+pentobarbital,sedation
+lorazepam,sedation
+furosemide,diuretics
+bumetanide,diuretics
+torsemide,diuretics
+heparin,anticoagulation
+argatroban,anticoagulation
+bivalirudin alteplase,anticoagulation
+cangrelor,anticoagulation
+eptifibatide,anticoagulation
+amiodarone,cardiac
+lidocaine,cardiac
+nicardipine,cardiac
+clevidipine,cardiac
+nitroglycerin,cardiac
+nitroprusside,cardiac
+esmolol,cardiac
+diltiazem,cardiac
+labetalol,cardiac
+angiotensin,cardiac
+procainamide,cardiac
+papaverine,cardiac
+adenosine,cardiac
+cisatracurium,paralytics
+vecuronium,paralytics
+rocuronium,paralytics
+treprostinil,pulmonary vasaldilators (IV)
+epoprostenol,pulmonary vasaldilators (IV)
+alprostadil,pulmonary vasaldilators (IV)
+octreotide,gastrointestinal
+pantoprazole,gastrointestinal
+esomeprazole,gastrointestinal
+albuterol,Inhaled
+terbutaline,Inhaled
+ipratropium,Inhaled
+narcan,analgesia
+insulin,endocrine
+thyroid replacement,endocrine
+oxytocin,endocrine
+cosyntropin,endocrine
+repletion,fluids_electrolytes
+sodium bicarbonate,fluids_electrolytes
+tpn,fluids_electrolytes
+tocolyttics,others
+magnesium,others
+pitossin,others
+dextrose,others
+sodium chloride,others
+aminocaproic,others
+aminophylline,others
+levothyroxine,others
+naloxone,others
+phentolamine,others
+liothyronine,others
+zidovudine,others
+tacrolimus,others
+ropivacaine,others
+bupivacaine,others
+baclofen,others
+other,others
