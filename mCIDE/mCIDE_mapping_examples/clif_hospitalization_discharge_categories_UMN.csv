@@ -45,9 +45,9 @@ Expired - Place Unknown,Expired,UMN
 Group Home,Group Home,UMN
 Jail/Police Custody,Jail,UMN
 Shelter,Shelter,UMN
-MN Correctional Facility,Group Home,UMN
+MN Correctional Facility,Jail,UMN
 Halfway House,Group Home,UMN
-Court/Law Enforcement,Group Home,UMN
+Court/Law Enforcement,Jail,UMN
 Jail/Police Custody with Planned Hospital IP Readmission,Jail,UMN
 Home or Self Care,Home,UMN
 Home-Health Care Svc,Home,UMN
