@@ -25,7 +25,7 @@ glucose_fingerstick,mg/dL
 glucose_serum,mg/dL
 hemoglobin,g/dL
 phosphate,mg/dL
-inr,
+inr,(no units)
 lactate,mmol/L
 ldh,U/L
 lymphocytes_percent,%
@@ -38,8 +38,8 @@ neutrophils_absolute,10^3/µL
 pco2_arterial,mmHg
 po2_arterial,mmHg
 pco2_venous,mmHg
-ph_arterial,
-ph_venous,
+ph_arterial,(no units)
+ph_venous,(no units)
 platelet_count,10^3/µL
 potassium,mmol/L
 procalcitonin,ng/mL
