@@ -1,0 +1,18 @@
+﻿variable_name,lower_limit,upper_limit
+lpm_set,0,60
+fio2_set,0.21,1
+tidal_volume_set,100,3000
+resp_rate_set,0,200
+pressure_control_set,-50,50
+pressure_support_set,-50,50
+flow_rate_set,-50,100
+peak_inspiratory_pressure_set,-50,100
+inspiratory_time_set,-1,50
+peep_set,0,30
+tidal_volume_obs,100,3000
+resp_rate_obs,0,200
+plateau_pressure_obs,0,100
+peak_inspiratory_pressure_obs,-50,100
+peep_obs,0,50
+minute_vent_obs,0,40
+mean_airway_pressure_obs, 0,50
