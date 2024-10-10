@@ -1,19 +1,17 @@
-﻿lab_category,reference_unit
+﻿lab_category,reference_unit,comment
 albumin,g/dL
 alkaline_phosphate,U/L
 alt,U/L
 ast,U/L
 basophils_percent,%
 basophils_absolute,10^3/µL
-bicarbonate_arterial,mmol/L
-bicarbonate_venous,mmol/L
+bicarbonate,mmol/L,bicarbonate from BMP (sometimes reported out as CO2)
 bilirubin_total,mg/dL
 bilirubin_conjugated,mg/dL
 bilirubin_unconjugated,mg/dL
 bun,mg/dL
 calcium_total,mg/dL
 calcium_ionized,mg/dL
-carbon_dioxide,mmol/L
 chloride,mmol/L
 creatinine,mg/dL
 crp,mg/L
