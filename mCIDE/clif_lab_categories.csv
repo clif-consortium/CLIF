@@ -5,7 +5,7 @@ alt,U/L,
 ast,U/L,
 basophils_percent,%,fixed a typo
 basophils_absolute,10^3/µL,fixed a typo
-bicarbonate,mmol/L,bicarbonate from BMP (sometimes reported out as CO2), not from ABG/VBG
+bicarbonate,mmol/L,bicarbonate from BMP (sometimes reported out as CO2) not from ABG/VBG
 bilirubin_total,mg/dL,
 bilirubin_conjugated,mg/dL,
 bilirubin_unconjugated,mg/dL,
