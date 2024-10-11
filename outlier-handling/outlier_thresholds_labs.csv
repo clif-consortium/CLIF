@@ -3,10 +3,9 @@ albumin,0,15
 alkaline_phosphatase,0,5000
 alt,0,20000
 ast,0,20000
-basophil_percent,0,100
-basophil_absolute,0,50
-bicarbonate_arterial, 0,50 
-bicarbonate_venous,0,50
+basophils_percent,0,100
+basophils_absolute,0,50
+bicarbonate, 0,50 
 bilirubin_total,0,80
 bilirubin_conjugated,0,50
 bilirubin_unconjugated,0,50
