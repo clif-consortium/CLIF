@@ -19,10 +19,10 @@ cam_total,Delirium,Overall CAM-ICU result (Positive/Negative)
 CIWA,Withdrawal,Score (Score range: 0-67)
 COWS,Withdrawal,Score (Score range: 0-48)
 cpot_total,Pain,"Subcomponents: Facial expression, body movements, muscle tension, vocalization (Numerical/Text)"
-cpot_facial,Pain
-cpot_body,Pain
-cpot_muscle,Pain
-cpot_vocalization,Pain
+cpot_facial,Pain,
+cpot_body,Pain,
+cpot_muscle,Pain,
+cpot_vocalization,Pain,
 DVPRS,Pain,Numeric score (Score range: 0-10)
 gcs_eye,Neurological,Eye-opening response (Score range: 1-4)
 gcs_motor,Neurological,Motor response (Score range: 1-6)
