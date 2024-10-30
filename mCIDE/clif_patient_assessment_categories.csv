@@ -47,7 +47,7 @@ NVPS,Pain,"Subcomponents: Facial expression, activity, guarding, physiology, res
 PAINAD,Pain,"Subcomponents: Breathing, vocalization, facial expression, body language, consolability (Numerical/Text)"
 RASS,Sedation/Agitation,Score (Score range: -5 to +4)
 SAS,Sedation/Agitation,Score (Score range: 1-7)
-sat_delivery,SAT Delivery,"Indicates whether the SAT was performed or not, based on flowsheet data charted by care team."
+sat_delivery_pass_fail,SAT Delivery,"Indicates whether the SAT was performed or not, based on flowsheet data charted by care team."
 sat_escalating_sedation,Spontaneous Awakening Trial (SAT),"Evaluates if the patient's sedation levels are increasing, which would be a contraindication for performing the SAT."
 sat_intracranial_pressure,Spontaneous Awakening Trial (SAT),"Observe for increased intracranial pressure, which is a critical contraindication for the SAT."
 sat_myocardial_ischemia,Spontaneous Awakening Trial (SAT),"Identifies whether the patient has signs of active myocardial ischemia, which would preclude performing the SAT."
@@ -55,7 +55,7 @@ sat_neuromuscular_blockers,Spontaneous Awakening Trial (SAT),Confirms whether ne
 sat_screen_pass_fail,SAT Screen Pass/Fail,Indicates whether the patient passed or failed the SAT safety screen.
 sat_sedative_infusion,Spontaneous Awakening Trial (SAT),"Checks whether the patient is receiving sedative infusions, such as for seizure control or alcohol withdrawal. Sedation for these conditions must be absent for the SAT to proceed."
 sbt_agitation,Spontaneous Breathing Trial (SBT),"Determines if the patient is excessively agitated, which would indicate they are not ready to tolerate breathing on their own."
-sbt_delivery,SBT Delivery,"Indicates whether the SBT was performed or not, based on the results of the SBT safety screen."
+sbt_delivery_pass_fail,SBT Delivery,"Indicates whether the SBT was performed or not, based on the results of the SBT safety screen."
 sbt_fail_reason,SBT Failure Reason,"A text string field to document the reason for SBT failure, if present (e.g., ""tachypnea,"" ""acute change in mental status,"" or ""hypoxemia"")."
 sbt_inadequate_oxygenation,Spontaneous Breathing Trial (SBT),Assesses for hypoxia or inadequate oxygen levels (SpO₂ < 88% or FiO₂ ≥ 50%). Sufficient oxygenation is required before the SBT can be conducted.
 sbt_intracranial_pressure,Spontaneous Breathing Trial (SBT),Monitors for elevated intracranial pressure. Increased pressure is a critical factor for SBT exclusion.
