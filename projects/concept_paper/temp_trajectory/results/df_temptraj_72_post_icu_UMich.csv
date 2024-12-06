@@ -1,7 +1,0 @@
-"Features","Odds ratio","Confidence Interval","P-value","outcome","upper","lower"
-"HSR",4.48,"3.62-5.54","<0.001","Mechanical ventilation",5.54,3.62
-"HFR",1.68,"1.37-2.05","<0.001","Mechanical ventilation",2.05,1.37
-"HT",0.85,"0.76-0.95","0.006","Mechanical ventilation",0.95,0.76
-"HSR",3.47,"2.72-4.42","<0.001","Mortality",4.42,2.72
-"HFR",2.15,"1.6-2.9","<0.001","Mortality",2.9,1.6
-"HT",2.5,"2.1-2.98","<0.001","Mortality",2.98,2.1
