@@ -35,7 +35,7 @@ neutrophils_percent,0,100
 neutrophils_absolute, 0,50
 pco2_arterial, 0,250
 pco2_venous,0,250
-pao2,0,700
+po2_arterial,0,700
 ph_arterial,6,10
 ph_venous,5,10
 platelet_count,0,2000
