@@ -1,5 +1,5 @@
 ﻿vital_category,lower_limit,upper_limit
-height_cm (adult),30,96
+height_cm (adult),76,255
 weight_kg (adult),30,1100
 sbp,0,300
 dbp,0,200
